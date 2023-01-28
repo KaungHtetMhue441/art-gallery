@@ -27,7 +27,7 @@ class ArtistsController extends Controller
 
     public function index()
     {
-        dd(public_path('assets/images/users'));
+        // dd(public_path('assets/images/users'));
         $this->data['data'] = $this->artistsRepository->getAll();
         return view($this->viewPath.'index',$this->data);
     }

@@ -23,8 +23,10 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::get('artworks','index')->name('index');
     });
 
-    Route::controller(ExhibitionController::class)->name('exhibition.')->group(function()
+    Route::controller(ExhibitionController::class)->prefix('exhibition')->name('exhibition.')->group(function()
     {
-        Route::get('exhibitions','index')->name('index');
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::get('/store','store')->name('store');
     });
 });

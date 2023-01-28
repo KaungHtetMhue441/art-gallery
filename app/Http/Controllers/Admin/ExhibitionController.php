@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\ArtGallery\Exhibitions\Requests\ExhibtionCreateRequest;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 
 class ExhibitionController extends Controller
@@ -23,5 +24,14 @@ class ExhibitionController extends Controller
     public function index(){
 
         return view($this->viewPath.'index',$this->exhibitionRepository->getAll());
+    }
+    public function create()
+    {
+        return view($this->viewPath.'create',$this->data);
+    }
+    public function store(Request $request)
+    {
+        $this->exhibitionRepository->store($request->all());
+        return redirect()->back();
     }
 }
