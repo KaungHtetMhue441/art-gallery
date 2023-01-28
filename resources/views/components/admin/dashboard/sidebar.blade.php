@@ -14,10 +14,12 @@
             'name'=>"ArtWorks",
             'uri'=>route('admin.artwork.index'),
             'icon'=>'fa palette'
-        ]
-
-        
-
+        ],
+        [
+          'name'=>"Exhibitions",
+          'uri'=>route('admin.exhibition.index'),
+          'icon'=>'fa-solid fa-bullhorn'  
+        ]    
     ]
 ])
 

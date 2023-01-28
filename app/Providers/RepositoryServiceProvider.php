@@ -2,13 +2,15 @@
 
 namespace App\Providers;
 
-use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use Illuminate\Support\ServiceProvider;
+use App\ArtGallery\Users\Repositories\UserRepository;
 use App\ArtGallery\Artists\Repositories\ArtistsRepository;
 use App\ArtGallery\ArtWorks\Repositories\ArtWorksRepository;
-use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
+use App\ArtGallery\Exhibitions\Repositories\ExhibitionRepository;
 use App\ArtGallery\Users\Repositories\Interfaces\UserRepositoryInterface;
-use App\ArtGallery\Users\Repositories\UserRepository;
-use Illuminate\Support\ServiceProvider;
+use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
+use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -34,6 +36,12 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ArtWorksRepositoryInterface::class,
             ArtWorksRepository::class
+        );
+
+        //For Exhibition
+        $this->app->bind(
+            ExhibitionsRepositoryInterface::class,
+            ExhibitionRepository::class
         );
     }
 
