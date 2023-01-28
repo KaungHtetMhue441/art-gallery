@@ -7,7 +7,7 @@
         ],
         [
             'name'=>"Artists",
-            'uri'=>route('admin.articles.index'),
+            'uri'=>route('admin.artists.index'),
             'icon' =>'fa fa-users'
         ],
         [

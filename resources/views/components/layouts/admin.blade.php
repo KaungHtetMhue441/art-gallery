@@ -65,7 +65,7 @@
     <script src="{{asset('dist/js/waves.js')}}"></script>
     <!--Menu sidebar -->
     <script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
-    <!--Custom JavaScript -->
+    <!--Custom JavaScript -->   
     <script src="{{asset('dist/js/custom.js')}}"></script>
 </body>
 

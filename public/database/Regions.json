@@ -1,0 +1,79 @@
+[
+    
+    {
+        "id": "1",
+        "name": "Kachin State",
+        "name_mm": "ကချင်ပြည်နယ်"     
+    },
+    {
+        "id": "2",
+        "name": "Sagaing  Region",
+        "name_mm": "စစ်ကိုင်းတိုင်းဒေသကြီး"
+    },
+    {
+        "id": "3",
+        "name": "Chin State",
+        "name_mm": "ချင်းပြည်နယ်" 
+    },
+    {
+        "id": "4",
+        "name": "Magway Region",
+        "name_mm": "မကွေးတို်ငးဒေသကြီး"
+    },
+    {
+        "id": "5",
+        "name": "Mandalay Region",
+        "name_mm": "မန္တလေးတိုင်းဒေသကြီး"
+    },
+    {
+        "id": "6",
+        "name": "Shan  State",
+        "name_mm": "ရှမ်းပြည်နယ်"  
+    },
+    {
+        "id": "7",
+        "name": "Rakhine State",
+        "name_mm": "ရခိုင်ပြည်နယ်"   
+    },
+    {
+        "id": "8",
+        "name": "Bago Region",
+        "name_mm": "ပဲခူးတိုင်းဒေသကြီး"
+    },
+    {
+        "id": "9",
+        "name": "Kayah State",
+        "name_mm": "ကယားပြည်နယ်"   
+    },
+    {
+        "id": "10",
+        "name": "Ayeyarwaddy Region",
+        "name_mm": "ဧရာဝတီတိုင်းဒေသကြီး"
+    },
+    {
+        "id": "11",
+        "name": "Yangon Region",
+        "name_mm": "ရန်ကုန်တိုင်းဒေသကြီး"
+    },
+    {
+        "id": "12",
+        "name": "Mon  State",
+        "name_mm": "မွန်ပြည်နယ်" 
+    },
+    {
+        "id": "13",
+        "name": "Kayin State",
+        "name_mm": "ကရင်ပြည်နယ်"   
+    },
+    {
+        "id": "14",
+        "name": "Tanintharyi Region",
+        "name_mm": "တနင်္သာရီတိုင်းဒေသကြီး"
+    },
+    {
+        "id": "15",
+        "name": "NayPyiTaw",
+        "name_mm": "နေပြည်တော်ပြည်ထောင်စုနယ်မြေ"
+    }
+        
+]

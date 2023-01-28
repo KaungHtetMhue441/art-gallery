@@ -10,10 +10,12 @@ Route::get('/', [TestController::class, 'index'])->name('admin.index');
 
 Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
 {
-    Route::controller(ArtistsController::class)->name('articles.')->group(function()
+    Route::controller(ArtistsController::class)->prefix('artists')->name('artists.')->group(function()
     {
-        Route::get('artists','index')->name('index');
-
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/upate/{artist}','upate')->name('update');
     });
 
     Route::controller(ArtWorkController::class)->name('artwork.')->group(function()
