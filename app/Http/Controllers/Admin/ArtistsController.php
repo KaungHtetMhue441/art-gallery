@@ -29,7 +29,7 @@ class ArtistsController extends Controller
 
     public function index()
     {
-        $this->data['data'] = $this->artistsRepository->getAll();
+        $this->data['artists'] = $this->artistsRepository->getAll();
         return view($this->viewPath.'index',$this->data);
     }
 

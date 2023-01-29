@@ -18,6 +18,6 @@ class ArtistSeeder extends Seeder
     public function run()
     {
         Artist::truncate();
-        Artist::factory()->count(50)->create();
+        Artist::factory()->count(5)->create();
     }
 }

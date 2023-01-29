@@ -20,10 +20,12 @@ class ArtistFactory extends Factory
 
     public function definition()
     {
-        $filesPath = public_path('assets/images/artists');
+        $filesPath = public_path('storage/images/artists');
+        $array = explode('/',$this->faker->image($filesPath));
+        $fileName = $array[count($array)-1];
         return [
             'name' => $this->faker->name,
-            'profile_image' => $this->faker->image($filesPath,),
+            'profile_image' => $fileName,
             'social_url' => $this->faker->url(),
             'artist_type_id' => ArtistType::inRandomOrder()->first(),
             'region_id' => Region::inRandomOrder()->first()
