@@ -17,6 +17,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>{{ $title }}</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Custom CSS -->
     <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">

@@ -23,7 +23,9 @@ class ExhibitionController extends Controller
     }
     public function index(){
 
-        return view($this->viewPath.'index',$this->exhibitionRepository->getAll());
+        return view($this->viewPath.'index',[
+            "exhibitions" => $this->exhibitionRepository->getAll()
+        ]);
     }
     public function create()
     {
@@ -33,8 +35,7 @@ class ExhibitionController extends Controller
     {
         try{
             $this->exhibitionRepository->store($request->all());
-            toast("create success",'success');
-            return redirect()->route('admin.exhibition.index');
+            return redirect()->route('admin.exhibition.index')->with('success', 'Exhibition Successfully Created');
         }catch(\Throwable $th){
             
         }

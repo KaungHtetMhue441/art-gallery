@@ -1,4 +1,14 @@
 <x-layouts.admin title="Exhibitions">
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
             Exhibitions
@@ -13,15 +23,22 @@
                         <th>Descripton</th>
                         <th>Exhibition Date</th>
                         <th>Exhibition Start Time</th>
-                        <th></th>
+                        <th>Action</th>
                     </tr>
+                    @foreach($exhibitions as $index=>$exhibition)
                     <tr>
-                        <td>1s</td>
-                        <td>Testing</td>
-                        <td>Testing</td>
-                        <td>28-1-2022</td>
-                        <td>9:00AM</td>
+                        <td>{{$index+1}}</td>
+                        <td>{{$exhibition->title_mm}}</td>
+                        <td>{{$exhibition->description_mm}}</td>
+                        <td>{{$exhibition->exhibition_date}}</td>
+                        <td>{{$exhibition->exhibition_start_time}}</td>
+                        <td>
+                        <a href="" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                        <a href=""  class="btn btn-danger text-white btn-sm"><i class="fa fa-trash"></i></a>
+                        </td>
                     </tr>
+                    @endforeach
+                    
                 </tbody>
             </table>
         </div>
