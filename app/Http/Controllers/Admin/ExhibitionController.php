@@ -31,7 +31,13 @@ class ExhibitionController extends Controller
     }
     public function store(Request $request)
     {
-        $this->exhibitionRepository->store($request->all());
-        return redirect()->back();
+        try{
+            $this->exhibitionRepository->store($request->all());
+            toast("create success",'success');
+            return redirect()->route('admin.exhibition.index');
+        }catch(\Throwable $th){
+            
+        }
+       
     }
 }

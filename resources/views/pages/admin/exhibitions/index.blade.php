@@ -1,8 +1,8 @@
-<x-layouts.admin title="Exhibitions"   >
+<x-layouts.admin title="Exhibitions">
     <div class="card">
         <div class="card-header">
             Exhibitions
-            <a href="{{route('admin.exhibition.create')}}"class="btn btn-primary" style="float:right"><i class="fa-solid fa-plus"></i> Create</a>
+            <a href="{{route('admin.exhibition.create')}}"class="btn btn-primary create" style="float:right"><i class="fa-solid fa-plus"></i> Create</a>
         </div>
         <div class="card-body">
             <table class="table table-striped table-responsive">
@@ -26,4 +26,7 @@
             </table>
         </div>
     </div>
+    <script>
+        
+    </script>
 </x-layouts.admin>
