@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use App\ArtGallery\Artists\Requests\ArtistCreateRequest;
 use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use App\ArtGallery\ArtistTypes\ArtistType;
+use App\ArtGallery\Regions\Region;
 
 class ArtistsController extends Controller
 {
@@ -27,17 +29,18 @@ class ArtistsController extends Controller
 
     public function index()
     {
-        dd(public_path('assets/images/users'));
         $this->data['data'] = $this->artistsRepository->getAll();
         return view($this->viewPath.'index',$this->data);
     }
 
     public function create()
     {
+        $this->data['regions'] = Region::all();
+        $this->data['artistTypes'] = ArtistType::all();
         return view($this->viewPath.'create',$this->data);
     }
 
-    public function store(ArtistCreateRequest $request)
+    public function store(ArtistCreateRequest $request) 
     {
         $this->artistsRepository->store($request->validated());
         return redirect()->route($this->route.'create');

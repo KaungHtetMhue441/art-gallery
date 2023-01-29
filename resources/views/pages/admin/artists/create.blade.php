@@ -1,46 +1,33 @@
+
 <x-layouts.admin title="Artists">
-    <form class="row g-3">
-        <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4">
-        </div>
-        <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-        </div>
-        <div class="col-md-6">
-          <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity">
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">State</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">Zip</label>
-          <input type="text" class="form-control" id="inputZip">
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
-        </div>
-    </form>
+    <x-utils.inputs.form action="{{route('admin.artists.create')}}" method="post" class="row g-3">
+        {{-- Artist' Name    --}}
+        <x-utils.inputs.input containerClass="col-md-6" name="name" label="Name"/>
+
+        {{-- Artist' Profile Image    --}}
+        <x-utils.inputs.file containerClass="col-md-6" name="profile_image" label="Profile Image"/>
+
+        {{-- Artist'Artist Type   --}}
+        <x-utils.inputs.select  name="artist_type_id" containerClass="col-md-6" label="Artist's type">
+          @forelse ($artistTypes as $artistType )
+            <option value="{{$artistType->id}}">{{$artistType->name}}</option>
+            @empty
+          @endforelse
+          </x-utils.inputs.select>
+
+        {{-- Regions   --}}
+        <x-utils.inputs.select  name="region_id" containerClass="col-md-6" label="Region's name">
+          @forelse ($regions as $region )
+            <option value="{{$region->id}}">{{$region->name}}</option>
+            @empty
+          @endforelse
+        </x-utils.inputs.select>
+
+        {{-- Social Url--}}
+        <x-utils.inputs.text-area name="social_url" containerClass="col-md-6" label="Social url"/>
+
+        {{-- Button   --}}
+        <x-utils.inputs.button/>
+
+    </x-utils.inputs.form>
 </x-layouts.admin>
