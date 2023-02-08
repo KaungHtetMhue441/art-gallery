@@ -7,17 +7,19 @@
         ],
         [
             'name'=>"Artists",
-            'uri'=>route('admin.articles.index'),
+            'uri'=>route('admin.artists.index'),
             'icon' =>'fa fa-users'
         ],
         [
             'name'=>"ArtWorks",
             'uri'=>route('admin.artwork.index'),
-            'icon'=>'fa palette'
-        ]
-
-        
-
+            'icon'=>'fa fa-palette'
+        ],
+        [
+          'name'=>"Exhibitions",
+          'uri'=>route('admin.exhibition.index'),
+          'icon'=>'fa-solid fa-bullhorn'  
+        ]    
     ]
 ])
 
@@ -26,12 +28,12 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 @foreach ($links as $link)
-                    <li class="sidebar-item"> 
+                    <li class="sidebar-item mb-3 @if(str_contains(request()->url(),strtolower($link['name']))) selected @endif"> 
                         <a class="sidebar-link waves-effect waves-dark sidebar-link w-full" href="{{ $link['uri'] }}" aria-expanded="false">
                             <i class="{{$link['icon']}}"></i>
                             <x-utils.space spaceX='px-1'></x-utils.space>
                             <span class="hide-menu">{{ $link['name'] }}</span>
-                            @if(request()->url() === $link['uri'])
+                            @if(str_contains(request()->url(),strtolower($link['name'])))
                                 <x-utils.space spaceX='px-2'></x-utils.space>
                                 <i class="fa-solid fa-check"></i>  
                             @endif

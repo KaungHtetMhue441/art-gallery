@@ -4,7 +4,7 @@ namespace App\ArtGallery\Users\Requests;
 
 use App\ArtGallery\Base\BaseFormRequest;
 
-class AddToCartRequest extends BaseFormRequest
+class UserRegisterRequest extends BaseFormRequest
 {
     /**
      * Get the validation rules that apply to the request.

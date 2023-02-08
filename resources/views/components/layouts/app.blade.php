@@ -14,7 +14,10 @@
     {{ $header }}
 </head>
 <body>
-    {{ $slot }}
+    
+    <div class="container">
+        {{ $slot }}
+    </div>
     
     <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->

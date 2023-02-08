@@ -18,6 +18,8 @@ return new class extends Migration
 
             $table->string('name')
                 ->comment('Region Name');
+            $table->string('name_mm')
+                ->comment('Region Name in Myanmar');
 
             $table->timestamps();
         });

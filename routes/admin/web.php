@@ -1,18 +1,29 @@
 <?php
 //implement admin route here
 
-use App\Http\Controllers\Admin\ArtWorkController;
-use App\Http\Controllers\Admin\TestController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [TestController::class, 'index'])->name('admin.index');
-
-Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
+//Admin Routes
+Route::namespace('App\Http\Controllers\Admin')->name('admin.')->middleware('auth')->group(function()
 {
-    Route::controller(ArtistsController::class)->name('articles.')->group(function()
-    {
-        Route::get('artists','index')->name('index');
+    //temporary
+    Route::get('/', function() {
+        return view('pages.admin.index');
+    })->name('index');
 
+    Route::controller(AuthController::class)->name('auth.')->group(function()
+    {
+        Route::get('/login', 'login')->name('login')->withoutMiddleware('auth')->middleware('guest');
+        Route::post('/login', 'store')->name('post')->withoutMiddleware('auth')->middleware('guest');
+        Route::post('/logout', 'logout')->name('logout');
+    });
+
+    Route::controller(ArtistsController::class)->prefix('artists')->name('artists.')->group(function()
+    {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/upate/{artist}','upate')->name('update');
     });
 
     Route::controller(ArtWorkController::class)->name('artwork.')->group(function()
@@ -20,4 +31,10 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::get('artworks','index')->name('index');
     });
 
+    Route::controller(ExhibitionController::class)->prefix('exhibition')->name('exhibition.')->group(function()
+    {
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+    });
 });

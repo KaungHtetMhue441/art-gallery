@@ -17,6 +17,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>{{ $title }}</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Custom CSS -->
     <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
@@ -47,16 +48,14 @@
         <div class="page-wrapper">
             {{-- breadcrumb --}}
             <x-admin.dashboard.page-breadcrumb :title="$title"></x-admin.page-breadcrumb>
-            
             {{-- body --}}
             <div class="container-fluid">
                 {{ $slot }}
             </div>
             {{-- end body --}}
-        </div>
+        </div>  
 
     </div>
-
     <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
@@ -65,8 +64,8 @@
     <script src="{{asset('dist/js/waves.js')}}"></script>
     <!--Menu sidebar -->
     <script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
-    <!--Custom JavaScript -->
+    <!--Custom JavaScript -->   
     <script src="{{asset('dist/js/custom.js')}}"></script>
-</body>
+</body> 
 
 </html>
