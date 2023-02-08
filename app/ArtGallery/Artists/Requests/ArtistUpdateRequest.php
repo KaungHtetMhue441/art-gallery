@@ -4,7 +4,7 @@ namespace App\ArtGallery\Artists\Requests;
 
 use App\ArtGallery\Base\BaseFormRequest;
 
-class ArtistCreateRequest extends BaseFormRequest
+class ArtistUpdateRequest extends BaseFormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -17,7 +17,7 @@ class ArtistCreateRequest extends BaseFormRequest
             'name'=>'required|string',
             'artist_type_id'=>'required|integer',
             'region_id'=>'required|integer',
-            'profile_image'=>'required|file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
+            'profile_image'=>'file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
             'social_url'=>'required|url',
         ];
     }

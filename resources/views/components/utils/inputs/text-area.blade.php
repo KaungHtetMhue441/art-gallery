@@ -1,6 +1,7 @@
 
 @props([
     "name"=>"",
+    "value"=>"",
     "label"=>"",
     "containerClass"=>"",
     "required"=>"", 
@@ -14,6 +15,7 @@
                     name="{{$name}}" 
                     id="{{$name}}" 
                     {{$required}}>
+                    {{$value}}
         </textarea>
     </div>
 </div>

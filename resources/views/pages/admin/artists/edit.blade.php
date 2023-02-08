@@ -1,23 +1,18 @@
 
 <x-layouts.admin title="Artists">
-      {{-- @foreach ($errors->all() as $error)
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>Hey!</strong> {{$error}}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div> 
-    @endforeach --}}
-    <x-utils.errors errors="{{join(',',$errors->all())}}"></x-utils.errors>
     <x-utils.inputs.form  
-      action="{{route('admin.artists.store')}}" 
-      method="post" 
+      action="{{route('admin.artists.update',$artist->id)}}" 
+      method="POST" 
       class="row g-3"
     >
+    @method('PUT')
       {{-- Artist' Name    --}}
       <x-utils.inputs.input 
         containerClass="col-md-6" 
         name="name" 
-        label="Name"
+        label="Name"    
         required="required"
+        value="{{$artist->name}}"
       />
 
       {{-- Artist' Profile Image    --}}
@@ -35,7 +30,7 @@
         requiered="required"
       >
         @forelse ($artistTypes as $artistType )
-          <option value="{{$artistType->id}}">
+          <option value="{{$artistType->id}}" @if($artistType->id == $artist->artist_type_id) selected @endif>
             {{$artistType->name}}
           </option>
           @empty
@@ -49,7 +44,7 @@
         label="Region's name"
       > 
         @forelse ($regions as $region )
-          <option value="{{$region->id}}">
+          <option value="{{$region->id}}" @if($region->id == $artist->region_id) selected @endif>
             {{$region->name}}
           </option>
           @empty
@@ -61,10 +56,15 @@
         name="social_url" 
         containerClass="col-md-6" 
         label="Social url"
+        value="{{join(',',$artist->social_url)}}"
       />
+      
+      @foreach ($errors->all() as $error )
+        {{$error}}
+      @endforeach
 
       {{-- Button   --}}
-      <x-utils.inputs.button/>
+      <x-utils.inputs.button name="update" icon="fa-wrench"/>
 
     </x-utils.inputs.form>
 </x-layouts.admin>

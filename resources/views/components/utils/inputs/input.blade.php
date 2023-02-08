@@ -2,7 +2,8 @@
     "name"=>"",
     "label"=>"",
     "required"=>"", 
-    "containerClass"
+    "containerClass",
+    'value'=>''
 ])
 @php
     if($required){
@@ -21,6 +22,7 @@
                 class="form-control form-control-lg rounded" 
                 id="{{$name}}"  
                 name="{{$name}}"
+                value="{{$value}}"
                 {{$required}}
         />
     </div>

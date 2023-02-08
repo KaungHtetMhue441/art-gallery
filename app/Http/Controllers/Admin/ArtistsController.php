@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Throwable;
+use Illuminate\Support\Str;
 use App\ArtGallery\Artists\Artist;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\File;
-use App\ArtGallery\Artists\Requests\ArtistCreateRequest;
-use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
-use App\ArtGallery\ArtistTypes\ArtistType;
 use App\ArtGallery\Regions\Region;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\ArtGallery\ArtistTypes\ArtistType;
+use function PHPUnit\Framework\throwException;
+use App\ArtGallery\Artists\Requests\ArtistCreateRequest;
+use App\ArtGallery\Artists\Exceptions\ArtistCreateFailException;
+use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use App\ArtGallery\Artists\Requests\ArtistUpdateRequest;
 
 class ArtistsController extends Controller
 {
     public $viewPath = 'pages.admin.artists.';
     public $route = 'admin.artists.';
-    public $data = ['route' => 'admin.artists.'];
+    public $datas = ['route' => 'admin.artists.'];
     /**
      * Create a new controller instance.
      * @param ArtistsRepositoryInterface $customerRepository
@@ -29,26 +33,91 @@ class ArtistsController extends Controller
 
     public function index()
     {
-        $this->data['artists'] = $this->artistsRepository->getAll();
-        return view($this->viewPath.'index',$this->data);
+        $this->datas['artists'] = $this->artistsRepository->getAll();
+        return view($this->viewPath.'index',$this->datas);
     }
 
     public function create()
     {
-        $this->data['regions'] = Region::all();
-        $this->data['artistTypes'] = ArtistType::all();
-        return view($this->viewPath.'create',$this->data);
+        $this->datas['regions'] = Region::all();
+        $this->datas['artistTypes'] = ArtistType::all();
+        return view($this->viewPath.'create',$this->datas);
     }
 
     public function store(ArtistCreateRequest $request) 
     {
-        $this->artistsRepository->store($request->validated());
+        try{
+            $validated = $request->validated();
+            $fileName = $this->getFileName($request->file('profile_image'));
+            $validated['profile_image'] = $fileName;
+            $this->artistsRepository->store($validated);
+            Storage::disk('public')->put('/artists/'.$fileName,$request->file('profile_image')->getContent());
+        }catch (Throwable  $e)
+        {
+            $message = "Fail something when creating new user!";
+            return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
+        }
+
         return redirect()->route($this->route.'create');
     }
 
-    public function update(ArtistCreateRequest $request,Artist $artist)
+    public function edit(Artist $artist){
+
+        $this->datas['artist'] = $artist;
+        $this->datas['regions'] = Region::all();
+        $this->datas['artistTypes'] = ArtistType::all(); 
+        return view($this->viewPath.'edit',$this->datas);
+    }
+
+    public function update(ArtistUpdateRequest $request,Artist $artist)
     {
-        $artist->update($request->validated());
-        return redirect()->route($this->route.'index');
+        try{
+            $validated = $request->validated();
+
+            if($request->hasFile('profile_image'))
+            {
+                $fileName = $this->getFileName($request->file('profile_image'));
+                $validated['profile_image'] = $fileName;
+                if(Storage::disk('public')->exists('/artists/'.$artist->profile_image)){
+                    Storage::disk('public')->delete('/artists/'.$artist->profile_image);
+                }
+                Storage::disk('public')->put('/artists/'.$fileName,$request->file('profile_image')->getContent());
+            }
+            
+            $artist->update($validated);
+            return redirect()->route($this->route.'index')->with('success','Successfully updated!');
+
+        }catch(Throwable $e)
+        {
+            $message = "Fail something when updating artist!";
+            return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
+        }
+
+
+    }
+
+    public function delete(Artist $artist)
+    {
+        try{
+            if(Storage::disk('public')->exists('/artists/'.$artist->profile_image)){
+                Storage::disk('public')->delete('/artists/'.$artist->profile_image);
+            }
+            $artist->delete();
+            return redirect()->back()->with('success','Successfully deleted!');
+        }catch(Throwable $e)
+        {
+            $message = "Fail something when deleting artist!";
+            return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
+        }
+    }
+
+    public function getFileName($file){
+        $originalName = $file->getClientOriginalName();
+        $originalExt = $file->getClientOriginalExtension();
+        return str_replace('.'.$originalExt,'_',$originalName).Str::uuid().'.'.$originalExt;
+    }
+
+    public function getErrorMessage($e,$message){
+        return env('APP_ENV') == "local" ? $e->getMessage():$message;
     }
 }

@@ -15,7 +15,9 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
-        Route::get('/upate/{artist}','upate')->name('update');
+        Route::get('/{artist}/edit','edit')->name('edit');
+        Route::put('/update/{artist}','update')->name('update');
+        Route::delete('/{artist}/delete','delete')->name('delete');
     });
 
     Route::controller(ArtWorkController::class)->name('artwork.')->group(function()
