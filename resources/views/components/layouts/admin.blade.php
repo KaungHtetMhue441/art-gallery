@@ -66,6 +66,8 @@
     <script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->   
     <script src="{{asset('dist/js/custom.js')}}"></script>
+
+    <x-admin.dashboard.message></x-admin.dashboard.message>
 </body> 
 
 </html>

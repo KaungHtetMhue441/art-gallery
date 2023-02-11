@@ -14,8 +14,8 @@
                     rows="2" 
                     name="{{$name}}" 
                     id="{{$name}}" 
-                    {{$required}}>
-                    {{$value}}
-        </textarea>
+                    {{$required}}
+                    >{{$value}}
+                </textarea>
     </div>
 </div>
