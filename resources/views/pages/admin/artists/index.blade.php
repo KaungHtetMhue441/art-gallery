@@ -1,13 +1,4 @@
 <x-layouts.admin title="Artists">
-    <div class="row justify-content-end">
-        <div class="col-4">
-            <a class="btn btn-outline-primary float-end mb-3" 
-                href="{{route('admin.artists.create')}}">
-                <i class="fa fa-plus-circle"></i> 
-                Create Artist
-            </a>    
-        </div>
-    </div>
     <div class="card">
         <div class="card-header text-center">
             <h3>
@@ -15,9 +6,18 @@
             </h3>
         </div>
         <div class="card-body">
+            <div class="row justify-content-end">
+                <div class="col-4">
+                    <a class="btn btn-outline-primary float-end mb-3 shadow" 
+                        href="{{route('admin.artists.create')}}">
+                        <i class="fa fa-plus-circle"></i> 
+                        Create Artist
+                    </a>    
+                </div>
+            </div>
             <div class="row">
                 {{-- @dd(Storage::disk("public")->url('images/artists')) --}}
-                <table class="table table-striped table-responsive">
+                <table class="table table-striped table-responsive shadow">
                     <thead >
                         <tr>
                             <th>No</th>
@@ -34,7 +34,7 @@
                     <tr>
                         <td>
                             {{++$loop->index}}
-                        </td>
+                        </td>   
                         <td>
                             <div class="profile-image-container">
                                 <img src="{{$artist->profile_image_url}}" 
