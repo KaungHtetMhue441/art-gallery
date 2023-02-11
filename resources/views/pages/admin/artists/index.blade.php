@@ -6,8 +6,8 @@
             </h3>
         </div>
         <div class="card-body">
-            <div class="row justify-content-end">
-                <div class="col-4">
+            <div class="row justify-content-end p-0">
+                <div class="col-md-4 col-12 p-0 m-0">
                     <a class="btn btn-outline-primary float-end mb-3 shadow" 
                         href="{{route('admin.artists.create')}}">
                         <i class="fa fa-plus-circle"></i> 
@@ -16,8 +16,9 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-12 overflow-scroll p-0 p-md-2">
                 {{-- @dd(Storage::disk("public")->url('images/artists')) --}}
-                <table class="table table-striped table-responsive shadow">
+                <table class="table table-striped shadow rounded" >
                     <thead >
                         <tr>
                             <th>No</th>
@@ -55,7 +56,7 @@
                         <td>
                             <div class="row">
                                 @foreach ($artist->social_url as $url)
-                                <div class="col-3">
+                                <div class=" col-12 col-md-3">
                                     <a class="btn btn-outline-secondary" 
                                         href="{{$url}}"> 
                                         link{{++$loop->index}}
@@ -87,7 +88,8 @@
                     </tr>
                     @endforeach
                 </tbody>
-            </table>
+                </table>
+                </div>
             </div>
         </div>  
     </div>
