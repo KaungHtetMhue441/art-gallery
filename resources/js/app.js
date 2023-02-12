@@ -1,2 +1,2 @@
 import './bootstrap';
-import 'clockwork-browser/toolbar'
+// import 'clockwork-browser/toolbar'

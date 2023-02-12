@@ -11,15 +11,9 @@ body {
     overflow-x: hidden;
 }
 
-.glass {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(3.5px);
-    -webkit-backdrop-filter: blur(3.5px);
-    border-radius: 10px;
-}
-
-.glass-blur {
-    background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(10.5px);
-    -webkit-backdrop-filter: blur(10.5px);
+.truncate {
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

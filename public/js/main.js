@@ -3,10 +3,10 @@ $(document).ready(function (){
     const nav = $('#nav');
     $(window).scroll(function (event) {
         var scroll = $(window).scrollTop();
-        if (scroll > 300) {
-            nav.addClass('shadow-5 sticky-top glass-blur');
+        if (scroll > 0) {
+            nav.addClass('shadow-5 sticky-top');
         } else {
-            nav.removeClass('shadow-5 sticky-top glass-blur')
+            nav.removeClass('shadow-5 sticky-top')
         }
     });
 

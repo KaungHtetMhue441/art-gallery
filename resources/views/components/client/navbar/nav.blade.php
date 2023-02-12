@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav id="nav" style="z-index: 1000" class="navbar navbar-expand-lg shadow-0 glass">
+<nav id="nav" style="z-index: 1000" class="navbar navbar-expand-lg shadow-0 bg-light">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
