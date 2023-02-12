@@ -27,6 +27,8 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
     {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
+        Route::get('/edit/{exhibition}','edit')->name('edit');
         Route::post('/store','store')->name('store');
+        Route::post('/update/{exhibition}','update')->name('update');
     });
 });

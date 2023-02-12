@@ -33,7 +33,7 @@
                         <td>{{$exhibition->exhibition_date}}</td>
                         <td>{{$exhibition->exhibition_start_time}}</td>
                         <td>
-                        <a href="" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                        <a href="{{route('admin.exhibition.edit',$exhibition->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
                         <a href=""  class="btn btn-danger text-white btn-sm"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>

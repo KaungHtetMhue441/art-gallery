@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\ArtGallery\Exhibitions\Exhibition;
 use App\ArtGallery\Exhibitions\Requests\ExhibtionCreateRequest;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 
@@ -37,8 +38,19 @@ class ExhibitionController extends Controller
             $this->exhibitionRepository->store($request->all());
             return redirect()->route('admin.exhibition.index')->with('success', 'Exhibition Successfully Created');
         }catch(\Throwable $th){
-            
+            return redirect()->back()->withErrors($th);
         }
        
+    }
+    public function edit(Exhibition $exhibition)
+    {
+        return view($this->viewPath.'edit',[
+            'exhibition'=>$exhibition
+        ]);
+    }
+    public function update(Exhibition $exhibition,Request $request)
+    {
+        $exhibition->update($request->all());
+        return redirect()->route('admin.exhibition.index')->with('success', 'Exhibition Successfully Updated');
     }
 }
