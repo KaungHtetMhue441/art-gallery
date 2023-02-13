@@ -73,6 +73,8 @@
 
       {{-- Button   --}}
       <x-utils.inputs.button/>
+      {{-- Button   --}}
+      <x-utils.inputs.button/>
 
     </x-utils.inputs.form>
     </x-utils.card>

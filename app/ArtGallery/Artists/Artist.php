@@ -35,6 +35,7 @@ class Artist extends Model
         return $this->belongsTo(Region::class);
     }
 
+<<<<<<< HEAD
     public function getProfileImageUrlAttribute()
     {
         return Storage::disk('public')->url('/artists/'.$this->profile_image);
@@ -45,6 +46,12 @@ class Artist extends Model
         return Attribute::make(
             set:fn($value) => json_encode(explode(',',trim($value))),
             get:fn($value) => json_decode($value)
+=======
+    public function profileImage():Attribute
+    {
+        return Attribute::make(
+            get:fn($value) => Storage::disk('public')->url('images/artists/'.$value)
+>>>>>>> 511475640b7a6cfc5dccb05d7cf84774809bdbba
         );
     }
 }

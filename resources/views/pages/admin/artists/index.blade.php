@@ -1,4 +1,7 @@
 <x-layouts.admin title="Artists">
+    <div class="row">
+        
+    </div>
     <div class="card">
         <div class="card-header text-center">
             <h3>

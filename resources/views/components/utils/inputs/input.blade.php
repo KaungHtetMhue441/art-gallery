@@ -5,6 +5,10 @@
     "containerClass",
     'value'=>'',
     'type'=>"text"
+    "required"=>"", 
+    "containerClass",
+    "type"=>"text",
+    'value'=> old($name) ?? "",
 ])
 @php
     if($required){
@@ -27,6 +31,11 @@
                 {{$required}}
         />
     </div>
+    @error($name)
+        <p class="text-danger">
+            {{$message}}
+        </p>
+    @enderror
     @error($name)
         <p class="text-danger">
             {{$message}}

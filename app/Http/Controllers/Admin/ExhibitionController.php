@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\ArtGallery\Exhibitions\Exhibition;
-
+use App\ArtGallery\Exhibitions\Requests\ExhibtionCreateRequest;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 
 class ExhibitionController extends Controller
@@ -39,26 +39,8 @@ class ExhibitionController extends Controller
             $this->exhibitionRepository->store($request->all());
             return redirect()->route('admin.exhibitions.index')->with('success', 'Exhibition Successfully Created');
         }catch(\Throwable $th){
-            dd($th->getMessage());
-            return redirect()->back()->withErrors($th->getMessage());
+            
         }
        
-    }
-    public function edit(Exhibition $exhibition)
-    {
-        return view($this->viewPath.'edit',[
-            'exhibition'=>$exhibition
-        ]);
-    }
-    public function update(Exhibition $exhibition,Request $request)
-    {
-        $exhibition->update($request->all());
-        return redirect()->route('admin.exhibitions.index')->with('success', 'Exhibition Successfully Updated');
-    }
-    
-    public function getFileName($file){
-        $originalName = $file->getClientOriginalName();
-        $originalExt = $file->getClientOriginalExtension();
-        return str_replace('.'.$originalExt,'_',$originalName).Str::uuid().'.'.$originalExt;
     }
 }

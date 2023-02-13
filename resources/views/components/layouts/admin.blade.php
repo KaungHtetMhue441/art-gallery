@@ -54,6 +54,7 @@
             </div>
             {{-- end body --}}
         </div>  
+        </div>  
 
     </div>
     <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
