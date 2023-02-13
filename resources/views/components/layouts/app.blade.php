@@ -9,19 +9,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{asset('assets/libs/bootstrap/dist/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+    />    
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Google Fonts -->
+    <link href="{{asset('assets/libs/google-font/google-font.min.css')}}" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="{{asset('assets/libs/mdb/mdb.min.css')}}" rel="stylesheet" />
+
+    <link href="{{asset('css/main.css')}}" rel="stylesheet" />
+
     {{ $header }}
 </head>
 <body>
-    
-    <div class="container">
+    <x-client.navbar.nav />
+
+    <div class="container-fluid">
         {{ $slot }}
     </div>
     
+    <x-client.footer.footer />
+
     <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="{{asset('assets/libs/mdb/mdb.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/libs/scroll.js')}}"></script>
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
     {{ $script }}
 </body>
 </html>
