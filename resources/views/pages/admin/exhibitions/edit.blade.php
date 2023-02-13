@@ -1,21 +1,22 @@
 <x-layouts.admin title="Exhibition-Create">
     <x-utils.inputs.form 
-      action="{{route('admin.exhibitions.store')}}" 
+      action="{{route('admin.exhibitions.update',$exhibition->id)}}" 
       method="post" 
       class="row g-3"
     >
-
     <!-- Title -->
     <x-utils.inputs.input 
       containerClass="col-md-6" 
       name="title_mm" 
       label="Title MM"
+      value="{{$exhibition->title_mm}}"
     />
 
     <x-utils.inputs.input 
       containerClass="col-md-6" 
       name="title_en" 
       label="Title EN"
+      value="{{$exhibition->title_en}}"
     />
 
     <!-- Decsription -->
@@ -23,12 +24,14 @@
       name="description_mm" 
       containerClass="col-md-6" 
       label="Description MM"
+      value="{{$exhibition->description_mm}}"
     />
 
     <x-utils.inputs.text-area 
       name="description_en" 
       containerClass="col-md-6" 
       label="Description EN"
+      value="{{$exhibition->description_en}}"
     />
 
     <!-- Exhibiton Date -->
@@ -36,17 +39,16 @@
       name="exhibition_date" 
       containerClass="col-md-6" 
       label="Exhibition Date"
-      type="date" 
+      type="date"
+      value="{{$exhibition->exhibition_date}}"  
     />
-    <!-- <div class="col-md-6">
-    <label for="">Exhibition Data</label>
-    <input type="date" name="exhibition_date" class="form-control">
-    </div> -->
+
     <!-- Exhibition Start Time -->
     <x-utils.inputs.input 
       name="exhibition_start_time" 
       containerClass="col-md-6" 
       label="Exhiibition Start Time"
+      value="{{$exhibition->exhibition_start_time}}"
     />
 
     <!-- Cover Photo     -->
@@ -56,7 +58,7 @@
       label="Cover Photo"
     />
     <x-utils.inputs.button
-      name="create"
+      name="update"
     />
     </x-utils.inputs.form>
 </x-layouts.admin>

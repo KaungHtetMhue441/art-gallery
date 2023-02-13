@@ -15,7 +15,9 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
-        Route::get('/upate/{artist}','upate')->name('update');
+        Route::get('/{artist}/edit','edit')->name('edit');
+        Route::put('/update/{artist}','update')->name('update');
+        Route::delete('/{artist}/delete','delete')->name('delete');
     });
 
     Route::controller(ArtWorkController::class)->name('artwork.')->group(function()
@@ -23,10 +25,12 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::get('artworks','index')->name('index');
     });
 
-    Route::controller(ExhibitionController::class)->prefix('exhibition')->name('exhibition.')->group(function()
+    Route::controller(ExhibitionController::class)->prefix('exhibitions')->name('exhibitions.')->group(function()
     {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
+        Route::get('/{exhibition}/edit','edit')->name('edit');
+        Route::post('/update/{exhibition}','update')->name('update');
     });
 });

@@ -1,7 +1,8 @@
 
 @props([
     "name" => "",
-    "label"=>"",    
+    "label"=>"",
+    "required"=>"",   
     "containerClass" => " ",
     "btnLabel" => "upload",
 ])

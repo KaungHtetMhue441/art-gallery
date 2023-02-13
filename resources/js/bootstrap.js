@@ -9,6 +9,8 @@ window._ = _;
 
 import axios from 'axios';
 window.axios = axios;
+import swal from 'sweetalert';
+window.swal = swal;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
