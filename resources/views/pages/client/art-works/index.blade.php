@@ -7,7 +7,7 @@
         <x-client.common.title.left-title title="Artworks" />
 
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-3 mb-3 mb-lg-0">
                 <h5>Filter</h5>
                 <form action="">
                     <select id="typeEmail" class="form-control mb-3" name="">
@@ -29,12 +29,13 @@
             <div class="col-lg-9">
                 <div class="row mb-5">
 
-                    <div class="col-6 col-lg-4 mb-3">
-                        <x-client.art-works.art-card />
-                    </div>
-                    <div class="col-6 col-lg-4 mb-3">
-                        <x-client.art-works.art-card />
-                    </div>
+                    @foreach ($artworks as $artwork)
+                        <div class="col-sm-6 col-lg-4 mb-3">
+                            <x-client.art-works.art-card 
+                            :artwork="$artwork"
+                            />
+                        </div>
+                    @endforeach
                     
                 </div>
             </div>

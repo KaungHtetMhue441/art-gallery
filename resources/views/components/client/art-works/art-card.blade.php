@@ -1,13 +1,18 @@
-<a href="">
-    <div class="card bg-dark text-white ratio ratio-1x1">
-        <img src="https://mdbcdn.b-cdn.net/img/new/slides/017.webp" class="card-img" alt="Stony Beach"/>
-        <div class="card-img-overlay">
-          <h5 class="card-title">Card title</h5>
+@props([
+  'artwork'
+])
+
+<a href="{{ route('artWorks.show', ['id' => $artwork->id]) }}" class="hover-shadow">
+    <div class="card bg-dark text-white ratio ratio-1x1 bg-image ripple hover-zoom" data-mdb-ripple-color="light">
+        <img src="{{ $artwork->cover_photo }}" class="card-img hover-overlay mask" alt="{{ $artwork->title }}"/>
+        <div class="card-img-overlay mask" style="background-color: hsla(0, 4%, 16%, 0.4)">
+          <h5 class="card-title">{{ $artwork->title }}</h5>
           <p class="card-text">
-            This is a wider card with supporting text below as a natural lead-in to additional
-            content. This content is a little bit longer.
+            {{ $artwork->artist->name }} | {{ $artwork->category->name }}
           </p>
-          <p class="card-text">Last updated 3 mins ago</p>
+          <p class="card-text fs-3 fw-bolder">
+            {{ $artwork->price }} {{ $artwork->currency == 'mmk' ? "MMK" : "$" }}
+          </p>
         </div>
     </div>
 </a>

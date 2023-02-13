@@ -33,8 +33,8 @@
             </div>
         </div>
     </div> --}}
-    <div class="row border-top px-5 p-2">
-        <p class="text-muted m-0">
+    <div class="row border-top p-2">
+        <p class="text-muted m-0 text-center">
             <small>
                 Copyright © 2023 Khant Art Gallery
             </small>

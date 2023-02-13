@@ -38,7 +38,9 @@
     <script type="text/javascript" src="{{asset('assets/libs/mdb/mdb.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/libs/scroll.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" async></script>
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 
     {{ $script }}
 </body>

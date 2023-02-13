@@ -1,11 +1,11 @@
 <x-layouts.app>
     <x-slot name="header">
-        <title>Blogs</title>
+        <title>Blogs | {{ $blog->title_en }}</title>
     </x-slot>
 
     <div class="container">
         <div class="w-100 d-flex flex-column justify-content-start align-items-center">
-            <div class="ratio ratio-16x9 w-75 d-flex justify-content-center align-items-start p-2 bg-danger">
+            <div class="ratio ratio-16x9 w-75 d-flex justify-content-center align-items-start p-2 rounded">
                 <img class="object-fit-cover rounded" src="{{ $blog->cover_photo }}" alt="{{ $blog->title_en }}">
             </div>
 

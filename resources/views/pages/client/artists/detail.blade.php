@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-slot name="header">
-        <title>{{ $artist->name }}</title>
+        <title>Artists | {{ $artist->name }}</title>
     </x-slot>
 
     <div class="container">
@@ -33,7 +33,7 @@
         <div class="row pb-3">   
             @foreach ($artist->artWorks as $art)
                 <div class="col-6 col-lg-3">
-                    <x-client.art-works.art-card />
+                    <x-client.art-works.art-card :artwork="$art" />
                 </div>
             @endforeach
         </div>

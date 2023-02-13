@@ -5,7 +5,7 @@
       "href" => route('home')
     ],
     [
-      "name" => "Shop",
+      "name" => "ArtWorks",
       "href" => route('artWorks.index')
     ],
     [

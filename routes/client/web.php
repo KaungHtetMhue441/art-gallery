@@ -11,6 +11,7 @@ Route::namespace('App\Http\Controllers\Client')->group(function() {
 
     Route::controller(ArtWorkPageController::class)->prefix('art-works')->name('artWorks.')->group(function() {
         Route::get('/', 'index')->name('index');
+        Route::get('/{id}', 'show')->name('show');
     });
 
     Route::controller(ArtistPageController::class)->prefix('artists')->name('artists.')->group(function() {
