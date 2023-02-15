@@ -22,8 +22,11 @@
                 class="form-control form-control-lg rounded" 
                 id="{{$name}}"  
                 name="{{$name}}"
-                value="{{$value}}"
+                value="{{old($name,$value)}}"
                 {{$required}}
         />
     </div>
+    @error($name)
+        <span class="text-danger">{{$message}}</span>
+    @enderror
 </div>

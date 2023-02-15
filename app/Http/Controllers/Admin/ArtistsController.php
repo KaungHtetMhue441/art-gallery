@@ -71,6 +71,7 @@ class ArtistsController extends Controller
 
     public function update(ArtistUpdateRequest $request,Artist $artist)
     {
+        dd($request->validated());
         try{
             $validated = $request->validated();
 
@@ -111,13 +112,15 @@ class ArtistsController extends Controller
         }
     }
 
-    public function getFileName($file){
+    public function getFileName($file)
+    {
         $originalName = $file->getClientOriginalName();
         $originalExt = $file->getClientOriginalExtension();
         return str_replace('.'.$originalExt,'_',$originalName).Str::uuid().'.'.$originalExt;
     }
 
-    public function getErrorMessage($e,$message){
+    public function getErrorMessage($e,$message)
+    {
         return env('APP_ENV') == "local" ? $e->getMessage():$message;
     }
 }

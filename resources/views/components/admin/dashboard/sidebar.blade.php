@@ -12,7 +12,7 @@
         ],
         [
             'name'=>"ArtWorks",
-            'uri'=>route('admin.artwork.index'),
+            'uri'=>route('admin.artWork.index'),
             'icon'=>'fa fa-palette'
         ],
         [

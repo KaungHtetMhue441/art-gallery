@@ -12,3 +12,30 @@
     width: 250px;
     height: 250px;
 }
+
+.cover-photo-preview{
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.preview-image{
+    height: 250px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+
+    .artist-table-container {
+        overflow-x: scroll;
+    }
+
+    /* ArtWork create */
+    .cover-photo-preview{
+        width: 100% !important;
+    }
+    /* .preview-image{
+        width: 100% !important;
+    } */
+    
+}

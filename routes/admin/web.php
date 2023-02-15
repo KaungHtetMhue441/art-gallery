@@ -20,9 +20,14 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::delete('/{artist}/delete','delete')->name('delete');
     });
 
-    Route::controller(ArtWorkController::class)->name('artwork.')->group(function()
+    Route::controller(ArtWorkController::class)->prefix('artwork')->name('artWork.')->group(function()
     {
-        Route::get('artworks','index')->name('index');
+        Route::get('/','index')->name('index');
+    Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/{artWork}/edit','edit')->name('edit');
+        Route::put('/update/{artWork}','update')->name('update');
+        Route::delete('/{artWork}/delete','delete')->name('delete');
     });
 
     Route::controller(ExhibitionController::class)->prefix('exhibition')->name('exhibition.')->group(function()
