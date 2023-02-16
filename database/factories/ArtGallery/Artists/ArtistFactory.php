@@ -26,7 +26,7 @@ class ArtistFactory extends Factory
         return [
             'name' => $this->faker->name,
             'profile_image' => $fileName,
-            'social_url' => $this->faker->url(),
+            'social_url' => json_encode([$this->faker->url(),$this->faker->url()]),
             'artist_type_id' => ArtistType::inRandomOrder()->first(),
             'region_id' => Region::inRandomOrder()->first()
         ];
