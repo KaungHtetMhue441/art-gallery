@@ -20,7 +20,7 @@ class ArtistFactory extends Factory
 
     public function definition()
     {
-        $filesPath = public_path('storage/images/artists');
+        $filesPath = public_path('storage/artists');
         $array = explode('/',$this->faker->image($filesPath));
         $fileName = $array[count($array)-1];
         return [

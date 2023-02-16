@@ -49,7 +49,7 @@
             {{-- breadcrumb --}}
             <x-admin.dashboard.page-breadcrumb :title="$title"></x-admin.page-breadcrumb>
             {{-- body --}}
-            <div class="container-fluid">
+            <div class="container-fluid py-2">
                 {{ $slot }}
             </div>
             {{-- end body --}}
@@ -66,6 +66,8 @@
     <script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->   
     <script src="{{asset('dist/js/custom.js')}}"></script>
+
+    <x-admin.dashboard.message></x-admin.dashboard.message>
 </body> 
 
 </html>

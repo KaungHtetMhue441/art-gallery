@@ -21,6 +21,10 @@ class Artist extends Model
         'social_url'
     ];
 
+    protected $casts = [
+        "social_url"=>"array"
+    ];
+
     public function artistType()
     {
         return $this->belongsTo(ArtistType::class);
@@ -31,10 +35,16 @@ class Artist extends Model
         return $this->belongsTo(Region::class);
     }
 
-    public function profileImage():Attribute
+    public function getProfileImageUrlAttribute()
+    {
+        return Storage::disk('public')->url('/artists/'.$this->profile_image);
+    }
+
+    public function socialUrl():Attribute
     {
         return Attribute::make(
-            get:fn($value) => Storage::disk('public')->url('images/artists/'.$value)
+            set:fn($value) => json_encode(explode(',',trim($value))),
+            get:fn($value) => json_decode($value)
         );
     }
 }

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('name')
                 ->comment("Artist's Name");
 
-            $table->string('profile_image')
+            $table->string('profile_image')->nullable()
                 ->comment("Artist's Image");
 
             $table->string('social_url')

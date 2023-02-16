@@ -15,5 +15,10 @@
         <option selected>Select</option>
         {{$slot}}
         
-    </select>   
+    </select> 
+
+    @error($name)
+     <span class="text-danger">{{$message}}</span>
+    @enderror  
+
 </div>

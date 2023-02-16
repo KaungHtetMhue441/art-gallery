@@ -1,8 +1,8 @@
 @props(['title'])
 
 <div class="page-breadcrumb py-0">
-    <div class="row align-items-center">
-        <div class="col-6">
+    <div class="row align-items-center p-0">
+        <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 d-flex align-items-center">
                   <li class="breadcrumb-item"><a href="{{ route('admin.index') }}" class="link"><i class="mdi mdi-home-outline fs-4"></i></a></li>

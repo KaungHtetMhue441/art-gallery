@@ -14,10 +14,10 @@ class ArtistCreateRequest extends BaseFormRequest
     public function rules()
     {
         return [
-            'name'=>'string|required',
-            'artist_type_id'=>'integer|required',
-            'region_id'=>'integer|required',
-            'profile_image'=>'file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
+            'name'=>'required|string',
+            'artist_type_id'=>'required|integer',
+            'region_id'=>'required|integer',
+            'profile_image'=>'required|file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
             'social_url'=>'required|url',
         ];
     }

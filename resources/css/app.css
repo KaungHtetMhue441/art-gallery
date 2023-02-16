@@ -1,0 +1,41 @@
+.profile-image-container{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: aquamarine;
+}
+
+/* Place holder image in create */
+.profile-container{
+    width: 250px;
+    height: 250px;
+}
+
+.cover-photo-preview{
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.preview-image{
+    height: 250px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 700px) {
+
+    .artist-table-container {
+        overflow-x: scroll;
+    }
+
+    /* ArtWork create */
+    .cover-photo-preview{
+        width: 100% !important;
+    }
+    /* .preview-image{
+        width: 100% !important;
+    } */
+    
+}

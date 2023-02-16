@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\ArtGallery\ArtWorkCategories\ArtWorkCategory>
  */
-class ArtWorkCategoryFactory extends Factory
+ class ArtWorkCategoryFactory extends Factory
 {
+
+protected $model = \App\ArtGallery\ArtWorkCategories\ArtWorkCategory::class;
+
     /**
      * Define the model's default state.
      *
@@ -17,7 +20,7 @@ class ArtWorkCategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            "name"=>$this->faker->name
         ];
     }
 }
