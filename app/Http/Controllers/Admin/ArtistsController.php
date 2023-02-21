@@ -71,7 +71,6 @@ class ArtistsController extends Controller
 
     public function update(ArtistUpdateRequest $request,Artist $artist)
     {
-        dd($request->validated());
         try{
             $validated = $request->validated();
 

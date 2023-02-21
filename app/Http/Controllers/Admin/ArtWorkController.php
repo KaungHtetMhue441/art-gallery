@@ -76,7 +76,7 @@ class ArtWorkController extends Controller
             $validated = $request->validated();
 
             if($request->hasFile('cover_photo')){
-                $this->deleteFiles([$artWork->cover_photo]);
+                $this->deleteSingleFile($artWork->cover_photo);
                 $validated['cover_photo'] = $this->uploadCoverPhoto($request->file('cover_photo'));
             }
     
@@ -93,6 +93,19 @@ class ArtWorkController extends Controller
         }
 
         return redirect()->route($this->route.'index');
+    }
+
+    public function delete(ArtWork $artWork)
+    {
+        try{
+            $this->deleteFiles(collect(json_decode($artWork->images))->pluck('name'));
+            $artWork->delete();
+        }catch(Throwable $e){
+            $message = "Fail something when deleting ArtWork!";
+            return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
+        }
+        
+        return redirect()->back()->with('success','Successfully deleted!');
     }
 
     // Helper Function 

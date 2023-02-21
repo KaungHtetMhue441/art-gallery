@@ -14,9 +14,11 @@
         <table class="table table-striped shadow rounded" >
             <thead>
                 <tr class="font-weight-bolder fs-5">
-                    <th>No</th>
-                    <th>Title</th>
-                    <th>Artist</th>
+                    <th style="width: 2%">No</th>
+                    <th style="width: 4%">Title</th>
+                    <th style="width: 5%">Artist</th>
+                    <th>Cover photo</th>
+                    <th>Other Images</th>
                     <th>Category</th>
                     <th>Size</th>
                     <th>Medium</th>
@@ -39,6 +41,12 @@
                         </td>
                         <td>
                             {{$artWork->artist_id}}
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
                         </td>
                         <td>
                             {{$artWork->art_work_category_id}}

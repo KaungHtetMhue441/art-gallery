@@ -23,7 +23,7 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
     Route::controller(ArtWorkController::class)->prefix('artwork')->name('artWork.')->group(function()
     {
         Route::get('/','index')->name('index');
-    Route::get('/create','create')->name('create');
+        Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
         Route::get('/{artWork}/edit','edit')->name('edit');
         Route::put('/update/{artWork}','update')->name('update');

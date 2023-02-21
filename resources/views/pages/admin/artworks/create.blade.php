@@ -3,13 +3,13 @@
     <x-utils.card title="Create ArtWork">
         <div class="row p-0">   
             <div class=" col-12 col-md-3 d-none preview-cover-image-container">
-                <h4 class="text-primary bold text-center">Cover photo</h4>
+                <h4 class=" btn btn-outline-cyan shadow-sm">Cover photo</h4>
                 <div class="cover-photo-preview ">
-                    <img src="" class="w-100" id="cover-photo-preview">
+                    <img src="" class="w-100 border shadow-sm" id="cover-photo-preview">
                 </div>
             </div>
             <div class=" col-12 col-md-9 d-none bold text-center preview-images-container">
-                <h4 class="text-prima btn btn-outline-cyan">Other photo</h4>
+                <h4 class=" btn btn-outline-cyan shadow-sm">Other photo</h4>
                 <div class="row p-0 justify-center other-images">
                     
                 </div>
@@ -163,7 +163,7 @@
            otherContent+= `
             <div class="col-5 col-md-3  preview-image">
                 <h3 class="text-center"> ${index+1}</h3>
-                <img src="${window.URL.createObjectURL(file)}" class="w-100">
+                <img src="${window.URL.createObjectURL(file)}" class="w-100  shadow-sm">
                 <div class="form-check-container">
                     <span class="form-check-label font-weight-bolder text-primary fs-2">${file.name}</span>
                 </div>  

@@ -9,6 +9,7 @@
                 </a>    
             </div>
         </div>
+        
         <div class="row">
             <div class="col-12 artist-table-container p-0 p-md-2">
             {{-- @dd(Storage::disk("public")->url('images/artists')) --}}

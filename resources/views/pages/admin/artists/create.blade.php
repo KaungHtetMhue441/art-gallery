@@ -43,7 +43,7 @@
         requiered="required"
       >
         @forelse ($artistTypes as $artistType )
-          <option value="{{$artistType->id}}">
+          <option value="{{$artistType->id}}" {{old('artist_type_id')==$artistType->id?"selected":""}}>
             {{$artistType->name}}
           </option>
           @empty
@@ -57,7 +57,7 @@
         label="Region's name"
       > 
         @forelse ($regions as $region )
-          <option value="{{$region->id}}">
+          <option value="{{$region->id}}" {{old('region_id') == $region->id?"selected":""}}>
             {{$region->name}}
           </option>
           @empty
