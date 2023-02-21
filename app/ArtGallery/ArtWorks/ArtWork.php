@@ -52,4 +52,5 @@ class ArtWork extends Model
             get:fn($value) => json_decode($value)
         );
     }
+
 }
