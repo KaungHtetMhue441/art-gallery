@@ -30,10 +30,14 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::delete('/{artWork}/delete','delete')->name('delete');
     });
 
-    Route::controller(ExhibitionController::class)->prefix('exhibition')->name('exhibition.')->group(function()
+    Route::controller(ExhibitionController::class)->prefix('exhibitions')->name('exhibitions.')->group(function()
     {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
+        Route::get('/edit/{exhibition}','edit')->name('edit');
         Route::post('/store','store')->name('store');
+        Route::get('/{exhibition}/edit','edit')->name('edit');
+        Route::post('/update/{exhibition}','update')->name('update');
+        Route::post('/update/{exhibition}','update')->name('update');
     });
 });

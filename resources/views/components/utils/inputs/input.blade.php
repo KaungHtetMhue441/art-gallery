@@ -18,8 +18,7 @@
                 {!!$label!!}
 
         </label>
-        <input  type="text" 
-                class="form-control form-control-lg rounded" 
+        <input  class="form-control form-control-lg rounded" 
                 id="{{$name}}"  
                 name="{{$name}}"
                 value="{{old($name,$value)}}"

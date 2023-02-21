@@ -4,9 +4,13 @@
     "value"=>"",
     "label"=>"",
     "containerClass"=>"",
-    "required"=>"", 
+    "required"=>"",
+    'value'=> old($name) ?? "",
+    "required"=>"",
+    'value'=> old($name) ?? "",
 ])
 <div class="{{$containerClass}}">
+    <div class="mb-3">      
     <div class="mb-3">      
         <label for="{{$name}}" class="form-label">{{$label}}</label>
         <textarea   class="form-control form-control-lg" 
@@ -15,10 +19,12 @@
                     name="{{$name}}" 
                     id="{{$name}}" 
                     {{$required}}
-                    >{{old($name)?old($name):$value}}</textarea>
+                    >{!!old($name)?old($name):$value!!}</textarea>
     </div>
     
     @error($name)
-        <span class="text-danger">{{$message}}</span>
+        <p class="text-danger">
+            {{$message}}
+        </p>
     @enderror
 </div>

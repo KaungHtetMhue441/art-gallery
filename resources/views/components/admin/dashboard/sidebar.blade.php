@@ -17,7 +17,7 @@
         ],
         [
           'name'=>"Exhibitions",
-          'uri'=>route('admin.exhibition.index'),
+          'uri'=>route('admin.exhibitions.index'),
           'icon'=>'fa-solid fa-bullhorn'  
         ]    
     ]

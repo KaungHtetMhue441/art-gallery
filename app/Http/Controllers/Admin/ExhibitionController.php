@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\ArtGallery\Exhibitions\Exhibition;
 use App\ArtGallery\Exhibitions\Requests\ExhibtionCreateRequest;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 
@@ -20,6 +21,7 @@ class ExhibitionController extends Controller
         private ExhibitionsRepositoryInterface $exhibitionRepository
     )
     {
+        $this->exhibitionRepository = $exhibitionRepository;
     }
     public function index(){
 
@@ -35,7 +37,7 @@ class ExhibitionController extends Controller
     {
         try{
             $this->exhibitionRepository->store($request->all());
-            return redirect()->route('admin.exhibition.index')->with('success', 'Exhibition Successfully Created');
+            return redirect()->route('admin.exhibitions.index')->with('success', 'Exhibition Successfully Created');
         }catch(\Throwable $th){
             
         }

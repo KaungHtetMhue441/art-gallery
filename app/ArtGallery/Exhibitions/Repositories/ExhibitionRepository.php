@@ -17,14 +17,11 @@ class ExhibitionRepository implements ExhibitionsRepositoryInterface
         return Exhibition::all();
      }
      /**
-     * Store artists
+     * Store exhibitions
      * @return model
      */
     public function store($exhibition) :Exhibition
     {
-        $exhibition = Exhibition::create($exhibition);
-        throw_if(!$exhibition,ExhibitionCreateFailException::class);
-        return $exhibition;
+         return Exhibition::create($exhibition);
     }
-
 }
