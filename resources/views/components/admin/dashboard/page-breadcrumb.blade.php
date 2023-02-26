@@ -13,7 +13,6 @@
                     @endforeach
                 </ol>
             </nav>  
-            {{-- <h1 class="mb-0 fw-bold">{{ $title }}</h1>  --}}
         </div>
     </div>
 </div>      

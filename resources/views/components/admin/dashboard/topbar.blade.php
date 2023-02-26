@@ -60,12 +60,9 @@
                         <img src="{{asset('assets/images/users/profile.png')}}" alt="user" class="rounded-circle" width="31">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i>
-                            My Profile</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i>
-                            My Balance</a>
-                        <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i>
-                            Inbox</a>
+                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="ti-shift-right m-r-5 m-l-5"></i> Logout
+                        </button>
                     </ul>
                 </li>
                 <!-- ============================================================== -->
@@ -75,3 +72,23 @@
         </div>
     </nav>
 </header>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Logout Confirm</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Are You Sure To logout ?</p>
+        </div>
+        <form method="POST" action="{{ route('admin.auth.logout') }}" class="modal-footer">
+            @csrf
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+      </div>
+    </div>
+  </div>

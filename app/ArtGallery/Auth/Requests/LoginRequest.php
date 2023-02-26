@@ -1,10 +1,10 @@
 <?php
 
-namespace App\ArtGallery\Users\Requests;
+namespace App\ArtGallery\Auth\Requests;
 
 use App\ArtGallery\Base\BaseFormRequest;
 
-class UserRegisterRequest extends BaseFormRequest
+class LoginRequest extends BaseFormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,8 @@ class UserRegisterRequest extends BaseFormRequest
     public function rules()
     {
         return [
-            //add your rules here
+            'email' => 'required',
+            'password' => 'required'
         ];
     }
 }
