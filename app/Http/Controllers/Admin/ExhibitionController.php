@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 use App\ArtGallery\Exhibitions\Exhibition;
 use App\ArtGallery\Exhibitions\Requests\ExhibtionCreateRequest;
 use App\ArtGallery\Exhibitions\Requests\ExhibitionCreateRequest;
+use App\ArtGallery\Exhibitions\Requests\ExhibitionUpdateRequest;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 
 class ExhibitionController extends Controller
@@ -59,32 +60,45 @@ class ExhibitionController extends Controller
         return view($this->viewPath.'edit',$this->datas);
     }
 
-    public function update(Request $request,Exhibition $exhibition)
+    public function update(ExhibitionUpdateRequest $request,Exhibition $exhibition)
     {
-        // dd($request->validated());
-        // try{
-        //     $validated = $request->validated();
+        try{
+            $validated = $request->validated();
 
-        //     if($request->hasFile('profile_image'))
-        //     {
-        //         $fileName = $this->getFileName($request->file('profile_image'));
-        //         $validated['profile_image'] = $fileName;
-        //         if(Storage::disk('public')->exists('/artists/'.$artist->profile_image)){
-        //             Storage::disk('public')->delete('/artists/'.$artist->profile_image);
-        //         }
-        //         Storage::disk('public')->put('/artists/'.$fileName,$request->file('profile_image')->getContent());
-        //     }
+            if($request->hasFile('cover_photo'))
+            {
+                $fileName = $this->getFileName($request->file('cover_photo'));
+                $validated['cover_photo'] = $fileName;
+                if(Storage::disk('public')->exists('/exhibitions/'.$exhibition->cover_photo)){
+                    Storage::disk('public')->delete('/exhibitions/'.$exhibition->cover_photo);
+                }
+                Storage::disk('public')->put('/exhibitions/'.$fileName,$request->file('cover_photo')->getContent());
+            }
             
-        //     $artist->update($validated);
-        //     return redirect()->route($this->route.'index')->with('success','Successfully updated!');
+            $exhibition->update($validated);
+            return redirect()->route($this->route.'index')->with('success','Successfully updated!');
 
-        // }catch(Throwable $e)
-        // {
-        //     $message = "Fail something when updating artist!";
-        //     return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
-        // }
+        }catch(Throwable $e)
+        {
+            $message = "Fail something when updating exhibition!";
+            return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
+        }
 
+    }
 
+    public function delete(Exhibition $exhibition)
+    {
+        try{
+            if(Storage::disk('public')->exists('/exhibitions/'.$exhibition->cover_photo)){
+                Storage::disk('public')->delete('/exhibitions/'.$exhibition->cover_photo);
+            }
+            $exhibition->delete();
+            return redirect()->back()->with('success','Successfully deleted!');
+        }catch(Throwable $e)
+        {
+            $message = "Fail something when deleting exhibition!";
+            return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
+        }
     }
 
     public function getFileName($file)

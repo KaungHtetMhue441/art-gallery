@@ -19,6 +19,11 @@
           'name'=>"Exhibitions",
           'uri'=>route('admin.exhibition.index'),
           'icon'=>'fa-solid fa-bullhorn'  
+        ],
+        [
+            'name'=>"Blogs",
+            'uri'=>route('admin.blog.index'),
+            'icon'=>'fa-solid fa-paintbrush'
         ]    
     ]
 ])

@@ -45,5 +45,16 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->middleware('auth
         Route::post('/store','store')->name('store');
         Route::get('/{exhibition}/edit','edit')->name('edit');
         Route::put('/update/{exhibition}','update')->name('update');
+        Route::delete('/{exhibition}/delete','delete')->name('delete');
+    });
+
+    Route::controller(BlogController::class)->prefix('blog')->name('blog.')->group(function()
+    {
+        Route::get('/','index')->name('index');
+        // Route::get('/create','create')->name('create');
+        // Route::post('/store','store')->name('store');
+        // Route::get('/{exhibition}/edit','edit')->name('edit');
+        // Route::put('/update/{exhibition}','update')->name('update');
+        // Route::delete('/{exhibition}/delete','delete')->name('delete');
     });
 });

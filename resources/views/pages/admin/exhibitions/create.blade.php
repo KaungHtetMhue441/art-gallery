@@ -11,7 +11,7 @@
             containerClass="col-12 col-md-12" 
             name="cover_photo" 
             label="Cover Photo"
-            requiered="required"
+            required="required"
           />
           {{-- Exhibition title    --}}
           <x-utils.inputs.input 

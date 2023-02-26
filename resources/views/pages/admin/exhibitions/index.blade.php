@@ -26,8 +26,8 @@
                 @foreach($exhibitions as $index=>$exhibition)
                     <tr>
                         <td>{{$index+1}}</td>
-                        <td>{{$exhibition->title_mm}}</td>
-                        <td>{{$exhibition->description_mm}}</td>
+                        <td>{{Str::words($exhibition->title_mm,3)}}</td>
+                        <td>{{Str::words($exhibition->description_mm,5)}}</td>
                         <td>{{$exhibition->exhibition_date}}</td>
                         <td>{{$exhibition->exhibition_start_time}}</td>
                         <td>
@@ -36,14 +36,14 @@
                                 <i class="fa fa-edit"></i>
                             </a>
                             <button class="btn text-white btn-danger" 
-                                {{-- href="{{route('admin.artWork.delete',$exhibition->id)}}" --}}
+                                {{-- href="{{route('admin.exhibition.delete',$exhibition->id)}}" --}}
                                 onclick="return confirm('Are you sure to delete!')"
                                 id = "delete-btn"
                                 form="{{'form-delete'.$exhibition->id}}"
                                 >
                                 <i class="fa fa-trash"></i>
                             </button>
-                            <form action="{{route('admin.artWork.delete',$exhibition->id)}}" method="POST"
+                            <form action="{{route('admin.exhibition.delete',$exhibition->id)}}" method="POST"
                                 id = "{{'form-delete'.$exhibition->id}}"
                                 >
                                 @csrf
