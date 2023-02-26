@@ -3,7 +3,7 @@
     <div class="row justify-content-end p-0">
         <div class="col-md-4 col-12 p-0 m-0">
             <a class="btn btn-outline-primary float-end mb-3 shadow" 
-                href="">
+                href="{{route('admin.blog.create')}}">
                 <i class="fa fa-plus-circle"></i> 
                 Create Blog
             </a>    
