@@ -1,53 +1,64 @@
-<x-layouts.admin title="Exhibition-Create">
-    <x-utils.inputs.form 
-      action="{{route('admin.exhibitions.store')}}" 
-      method="post" 
-      class="row g-3"
-    >
+<x-layouts.admin title="Exhibitions">
+    <x-utils.card title="Create Exhibition">
+        <x-utils.inputs.form   
+          action="{{route('admin.exhibition.store')}}" 
+          method="post" 
+          class="row g-3 justify-content-center"
+        >
+          <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+          {{-- Exhibition Corver Image    --}}
+          <x-utils.inputs.file  
+            containerClass="col-12 col-md-12" 
+            name="cover_photo" 
+            label="Cover Photo"
+            required="required"
+          />
+          {{-- Exhibition title    --}}
+          <x-utils.inputs.input 
+            containerClass=" col-12 col-md-6" 
+            name="title_mm" 
+            label="Title MM"
+            required="required"
+          />
 
-    <!-- Title -->
-    <x-utils.inputs.input 
-      containerClass="col-md-6" 
-      name="title_mm" 
-      label="Title MM"
-    />
+          <x-utils.inputs.input 
+            containerClass=" col-12 col-md-6" 
+            name="title_en" 
+            label="Title EN"
+            required="required"
+          />
 
-    <x-utils.inputs.input 
-      containerClass="col-md-6" 
-      name="title_en" 
-      label="Title EN"
-    />
+          {{-- Description--}}
+          <x-utils.inputs.text-area 
+            name="description_mm" 
+            containerClass=" col-12 col-md-6" 
+            label="Description MM"
+            required="required"
+          />
 
-    <!-- Decsription -->
-    <x-utils.inputs.text-area 
-      name="description_mm" 
-      containerClass="col-md-6" 
-      label="Description MM"
-    />
+          <x-utils.inputs.text-area 
+            name="description_en" 
+            containerClass=" col-12 col-md-6" 
+            label="Description EN"
+            required="required"
+          />
 
-    <x-utils.inputs.text-area 
-      name="description_en" 
-      containerClass="col-md-6" 
-      label="Description EN"
-    />
+          {{-- Exhibition Date  --}}
+          <x-utils.inputs.input 
+            containerClass=" col-12 col-md-6" 
+            name="exhibition_date" 
+            label="Exhibition Date"
+            required="required"
+            type="date"
+          />
 
-    <!-- Exhibiton Date -->
-    <x-utils.inputs.input 
-      name="exhibition_date" 
-      containerClass="col-md-6" 
-      label="Exhibition Date"
-      type="date" 
-    />
-    <!-- <div class="col-md-6">
-    <label for="">Exhibition Data</label>
-    <input type="date" name="exhibition_date" class="form-control">
-    </div> -->
-    <!-- Exhibition Start Time -->
-    <x-utils.inputs.input 
-      name="exhibition_start_time" 
-      containerClass="col-md-6" 
-      label="Exhiibition Start Time"
-    />
+          {{-- Exhibition Start Time --}}
+          <x-utils.inputs.input 
+            containerClass=" col-12 col-md-6" 
+            name="exhibition_start_time" 
+            label="Exhibition Start Time"
+            required="required"
+          />
 
     <!-- Cover Photo     -->
     <x-utils.inputs.file 
@@ -60,3 +71,7 @@
     />
     </x-utils.inputs.form>
 </x-layouts.admin>
+
+<script>
+
+</script>

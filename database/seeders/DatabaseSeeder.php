@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\Artists\ArtistSeeder;
+use Database\Seeders\BlogCategoriesSeeder;
 use Database\Seeders\Regions\RegionSeeder;
 use Database\Seeders\ArtistTypes\ArtistTypeSeeder;
 use Database\Seeders\ArtWorkCategories\ArtWorkCategorySeeder;
@@ -20,7 +21,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ArtWorkCategorySeeder::class
+            ArtWorkCategorySeeder::class,
+            BlogCategoriesSeeder::class
         ]);
         // $this->call([
         //     RegionSeeder::class,

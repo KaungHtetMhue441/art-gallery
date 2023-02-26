@@ -3,7 +3,8 @@
     "label"=>"",
     "required"=>"", 
     "containerClass",
-    'value'=>''
+    'value'=>'',
+    'type'=>'text'
 ])
 @php
     if($required){
@@ -18,7 +19,8 @@
                 {!!$label!!}
 
         </label>
-        <input  class="form-control form-control-lg rounded" 
+        <input  type="{{$type}}" 
+                class="form-control form-control-lg rounded" 
                 id="{{$name}}"  
                 name="{{$name}}"
                 value="{{old($name,$value)}}"

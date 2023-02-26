@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use BlogRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use App\ArtGallery\Blogs\Repositories\BlogRepository;
 use App\ArtGallery\Users\Repositories\UserRepository;
 use App\ArtGallery\Artists\Repositories\ArtistsRepository;
 use App\ArtGallery\ArtWorks\Repositories\ArtWorksRepository;
@@ -42,6 +44,12 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ExhibitionsRepositoryInterface::class,
             ExhibitionRepository::class
+        );
+
+        //For Blog
+        $this->app->bind(
+            BlogRepositoryInterface::class,
+            BlogRepository::class
         );
     }
 

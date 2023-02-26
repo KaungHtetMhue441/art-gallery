@@ -1,0 +1,26 @@
+<?php
+
+namespace App\ArtGallery\Blogs\Requests;
+
+use App\ArtGallery\Base\BaseFormRequest;
+
+class BlogCreateRequest extends BaseFormRequest
+{
+      /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'blog_category_id'=>'required|integer',
+            'title_mm'=>'required|string',
+            'title_en'=>'required|string',
+            'description_mm'=>'required|string',
+            'description_en'=>'required|string',
+            'cover_photo'=>'required|file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
+            'images.*'=>'file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
+        ];
+    }
+}
