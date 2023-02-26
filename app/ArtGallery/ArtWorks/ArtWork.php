@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\ArtGallery\ArtWorkCategories\ArtWorkCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 
 class ArtWork extends Model
 {
@@ -41,9 +42,17 @@ class ArtWork extends Model
         $this->belongsTo(ArtWorkCategory::class);
     }
 
+    public function getCoverPhotoUrlAttribute(){
+        return Storage::disk('public')->url('/artWorks/'.$this->cover_photo);
+    }
+
     public function getImagesWithUrlAttribute()
     {
-        return collect(json_decode($this->images))->sortBy('original_name');
+        $images = collect(json_decode($this->images))->sortBy('original_name');
+        foreach($images as $image){
+            $image->name = Storage::disk('public')->url('/artWorks/'.$image->name);
+        }
+        return $images;
     }
 
     public function images():Attribute

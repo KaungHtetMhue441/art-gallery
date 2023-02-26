@@ -16,7 +16,7 @@
             </div>
         </div>
         <x-utils.inputs.form   
-        action="{{route('admin.artWork.store')}}" 
+        action="{{route('admin.artwork.store')}}" 
         method="post" 
         class="row g-3 justify-content-center"
         >

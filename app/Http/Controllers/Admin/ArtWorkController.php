@@ -6,18 +6,19 @@ use Throwable;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\ArtGallery\Artists\Artist;
+use App\ArtGallery\ArtWorks\ArtWork;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\ArtGallery\ArtWorkCategories\ArtWorkCategory;
-use App\ArtGallery\ArtWorks\ArtWork;
-use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 use App\ArtGallery\ArtWorks\Requests\ArtWorkStoreRequest;
+use App\ArtGallery\ArtWorks\Requests\ArtWorkUpdateRequest;
+use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 
 class ArtWorkController extends Controller
 {
     protected $viewPath = 'pages.admin.artworks.';
-    protected $route = 'admin.artWork.';
-    protected $datas = ['route'=>'admin.artWork.'];
+    protected $route = 'admin.artwork.';
+    protected $datas = ['route'=>'admin.artwork.'];
 
     /**
      * Create a new controller instance.
@@ -59,7 +60,7 @@ class ArtWorkController extends Controller
             return redirect()->back()->withInput()->with('error',$this->getErrorMessage($e,$message));
         }
 
-        return redirect()->route($this->route.'create');
+        return redirect()->route($this->route.'index');
     }
 
     public function edit(ArtWork $artWork)
@@ -70,7 +71,7 @@ class ArtWorkController extends Controller
         return view($this->viewPath.'edit',$this->datas);
     }
 
-    public function update(ArtWorkStoreRequest $request,ArtWork $artWork)
+    public function update(ArtWorkUpdateRequest $request,ArtWork $artWork)
     {
         try{
             $validated = $request->validated();
@@ -142,7 +143,7 @@ class ArtWorkController extends Controller
             array_push($images,['original_name'=>$image->getClientOriginalName(),"name"=>$fileName]);
         }
 
-        return json_encode($images);
+        return $images;
     }
     
     public function getFileName($file)

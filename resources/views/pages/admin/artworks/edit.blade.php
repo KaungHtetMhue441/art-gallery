@@ -1,26 +1,23 @@
 
 <x-layouts.admin title="Artwork">
-@if(count($errors)>0)
-{{-- @dd($errors) --}}
-@endif
     <x-utils.card title="Create ArtWork">
-        <div class="row p-0">   
-            <div class=" col-12 col-md-3  preview-cover-image-container">
-                <h4 class="text-primary bold text-center">Cover photo</h4>
+        <div class="row p-0 mb-5">   
+            <div class=" col-12 col-md-3 preview-cover-image-container">
+                <h4 class=" btn btn-outline-cyan shadow-sm">Cover photo</h4>
                 <div class="cover-photo-preview ">
-                    <img src="" class="w-100" id="cover-photo-preview">
+                    <img src="{{$artWork->cover_photo_url}}" class="w-100" id="cover-photo-preview">
                 </div>
             </div>
-            <div class=" col-12 col-md-9  bold text-center preview-images-container">
+            <div class=" col-12 col-md-9 bold text-center preview-images-container">
                 <h4 class="text-prima btn btn-outline-cyan">Other photo</h4>
                 <div class="row p-0 justify-center other-images">
                     @forelse ($artWork->imageswith_url as $url)
-                        <div class="col-5 col-md-3  preview-image">
-                            <h3 class="text-center"> ${index+1}</h3>
-                            <img src="{{$url->name}}" class="w-100">
-                            <div class="form-check-container">
-                                <span class="form-check-label font-weight-bolder text-primary fs-2">{{$url->original_name}}</span>
-                            </div>  
+                        <div class="col-5 col-md-3 ">
+                            <div class="w-100 preview-image">
+                                <h3 class="text-center"> {{++$loop->index}}</h3>
+                                <img src="{{$url->name}}" class="w-100">
+                            </div>
+                            <h6 class="font-weight-bolder text-active fs-2">{{$url->original_name}}</h6>
                         </div>
                         @empty
                     @endforelse
@@ -102,7 +99,7 @@
             containerClass=" col-12 col-md-4" 
             name="medium" 
             label="Medium"
-            value="{{$artWork->mdium}}"
+            value="{{$artWork->medium}}"
             required="required"
             />
             {{-- Material    --}}

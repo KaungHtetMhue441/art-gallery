@@ -20,7 +20,7 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->group(function()
         Route::delete('/{artist}/delete','delete')->name('delete');
     });
 
-    Route::controller(ArtWorkController::class)->prefix('artwork')->name('artWork.')->group(function()
+    Route::controller(ArtWorkController::class)->prefix('artwork')->name('artwork.')->group(function()
     {
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');

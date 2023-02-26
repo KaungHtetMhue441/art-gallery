@@ -1,3 +1,4 @@
+
 <x-layouts.admin title="Artists">
     <x-utils.card title="Artists">
         <div class="row justify-content-end p-0">
@@ -62,7 +63,7 @@
                         </td>
                         <td>
                             <a class="btn btn-outline-cyan" 
-                                href="{{route('admin.artWork.edit',$artist->id)}}">
+                                href="{{route('admin.artists.edit',$artist->id)}}">
                                 <i class="fa fa-edit"></i>
                             </a>
                             <button class="btn text-white btn-danger" 
@@ -73,7 +74,7 @@
                                 >
                                 <i class="fa fa-trash"></i>
                             </button>
-                            <form action="{{route('admin.artWork.delete',$artist->id)}}" method="POST"
+                            <form action="{{route('admin.artists.delete',$artist->id)}}" method="POST"
                                 id = "{{'form-delete'.$artist->id}}"
                                 >
                                 @csrf
@@ -87,8 +88,6 @@
             </div>
         </div>
     </x-utils.card>
-            
-
 </x-layouts.admin>
 
 <script>
