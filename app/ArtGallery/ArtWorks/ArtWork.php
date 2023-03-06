@@ -2,11 +2,14 @@
 
 namespace App\ArtGallery\ArtWorks;
 
+use App\ArtGallery\Artists\Artist;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use App\Filters\ArtWorks\ArtWorksFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\ArtGallery\ArtWorkCategories\ArtWorkCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Storage;
 
 class ArtWork extends Model
 {
@@ -31,15 +34,20 @@ class ArtWork extends Model
         "images"=>"array"
     ];
 
+    public function scopeFilter(Builder $builder)
+    {
+        $filter = new ArtWorksFilter();
+        return $filter->apply($builder);
+    }
 
     public function artist()
     {
-        $this->belongsTo(Artist::class);
+        return $this->belongsTo(Artist::class,'artist_id','id');
     }
 
-    public function artWorkCategory()
+    public function category()
     {
-        $this->belongsTo(ArtWorkCategory::class);
+        return $this->belongsTo(ArtWorkCategory::class,'art_work_category_id','id');
     }
 
     public function getCoverPhotoUrlAttribute(){
@@ -48,7 +56,7 @@ class ArtWork extends Model
 
     public function getImagesWithUrlAttribute()
     {
-        $images = collect(json_decode($this->images))->sortBy('original_name');
+        $images = collect($this->images)->sortBy('original_name');
         foreach($images as $image){
             $image->name = Storage::disk('public')->url('/artWorks/'.$image->name);
         }
