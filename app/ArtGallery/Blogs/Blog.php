@@ -2,22 +2,18 @@
 
 namespace App\ArtGallery\Blogs;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\ArtGallery\BlogCategories\BlogCategory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'blog_category_id',
-        'title_mm',
-        'title_en',
-        'description_mm',
-        'description_en',
-        'slug',
-        'cover_photo',
-        'images',
-    ];
+    protected $guarded =[];
+
+    public function blogCategory()
+    {
+       return  $this->belongsTo(BlogCategory::class,'blog_category_id','id');
+    }
 }

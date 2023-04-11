@@ -22,7 +22,31 @@
                 </tr>
             </thead>
             <tbody>
-                
+                @foreach($blogs as $index=>$blog)
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{Str::words($blog->title_mm,2)}}</td>
+                    <td>{!!Str::words($blog->description_mm,2)!!}</td>
+                    <td>{{$blog->blogCategory->name}}</td>
+                    <td>
+                    <a href="{{route('admin.blog.edit',$blog->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                    <button class="btn text-white btn-danger" 
+                        {{-- href="{{route('admin.artWork.delete',$artist->id)}}" --}}
+                        onclick="return confirm('Are you sure to delete!')"
+                        id = "delete-btn"
+                        form="{{'form-delete'.$blog->id}}"
+                        >
+                        <i class="fa fa-trash"></i>
+                    </button>
+                    <form action="{{route('admin.blog.delete',$blog->id)}}" method="POST"
+                        id = "{{'form-delete'.$blog->id}}"
+                        >
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                    </td>
+                </tr>
+            @endforeach   
             </tbody>
         </table>
         </div>

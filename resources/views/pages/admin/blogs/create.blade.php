@@ -15,7 +15,7 @@
             </div>
         </div>
         <x-utils.inputs.form   
-          action="" 
+          action="{{route('admin.blog.store')}}" 
           method="post" 
           class="row g-3 justify-content-center"
         >
@@ -23,9 +23,9 @@
         <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
         {{-- Blog Corver Image--}}
         <x-utils.inputs.file  
-        containerClass="col-12 col-md-6" 
-        name="cover_photo" 
-        label="Corver Photo"
+            containerClass="col-12 col-md-6" 
+            name="cover_photo" 
+            label="Corver Photo"
         />
 
         {{-- Blog's Images    --}}
@@ -57,14 +57,14 @@
 
         {{-- Blog title    --}}
         <x-utils.inputs.input 
-            containerClass=" col-12 col-md-6" 
+            containerClass=" col-12 col-md-12" 
             name="title_mm" 
             label="Title MM"
             required="required"
         />
 
         <x-utils.inputs.input 
-            containerClass=" col-12 col-md-6" 
+            containerClass=" col-12 col-md-12" 
             name="title_en" 
             label="Title EN"
             required="required"
@@ -73,33 +73,34 @@
         {{-- Description--}}
         <x-utils.inputs.text-area 
             name="description_mm" 
-            containerClass=" col-12 col-md-6" 
+            containerClass=" col-12 col-md-12 ckeditor" 
             label="Description MM"
             required="required"
         />
 
         <x-utils.inputs.text-area 
             name="description_en" 
-            containerClass=" col-12 col-md-6" 
+            containerClass=" col-12 col-md-12 ckeditor" 
             label="Description EN"
             required="required"
         />
 
         {{-- Button   --}}
-        <x-utils.inputs.button btnClass="float-end"/>
+        <x-utils.inputs.button/>
 
         </x-utils.inputs.form>
     </x-utils.card>
 </x-layouts.admin>
-
+<script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 <script>
+     CKEDITOR.replace( 'description_mm' );
+     CKEDITOR.replace( 'description_en' );
      $(document).ready(function ()
     {
-
+    
       $('#cover_photo').change(function()
       {
         $('.preview-cover-image-container').removeClass('d-none');
-
 
         $('#cover-photo-preview').prop('src',window.URL.createObjectURL(this.files[0]));
       })

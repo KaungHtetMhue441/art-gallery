@@ -54,8 +54,8 @@ Route::namespace('App\Http\Controllers\Admin')->name('admin.')->middleware('auth
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');
         Route::post('/store','store')->name('store');
-        // Route::get('/{exhibition}/edit','edit')->name('edit');
-        // Route::put('/update/{exhibition}','update')->name('update');
-        // Route::delete('/{exhibition}/delete','delete')->name('delete');
+        Route::get('/{blog}/edit','edit')->name('edit');
+        Route::put('/update/{blog}','update')->name('update');
+        Route::delete('/{blog}/delete','delete')->name('delete');
     });
 });

@@ -3,7 +3,7 @@
 namespace App\ArtGallery\Blogs\Repositories;
 
 use App\ArtGallery\Blogs\Blog;
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use App\ArtGallery\Blogs\Repositories\interfaces\BlogRepositoryInterface;
 
 class BlogRepository implements BlogRepositoryInterface
@@ -12,19 +12,18 @@ class BlogRepository implements BlogRepositoryInterface
      * Get all blogs
      * @return Collection
      */
-     public function getAll() :Collection
+     public function getAll() :LengthAwarePaginator
      {
-        return Blog::all();
-     }
+      return Blog::paginate(10);
+   }
      /**
-     * Store artists
+     * Store blogs
      * @return model
      */
-    public function store($exhibition) :Exhibition
+    public function store($blog) :Blog
     {
-        $exhibition = Exhibition::create($exhibition);
-        throw_if(!$exhibition,ExhibitionCreateFailException::class);
-        return $exhibition;
+      //dd($blog);
+       return Blog::create($blog);
     }
 
 }
