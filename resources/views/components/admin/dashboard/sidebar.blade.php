@@ -30,6 +30,11 @@
             'uri'=>route('admin.image-slider.index'),
             'icon'=>'fa-solid fa-image'
         ],    
+        [
+            'name'=>"Artist Types",
+            'uri'=>route('admin.artist-types.index'),
+            'icon'=>'fa-solid fa-image'
+        ],    
     ]
 ])
 

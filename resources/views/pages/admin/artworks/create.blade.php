@@ -39,7 +39,7 @@
             name="artist_id" 
             containerClass=" col-12 col-md-4" 
             label="Artist"
-            requiered="required"
+            required="required"
             >
             @forelse ($artists as $artist )
                 <option 
@@ -56,7 +56,7 @@
              name="art_work_category_id" 
              containerClass=" col-12 col-md-4" 
              label="Artwork Category"
-             requiered="required"
+             required="required"
              >
              @forelse ($artWorkCategories as $category )
                  <option 
@@ -104,12 +104,26 @@
             required="required"
             />
             {{-- Currency    --}}
-            <x-utils.inputs.input 
-            containerClass=" col-12 col-md-4" 
-            name="currency" 
-            label="Currency"
-            required="required"
-            />
+            <x-utils.inputs.select  
+             name="currency" 
+             containerClass="col-12 col-md-4" 
+             label="Currency"
+             required="required"
+             >
+                <option 
+                value="mmk" 
+                {{old('art_work_category_id') == $category->id?"selected":""}}
+                >
+                    MMK
+                </option>
+
+                <option 
+                value="usd" 
+                {{old('art_work_category_id') == $category->id?"selected":""}}
+                >
+                    USD
+                </option>
+            </x-utils.inputs.select>
             {{-- ArtWork created year    --}}   
             <x-utils.inputs.input 
             containerClass=" col-12 col-md-4" 

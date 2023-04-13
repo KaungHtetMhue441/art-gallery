@@ -119,6 +119,27 @@
             required="required"
             />
             {{-- Currency    --}}
+            <x-utils.inputs.select  
+             name="currency" 
+             containerClass="col-12 col-md-4" 
+             label="Currency"
+             required="required"
+             >
+                <option 
+                value="mmk" 
+                {{$artWork->currency == 'mmk' ? "selected" : ""}}
+                >
+                    MMK
+                </option>
+
+                <option 
+                value="usd" 
+                {{$artWork->currency == 'usd' ? "selected" : ""}}
+                >
+                    USD
+                </option>
+            </x-utils.inputs.select>
+
             <x-utils.inputs.input 
             containerClass=" col-12 col-md-4" 
             name="currency" 

@@ -11,6 +11,8 @@ use App\ArtGallery\ArtWorks\Repositories\ArtWorksRepository;
 use App\ArtGallery\Exhibitions\Repositories\ExhibitionRepository;
 use App\ArtGallery\Users\Repositories\Interfaces\UserRepositoryInterface;
 use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use App\ArtGallery\ArtistTypes\Repositories\ArtistTypeRepository;
+use App\ArtGallery\ArtistTypes\Repositories\interfaces\ArtistTypeRepositoryInterface;
 use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 use App\ArtGallery\ImageSlider\Repositories\ImageSliderRepository;
@@ -58,6 +60,12 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ImageSliderRepositoryInterface::class,
             ImageSliderRepository::class
+        );
+
+        //For ArtistTypes
+        $this->app->bind(
+            ArtistTypeRepositoryInterface::class,
+            ArtistTypeRepository::class
         );
     }
 
