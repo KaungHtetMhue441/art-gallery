@@ -14,6 +14,7 @@ class ExhibitionCreateRequest extends BaseFormRequest
     public function rules()
     {
         return [
+            'user_id'=>'required',
             'title_mm'=>'string|required',
             'title_en'=>'string|required',
             'description_mm'=>'string|required',

@@ -4,10 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-use Database\Seeders\Artists\ArtistSeeder;
-use Database\Seeders\ArtistTypes\ArtistTypeSeeder;
-use Database\Seeders\Regions\RegionSeeder;
 use Illuminate\Database\Seeder;
+use Database\Seeders\Artists\ArtistSeeder;
+use Database\Seeders\BlogCategoriesSeeder;
+use Database\Seeders\Regions\RegionSeeder;
+use Database\Seeders\ArtistTypes\ArtistTypeSeeder;
+use Database\Seeders\ArtWorkCategories\ArtWorkCategorySeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,9 +21,13 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            RegionSeeder::class,
-            ArtistTypeSeeder::class,
-            ArtistSeeder::class
+            ArtWorkCategorySeeder::class,
+            BlogCategoriesSeeder::class
         ]);
+        // $this->call([
+        //     RegionSeeder::class,
+        //     ArtistTypeSeeder::class,
+        //     ArtistSeeder::class
+        // ]);
     }
 }

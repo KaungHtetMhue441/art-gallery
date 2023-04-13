@@ -3,9 +3,9 @@
 namespace App\ArtGallery\Artists\Repositories;
 
 use App\ArtGallery\Artists\Artist;
+use Illuminate\Pagination\LengthAwarePaginator;
 use App\ArtGallery\Artists\Exceptions\ArtistCreateFailException;
 use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
-use Illuminate\Support\Collection;
 
 class ArtistsRepository implements ArtistsRepositoryInterface
 {
@@ -13,9 +13,26 @@ class ArtistsRepository implements ArtistsRepositoryInterface
      * Get all artists
      * @return Collection
      */
-     public function getAll() :Collection
+     public function getAll() :LengthAwarePaginator
      {
-        return Artist::all();
+         $artists = Artist::with('artistType','region');
+
+         if(request('name'))
+         {
+            $artists->where('name','like','%'.request('name').'%');
+         }
+
+         if(request('artist_type'))
+         {
+            $artists->where('name','like','%'.request('name').'%');
+         }
+         
+         if(request('region'))
+         {
+            $artists->where('name','like','%'.request('name').'%');
+         }
+         
+         return $artists->paginate(10);
      }
    /**
      * Get all artists
@@ -23,10 +40,7 @@ class ArtistsRepository implements ArtistsRepositoryInterface
      */
      public function store($artist) :Artist
      {
-         $artist = Artist::create($artist);
-        //  $artist = '';
-         throw_if(!$artist,ArtistCreateFailException::class);
-         return $artist;
+        return Artist::create($artist);
      }
-
+     
 }

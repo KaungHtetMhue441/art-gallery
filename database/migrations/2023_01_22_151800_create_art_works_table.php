@@ -49,7 +49,7 @@ return new class extends Migration
             $table->string('cover_photo')
                 ->comment('Artwork Cover Image');
 
-            $table->text('images')
+            $table->longText('images')
                 ->comment('Artwork Other Images');
 
             $table->timestamps();

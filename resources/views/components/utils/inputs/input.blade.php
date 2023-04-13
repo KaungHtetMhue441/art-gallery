@@ -2,7 +2,10 @@
     "name"=>"",
     "label"=>"",
     "required"=>"", 
-    "containerClass"
+    "containerClass"=>"",
+    "placeholder"=>"",
+    'value'=>'',
+    'type'=>'text'
 ])
 @php
     if($required){
@@ -17,11 +20,15 @@
                 {!!$label!!}
 
         </label>
-        <input  type="text" 
+        <input  type="{{$type}}" 
                 class="form-control form-control-lg rounded" 
                 id="{{$name}}"  
                 name="{{$name}}"
+                value="{{old($name,$value)}}"
                 {{$required}}
         />
     </div>
+    @error($name)
+        <span class="text-danger">{{$message}}</span>
+    @enderror
 </div>

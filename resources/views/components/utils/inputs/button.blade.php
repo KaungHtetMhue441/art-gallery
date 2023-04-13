@@ -1,7 +1,9 @@
 @props([
     "name"=>"Create",
-    "containerClass"=>""
+    "containerClass"=>"",
+    "btnClass"=>"",
+    "icon"=>"fa-floppy-disk"
 ])
-<div class="containerClass">
-    <button type="submit" class="btn btn-lg btn-outline-primary"><i class="fa-solid fa-floppy-disk"></i> {{$name}}</button>
+<div class="{{$containerClass}}">
+    <button type="submit" class="btn btn-lg btn-outline-primary {{$btnClass}} shadow"><i class="fa-solid {{$icon}}"></i> {{$name}}</button>
 </div>

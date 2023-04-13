@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\ArtGallery\Artists\Artist;
+use App\ArtGallery\ArtWorks\ArtWork;
+use App\Http\Controllers\Controller;
+use App\ArtGallery\ArtWorkCategories\ArtWorkCategory;
+use App\ArtGallery\ArtWorks\Repositories\ArtWorksRepository;
 
 class ArtWorkPageController extends Controller
 {
@@ -11,6 +15,7 @@ class ArtWorkPageController extends Controller
      * Create a new controller instance.
      */
     public function __construct(
+        private ArtWorksRepository $artWorksRepository
     )
     {
         //
@@ -22,13 +27,16 @@ class ArtWorkPageController extends Controller
      * @return mixed
      */
     public function index(
-        Request $request
     )
     {
-        $artworks = $this->getTempData();
 
+        $artists = Artist::all();
+        $categories = ArtWorkCategory::all();
+        $artworks = $this->artWorksRepository->getAll();
         return view('pages.client.art-works.index', [
-            "artworks" => $artworks
+            "artworks" => $artworks,
+            "artists" => $artists,
+            "categories" => $categories
         ]);
     }
 
@@ -38,37 +46,10 @@ class ArtWorkPageController extends Controller
      * @return mixed
      */
     public function show(
-        Request $request
+        ArtWork $artwork
     )
     {
-        $artworks = $this->getTempData();
-
-        $artwork = (object) [
-            "id" => 1,
-            "category" => (object) [
-                "name" => "Category"
-            ],
-            "artist" => (object) [
-                "name" => "Artist 1"
-            ],
-            "title" => "Artwork 1",
-            "size" => "40 x 40 cm",
-            "medium" => "Oil",
-            "material" => "Canvas",
-            "price" => 100.00,
-            "currency" => "usd",
-            "year" => 2022,
-            "description" => "It's summer, my feet in a pink water, I do nothing, a sweet moment of joy. 
-            This piece is one the middle-slightly larger paintings from my collection. I used oil paint in thin layers, applied by paintbrushes and also by fingers and hands, thanks to that there is an illusion of transparent water and also the structure of a canvas is well distinguishable. The feet are strongly pronounced thanks to the sharp lines and dark colours.",
-            "cover_photo" => "https://mdbcdn.b-cdn.net/img/new/slides/017.webp",
-            "images" => [
-                "https://mdbcdn.b-cdn.net/img/new/slides/011.webp",
-                "https://mdbcdn.b-cdn.net/img/new/slides/012.webp",
-                "https://mdbcdn.b-cdn.net/img/new/slides/013.webp",
-                "https://picsum.photos/200/300",
-            ]
-        ];
-
+        $artworks = $this->artWorksRepository->getAll();
         return view('pages.client.art-works.detail', [
             "artworks" => $artworks,
             "artwork" => $artwork

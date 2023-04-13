@@ -3,6 +3,7 @@
 namespace App\ArtGallery\Artists;
 
 use App\ArtGallery\Regions\Region;
+use App\ArtGallery\ArtWorks\ArtWork;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\ArtGallery\ArtistTypes\ArtistType;
@@ -21,9 +22,18 @@ class Artist extends Model
         'social_url'
     ];
 
+    protected $casts = [
+        "social_url"=>"array"
+    ];
+
     public function artistType()
     {
         return $this->belongsTo(ArtistType::class);
+    }
+
+    public function artWorks()
+    {
+        return $this->hasMany(ArtWork::class);
     }
 
     public function region()
@@ -31,10 +41,16 @@ class Artist extends Model
         return $this->belongsTo(Region::class);
     }
 
-    public function profileImage():Attribute
+    public function getProfileImageUrlAttribute()
+    {
+        return Storage::disk('public')->url('/artists/'.$this->profile_image);
+    }
+
+    public function socialUrl():Attribute
     {
         return Attribute::make(
-            get:fn($value) => Storage::disk('public')->url('images/artists/'.$value)
+            set:fn($value) => json_encode(explode(',',trim($value))),
+            get:fn($value) => json_decode($value)
         );
     }
 }
