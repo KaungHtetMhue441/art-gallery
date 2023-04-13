@@ -1,19 +1,19 @@
 
-<x-layouts.admin title="Artist Type">
+<x-layouts.admin title="Artwork Categories">
     <x-utils.errors errors="{{join(',',$errors->all())}}"></x-utils.errors>
-    <x-utils.card title="Artist Type Create Form">
+    <x-utils.card title="Artwork Categories Create Form">
 
       <x-utils.inputs.form  
-      action="{{route('admin.artist-types.store')}}" 
+      action="{{route('admin.artwork-categories.store')}}" 
       method="post" 
       class="row g-3"
       >
 
-      {{-- Artist Type Name --}}
+      {{-- Artwork Category Name --}}
       <x-utils.inputs.input 
         containerClass="col-12" 
         name="name" 
-        label="Artist Type Name"
+        label="Artwork Category Name"
         required="required"
       />
 

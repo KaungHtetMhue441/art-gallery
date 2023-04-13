@@ -1,21 +1,21 @@
 
-<x-layouts.admin title="Artist Type">
-  <x-utils.card title="Artist Type Edit Form">
+<x-layouts.admin title="Artwork Categories">
+  <x-utils.card title="Artwork Categories Edit Form">
 
     <x-utils.inputs.form  
-    action="{{route('admin.artist-types.update', $artistType->id)}}" 
+    action="{{route('admin.artwork-categories.update', $artworkCategory->id)}}" 
     method="POST" 
     class="row g-3"
   >
     @method('PUT')
 
-    {{-- Artist Type Name --}}
+    {{-- Artwork Category Name --}}
     <x-utils.inputs.input 
         containerClass="col-12" 
         name="name" 
-        label="Artist Type Name"
+        label="Artwork Category Name"
         required="required"
-        :value="$artistType->name"
+        :value="$artworkCategory->name"
       />
     
     @foreach ($errors->all() as $error )

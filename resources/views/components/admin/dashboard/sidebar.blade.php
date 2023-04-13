@@ -35,6 +35,11 @@
             'uri'=>route('admin.artist-types.index'),
             'icon'=>'fa-solid fa-image'
         ],    
+        [
+            'name'=>"Artwork Categories",
+            'uri'=>route('admin.artwork-categories.index'),
+            'icon'=>'fa-solid fa-image'
+        ],    
     ]
 ])
 
