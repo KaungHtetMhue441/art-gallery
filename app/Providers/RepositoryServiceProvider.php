@@ -13,6 +13,8 @@ use App\ArtGallery\Users\Repositories\Interfaces\UserRepositoryInterface;
 use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
 use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
+use App\ArtGallery\ImageSlider\Repositories\ImageSliderRepository;
+use App\ArtGallery\ImageSlider\Repositories\interfaces\ImageSliderRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -50,6 +52,12 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             BlogRepositoryInterface::class,
             BlogRepository::class
+        );
+
+        //For ImageSlider
+        $this->app->bind(
+            ImageSliderRepositoryInterface::class,
+            ImageSliderRepository::class
         );
     }
 

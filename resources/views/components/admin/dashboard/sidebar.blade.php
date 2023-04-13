@@ -24,7 +24,12 @@
             'name'=>"Blogs",
             'uri'=>route('admin.blog.index'),
             'icon'=>'fa-solid fa-paintbrush'
-        ]    
+        ],    
+        [
+            'name'=>"Slider",
+            'uri'=>route('admin.image-slider.index'),
+            'icon'=>'fa-solid fa-image'
+        ],    
     ]
 ])
 

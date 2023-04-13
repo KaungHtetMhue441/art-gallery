@@ -9,9 +9,7 @@ use App\ArtGallery\Regions\Region;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\ArtGallery\ArtistTypes\ArtistType;
-use function PHPUnit\Framework\throwException;
 use App\ArtGallery\Artists\Requests\ArtistCreateRequest;
-use App\ArtGallery\Artists\Exceptions\ArtistCreateFailException;
 use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
 use App\ArtGallery\Artists\Requests\ArtistUpdateRequest;
 

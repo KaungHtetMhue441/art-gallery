@@ -1,6 +1,6 @@
 <x-layouts.app>
     <x-slot name="header">
-        <title>Blogs</title>
+        <title>ArtWorks</title>
     </x-slot>
 
     <div class="container">
