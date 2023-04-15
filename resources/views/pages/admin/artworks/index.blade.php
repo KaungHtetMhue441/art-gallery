@@ -77,16 +77,16 @@
 
                             </td>
                             <td>
-                                {{$artWork->art_work_category_id}}
+                                {{$artWork->category->name}}
                             </td>
                             <td>
                                 {{$artWork->size}}
                             </td>
                             <td>
-                                {{$artWork->medium}}
+                                {{$artWork->medium->name}}
                             </td>
                             <td>
-                                {{$artWork->material}}
+                                {{$artWork->material->name}}
                             </td>
                             <td>
                                 {{$artWork->price}}

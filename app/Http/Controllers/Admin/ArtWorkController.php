@@ -59,8 +59,8 @@ class ArtWorkController extends Controller
     public function store(ArtWorkStoreRequest $request)
     {
         try{
-            
             $validated = $request->validated();
+
             $validated['cover_photo'] = $this->uploadCoverPhoto($request->file('cover_photo'));
             $validated['images'] = $this->uploadImages($request);
             $this->artWorksRepository->store($validated);

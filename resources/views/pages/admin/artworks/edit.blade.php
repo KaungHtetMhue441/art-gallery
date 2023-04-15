@@ -157,14 +157,6 @@
                     USD
                 </option>
             </x-utils.inputs.select>
-
-            <x-utils.inputs.input 
-            containerClass=" col-12 col-md-4" 
-            name="currency" 
-            label="Currency"
-            value="{{$artWork->currency}}"
-            required="required"
-            />
             {{-- ArtWork created year    --}}   
             <x-utils.inputs.input 
             containerClass=" col-12 col-md-4" 

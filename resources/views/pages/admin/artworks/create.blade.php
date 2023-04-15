@@ -132,14 +132,14 @@
              >
                 <option 
                 value="mmk" 
-                {{old('art_work_category_id') == $category->id?"selected":""}}
+                {{old('currency') == 'mmk'?"selected":""}}
                 >
                     MMK
                 </option>
 
                 <option 
                 value="usd" 
-                {{old('art_work_category_id') == $category->id?"selected":""}}
+                {{old('currency') == 'usd'?"selected":""}}
                 >
                     USD
                 </option>

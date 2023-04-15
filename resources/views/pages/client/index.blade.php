@@ -11,7 +11,7 @@
         Learn about what motivates us in our <a href="#">about us</a> page!</p>
     </section>
 
-    <x-client.home.grid-style-one.grid />
+    <x-client.home.grid-style-one.grid :artworks="$artworks" />
 
     <x-client.home.grid-style-two.grid />
 
