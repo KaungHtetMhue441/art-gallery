@@ -6,10 +6,14 @@ use Throwable;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\ArtGallery\Artists\Artist;
+use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
 use App\ArtGallery\ArtWorks\ArtWork;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\ArtGallery\ArtWorkCategories\ArtWorkCategory;
+use App\ArtGallery\ArtWorkCategories\Repositories\interfaces\ArtWorkCategoryRepositoryInterface;
+use App\ArtGallery\ArtWorkMaterial\Repositories\interfaces\ArtWorkMaterialRepositoryInterface;
+use App\ArtGallery\ArtWorkMedium\Repositories\interfaces\ArtWorkMediumRepositoryInterface;
 use App\ArtGallery\ArtWorks\Requests\ArtWorkStoreRequest;
 use App\ArtGallery\ArtWorks\Requests\ArtWorkUpdateRequest;
 use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
@@ -26,10 +30,14 @@ class ArtWorkController extends Controller
      */
 
     public function __construct(
-        private ArtWorksRepositoryInterface $artWorksRepository
+        private ArtWorksRepositoryInterface $artWorksRepository,
+        private ArtistsRepositoryInterface $artistRepo,
+        private ArtWorkCategoryRepositoryInterface $artWorkCategoryRepo,
+        private ArtWorkMaterialRepositoryInterface $artWorkMaterialRepo,
+        private ArtWorkMediumRepositoryInterface $artWorkMediumRepo
     )
     {
-        
+        //
     }
 
     public function index()
@@ -40,16 +48,19 @@ class ArtWorkController extends Controller
 
     public function create()
     {
-        $this->datas['artists'] = Artist::all();
-        $this->datas['artWorkCategories'] = ArtWorkCategory::all();
+        $this->datas['artists'] = $this->artistRepo->getAll();
+        $this->datas['artWorkCategories'] = $this->artWorkCategoryRepo->getAll();
+        $this->datas['artWorkMaterials'] = $this->artWorkMaterialRepo->getAll();
+        $this->datas['artWorkMediums'] = $this->artWorkMediumRepo->getAll();
+
         return view($this->viewPath.'create',$this->datas);
     }
 
     public function store(ArtWorkStoreRequest $request)
     {
         try{
-            
             $validated = $request->validated();
+
             $validated['cover_photo'] = $this->uploadCoverPhoto($request->file('cover_photo'));
             $validated['images'] = $this->uploadImages($request);
             $this->artWorksRepository->store($validated);
@@ -65,9 +76,12 @@ class ArtWorkController extends Controller
 
     public function edit(ArtWork $artWork)
     {
-        $this->datas['artists'] = Artist::all();
-        $this->datas['artWorkCategories'] = ArtWorkCategory::all();
+        $this->datas['artists'] = $this->artistRepo->getAll();
+        $this->datas['artWorkCategories'] = $this->artWorkCategoryRepo->getAll();
+        $this->datas['artWorkMaterials'] = $this->artWorkMaterialRepo->getAll();
+        $this->datas['artWorkMediums'] = $this->artWorkMediumRepo->getAll();
         $this->datas['artWork'] = $artWork;
+
         return view($this->viewPath.'edit',$this->datas);
     }
 

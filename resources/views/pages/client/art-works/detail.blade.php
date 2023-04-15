@@ -15,8 +15,8 @@
                         <p class="m-0 mb-2">{{ $artwork->category->name }}</p>
 
                         <p class="m-0 mb-1">Size : {{ $artwork->size }}</p>
-                        <p class="m-0 mb-1">medium : {{ $artwork->medium }}</p>
-                        <p class="m-0 mb-1">material : {{ $artwork->material }}</p>
+                        <p class="m-0 mb-1">medium : {{ $artwork->medium->name }}</p>
+                        <p class="m-0 mb-1">material : {{ $artwork->material->name }}</p>
                         <p class="m-0 mb-1">price : {{ $artwork->price }} {{ $artwork->currency }} </p>
                         <p class="m-0 mb-1">year : {{ $artwork->year }}</p>
                     </div>

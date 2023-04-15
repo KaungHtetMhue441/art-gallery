@@ -15,11 +15,11 @@ class ArtWorkStoreRequest extends BaseFormRequest
     {
         return [
             'art_work_category_id'=>'required|integer',
-            'artist_id'=>'required|integer',
+            'artist_id'=>'required|exists:artists,id',
             'title'=>'required|string',
             'size'=>'required|string',
-            'medium'=>'required|',
-            'material'=>'required|',
+            'art_work_medium_id'=>'required|exists:art_work_media,id',
+            'art_work_material_id'=>'required|exists:art_work_materials,id',
             'price'=>'required|',
             'currency'=>'required|',
             'year'=>'required|',

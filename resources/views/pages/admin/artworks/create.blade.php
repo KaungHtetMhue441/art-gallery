@@ -39,7 +39,7 @@
             name="artist_id" 
             containerClass=" col-12 col-md-4" 
             label="Artist"
-            requiered="required"
+            required="required"
             >
             @forelse ($artists as $artist )
                 <option 
@@ -56,7 +56,7 @@
              name="art_work_category_id" 
              containerClass=" col-12 col-md-4" 
              label="Artwork Category"
-             requiered="required"
+             required="required"
              >
              @forelse ($artWorkCategories as $category )
                  <option 
@@ -83,19 +83,39 @@
             required="required"
             />
             {{-- Medium    --}}
-            <x-utils.inputs.input 
-            containerClass=" col-12 col-md-4" 
-            name="medium" 
-            label="Medium"
-            required="required"
-            />
+            <x-utils.inputs.select  
+             name="art_work_medium_id" 
+             containerClass=" col-12 col-md-4" 
+             label="Artwork Medium"
+             required="required"
+             >
+             @forelse ($artWorkMediums as $medium)
+                 <option 
+                 value="{{$medium->id}}" 
+                 {{old('art_work_medium_id') == $medium->id ? "selected" : ""}}
+                 >
+                 {{$medium->name}}
+                 </option>
+                 @empty
+             @endforelse
+             </x-utils.inputs.select>
             {{-- Material    --}}
-            <x-utils.inputs.input 
-            containerClass=" col-12 col-md-4" 
-            name="material" 
-            label="Material"
-            required="required"
-            />
+            <x-utils.inputs.select  
+             name="art_work_material_id" 
+             containerClass=" col-12 col-md-4" 
+             label="Artwork Material"
+             required="required"
+             >
+             @forelse ($artWorkMaterials as $material)
+                 <option 
+                 value="{{$material->id}}" 
+                 {{old('art_work_material_id') == $material->id ?"selected" : ""}}
+                 >
+                 {{$material->name}}
+                 </option>
+                 @empty
+             @endforelse
+             </x-utils.inputs.select>
             {{-- Price    --}}
             <x-utils.inputs.input 
             containerClass=" col-12 col-md-4" 
@@ -104,12 +124,26 @@
             required="required"
             />
             {{-- Currency    --}}
-            <x-utils.inputs.input 
-            containerClass=" col-12 col-md-4" 
-            name="currency" 
-            label="Currency"
-            required="required"
-            />
+            <x-utils.inputs.select  
+             name="currency" 
+             containerClass="col-12 col-md-4" 
+             label="Currency"
+             required="required"
+             >
+                <option 
+                value="mmk" 
+                {{old('currency') == 'mmk'?"selected":""}}
+                >
+                    MMK
+                </option>
+
+                <option 
+                value="usd" 
+                {{old('currency') == 'usd'?"selected":""}}
+                >
+                    USD
+                </option>
+            </x-utils.inputs.select>
             {{-- ArtWork created year    --}}   
             <x-utils.inputs.input 
             containerClass=" col-12 col-md-4" 

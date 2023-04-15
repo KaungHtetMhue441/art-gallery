@@ -22,8 +22,30 @@
                         @foreach ($categories as $category)
                             <option 
                                 value="{{$category->id}}" 
-                                {{request('category')==$category->id?"selected":""}}>
+                                {{request('category')==$category->id ? "selected" : ""}}>
                                 {{$category->name}}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <select class="form-control mb-3" name="material">
+                        <option value="" disabled selected>Choose Material</option>
+                        @foreach ($materials as $material)
+                            <option 
+                                value="{{$material->id}}" 
+                                {{request('material') == $material->id ? "selected" : ""}}>
+                                {{$material->name}}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <select class="form-control mb-3" name="medium">
+                        <option value="" disabled selected>Choose Medium</option>
+                        @foreach ($mediums as $medium)
+                            <option 
+                                value="{{$medium->id}}" 
+                                {{request('medium') == $medium->id ? "selected" : ""}}>
+                                {{$medium->name}}
                             </option>
                         @endforeach
                     </select>
@@ -38,7 +60,7 @@
                     <input 
                     class="form-control mb-3" 
                     type="text" name="price" 
-                    value="{{request('size')}}"
+                    value="{{request('price')}}"
                     placeholder="Price"
                     >
 
@@ -49,6 +71,7 @@
                     </select>
 
                     <button type="submit" class="btn btn-md btn-primary">Search</button>
+                    <a class="btn btn-md btn-primary" href="{{route('artWorks.index')}}">All</a>
                 </form>
             </div>
             <div class="col-lg-9">

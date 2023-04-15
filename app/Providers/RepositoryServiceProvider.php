@@ -11,6 +11,14 @@ use App\ArtGallery\ArtWorks\Repositories\ArtWorksRepository;
 use App\ArtGallery\Exhibitions\Repositories\ExhibitionRepository;
 use App\ArtGallery\Users\Repositories\Interfaces\UserRepositoryInterface;
 use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use App\ArtGallery\ArtistTypes\Repositories\ArtistTypeRepository;
+use App\ArtGallery\ArtistTypes\Repositories\interfaces\ArtistTypeRepositoryInterface;
+use App\ArtGallery\ArtWorkCategories\Repositories\ArtWorkCategoryRepository;
+use App\ArtGallery\ArtWorkCategories\Repositories\interfaces\ArtWorkCategoryRepositoryInterface;
+use App\ArtGallery\ArtWorkMaterial\Repositories\ArtWorkMaterialRepository;
+use App\ArtGallery\ArtWorkMaterial\Repositories\interfaces\ArtWorkMaterialRepositoryInterface;
+use App\ArtGallery\ArtWorkMedium\Repositories\ArtWorkMediumRepository;
+use App\ArtGallery\ArtWorkMedium\Repositories\interfaces\ArtWorkMediumRepositoryInterface;
 use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 use App\ArtGallery\Exhibitions\Repositories\interfaces\ExhibitionsRepositoryInterface;
 use App\ArtGallery\ImageSlider\Repositories\ImageSliderRepository;
@@ -58,6 +66,30 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ImageSliderRepositoryInterface::class,
             ImageSliderRepository::class
+        );
+
+        //For ArtistTypes
+        $this->app->bind(
+            ArtistTypeRepositoryInterface::class,
+            ArtistTypeRepository::class
+        );
+
+        //For ArtworkCategory
+        $this->app->bind(
+            ArtWorkCategoryRepositoryInterface::class,
+            ArtWorkCategoryRepository::class
+        );
+
+        //For ArtworkMedium
+        $this->app->bind(
+            ArtWorkMediumRepositoryInterface::class,
+            ArtWorkMediumRepository::class
+        );
+
+        //For ArtworkMaterial
+        $this->app->bind(
+            ArtWorkMaterialRepositoryInterface::class,
+            ArtWorkMaterialRepository::class
         );
     }
 
