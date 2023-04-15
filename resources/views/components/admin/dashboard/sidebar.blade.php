@@ -40,6 +40,16 @@
             'uri'=>route('admin.artwork-categories.index'),
             'icon'=>'fa-solid fa-image'
         ],    
+        [
+            'name'=>"Artwork Mediums",
+            'uri'=>route('admin.artwork-mediums.index'),
+            'icon'=>'fa-solid fa-image'
+        ],    
+        [
+            'name'=>"Artwork Materials",
+            'uri'=>route('admin.artwork-materials.index'),
+            'icon'=>'fa-solid fa-image'
+        ],    
     ]
 ])
 

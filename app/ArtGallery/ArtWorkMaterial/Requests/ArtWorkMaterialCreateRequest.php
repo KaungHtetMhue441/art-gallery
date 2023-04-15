@@ -1,10 +1,10 @@
 <?php
 
-namespace App\ArtGallery\ArtWorkCategories\Requests;
+namespace App\ArtGallery\ArtWorkMaterial\Requests;
 
 use App\ArtGallery\Base\BaseFormRequest;
 
-class ArtWorkCategoryCreateRequest extends BaseFormRequest
+class ArtWorkMaterialCreateRequest extends BaseFormRequest
 {
     /**
      * Get the validation rules that apply to the request.

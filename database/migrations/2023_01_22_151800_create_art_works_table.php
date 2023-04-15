@@ -28,11 +28,11 @@ return new class extends Migration
             $table->string('size')
                 ->comment('Artwork Size');
 
-            $table->string('medium')
-                ->comment('Artwork Medium');
+            $table->foreignId('art_work_medium_id')
+                ->comment('Artwork Medium Id');
 
-            $table->string('material')
-                ->comment('Artwork Material');
+            $table->foreignId('art_work_material_id')
+                ->comment('Artwork Material Id');
 
             $table->decimal('price', 12, 2)
                 ->comment('Artwork Price');
