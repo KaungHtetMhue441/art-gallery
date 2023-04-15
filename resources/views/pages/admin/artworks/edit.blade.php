@@ -95,21 +95,39 @@
             required="required"
             />
             {{-- Medium    --}}
-            <x-utils.inputs.input 
-            containerClass=" col-12 col-md-4" 
-            name="medium" 
-            label="Medium"
-            value="{{$artWork->medium}}"
-            required="required"
-            />
+            <x-utils.inputs.select  
+             name="art_work_medium_id" 
+             containerClass=" col-12 col-md-4" 
+             label="Artwork Medium"
+             required="required"
+             >
+             @forelse ($artWorkMediums as $medium)
+                 <option 
+                 value="{{$medium->id}}" 
+                 {{$artWork->art_work_medium_id == $medium->id ? "selected" : ""}}
+                 >
+                 {{$medium->name}}
+                 </option>
+                 @empty
+             @endforelse
+             </x-utils.inputs.select>
             {{-- Material    --}}
-            <x-utils.inputs.input 
-            containerClass=" col-12 col-md-4" 
-            name="material" 
-            label="Material"
-            value="{{$artWork->material}}"
-            required="required"
-            />
+            <x-utils.inputs.select  
+             name="art_work_material_id" 
+             containerClass=" col-12 col-md-4" 
+             label="Artwork Material"
+             required="required"
+             >
+             @forelse ($artWorkMaterials as $material)
+                 <option 
+                 value="{{$material->id}}" 
+                 {{$artWork->art_work_material_id == $material->id ? "selected" : ""}}
+                 >
+                 {{$material->name}}
+                 </option>
+                 @empty
+             @endforelse
+             </x-utils.inputs.select>
             {{-- Price    --}}
             <x-utils.inputs.input 
             containerClass=" col-12 col-md-4" 
