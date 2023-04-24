@@ -11,7 +11,7 @@
     <x-utils.card title="Artist Create Form">
       <div class="col-12">
         <div class="profile-container rounded-circle border border-cyan shadow shadow-2xl mx-auto mb-3 overflow-hidden">
-          <img  src="{{asset('assets/images/person-placeholder.png')}}" id='profile_image_placeholder' class="w-100" alt="">
+          <img  src="{{asset('assets/images/person-placeholder.png')}}" id='profile_image_placeholder' class="w-100" alt="default-profile-image">
         </div>
       </div>
 

@@ -15,7 +15,24 @@ class ArtistsRepository implements ArtistsRepositoryInterface
      */
      public function getAll() :LengthAwarePaginator
      {
-        return Artist::with('artistType','region')->paginate(10);
+         $artists = Artist::with('artistType','region');
+
+         if(request('name'))
+         {
+            $artists->where('name','like','%'.request('name').'%');
+         }
+
+         if(request('artist_type'))
+         {
+            $artists->where('name','like','%'.request('name').'%');
+         }
+         
+         if(request('region'))
+         {
+            $artists->where('name','like','%'.request('name').'%');
+         }
+         
+         return $artists->paginate(10);
      }
    /**
      * Get all artists
@@ -25,5 +42,5 @@ class ArtistsRepository implements ArtistsRepositoryInterface
      {
         return Artist::create($artist);
      }
-
+     
 }

@@ -3,6 +3,7 @@
 namespace App\ArtGallery\Artists;
 
 use App\ArtGallery\Regions\Region;
+use App\ArtGallery\ArtWorks\ArtWork;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use App\ArtGallery\ArtistTypes\ArtistType;
@@ -28,6 +29,11 @@ class Artist extends Model
     public function artistType()
     {
         return $this->belongsTo(ArtistType::class);
+    }
+
+    public function artWorks()
+    {
+        return $this->hasMany(ArtWork::class);
     }
 
     public function region()

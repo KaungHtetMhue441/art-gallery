@@ -17,10 +17,17 @@
 
     <!-- Google Fonts -->
     <link href="{{asset('assets/libs/google-font/google-font.min.css')}}" rel="stylesheet" />
+    
     <!-- MDB -->
     <link href="{{asset('assets/libs/mdb/mdb.min.css')}}" rel="stylesheet" />
 
     <link href="{{asset('css/main.css')}}" rel="stylesheet" />
+    
+    {{-- swiper --}}
+    <link href="{{asset('assets/libs/swiper/swiper.css')}}" rel="stylesheet" />
+
+    <!-- Fotorama from CDNJS -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 
     {{ $header }}
 </head>
@@ -33,14 +40,25 @@
     
     <x-client.footer.footer />
 
+    {{-- jquery --}}
     <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
+
     <!-- MDB -->
     <script type="text/javascript" src="{{asset('assets/libs/mdb/mdb.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
+
+    {{-- scrollreveal --}}
     <script type="text/javascript" src="{{asset('assets/libs/scroll.js')}}"></script>
-    <!-- Fotorama from CDNJS, 19 KB -->
-    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    
+    <!-- Fotorama from CDNJS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    
+    {{-- swiper --}}
+    <script type="text/javascript" src="{{asset('assets/libs/swiper/swiper.js')}}"></script>
+    
+    {{-- scrollreveal option --}}
+    <script type="text/javascript" src="{{asset('js/scroll-reveal.js')}}"></script>
+    
+    <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 
     {{ $script }}
 </body>

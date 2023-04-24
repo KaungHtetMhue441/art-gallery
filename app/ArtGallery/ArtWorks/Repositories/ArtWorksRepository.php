@@ -8,11 +8,67 @@ use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 class ArtWorksRepository implements ArtWorksRepositoryInterface
 {
 
-    public function getAll(){
-        return ArtWork::paginate(10);
+    public function getAll($column = ['*'])
+    {
+        $artWorks = ArtWork::select(...$column)->with('artist', 'category');
+
+        if (request('category')) {
+            $artWorks->where('art_work_category_id', request('category'));
+        }
+
+        if (request('artist')) {
+            $artWorks->where('artist_id', 'LIKE', "%" . request('artist') . "%");
+        }
+
+        if (request('title')) {
+            $artWorks->where('title', 'LIKE', "%" . request('title') . "%");
+        }
+
+        if (request('size')) {
+            $artWorks->where('size', 'LIKE', "%" . request('size') . "%");
+        }
+
+        if (request('medium')) {
+            $artWorks->where('art_work_medium_id', request('medium'));
+        }
+
+        if (request('material')) {
+            $artWorks->where('art_work_material_id', request('material'));
+        }
+
+        if (request('price')) {
+            $artWorks->where('price', 'LIKE', "%" . request('price') . "%");
+        }
+
+        if (request('currency')) {
+            $artWorks->where('currency', 'LIKE', "%" . request('currency') . "%");
+        }
+
+        if (request('year')) {
+            $artWorks->where('year', 'LIKE', "%" . request('year') . "%");
+        }
+
+        return $artWorks->paginate(10);
     }
+
     public function store($artWork)
     {
         return ArtWork::create($artWork);
+    }
+
+    public function getRandomByCategory($id, $category, $take = 4)
+    {
+        return ArtWork::where('art_work_category_id', $category)
+            ->where('id', '!=', $id)
+            ->inRandomOrder()
+            ->take($take)
+            ->get();
+    }
+
+    public function getLatest($take = 3, $columns = ['*'])
+    {
+        return ArtWork::latest()
+            ->take($take)
+            ->get($columns);
     }
 }

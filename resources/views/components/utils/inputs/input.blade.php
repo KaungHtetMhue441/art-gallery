@@ -2,7 +2,8 @@
     "name"=>"",
     "label"=>"",
     "required"=>"", 
-    "containerClass",
+    "containerClass"=>"",
+    "placeholder"=>"",
     'value'=>'',
     'type'=>'text'
 ])

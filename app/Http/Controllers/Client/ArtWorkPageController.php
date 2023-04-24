@@ -2,8 +2,16 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\ArtGallery\Artists\Artist;
+use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use App\ArtGallery\ArtWorks\ArtWork;
+use App\Http\Controllers\Controller;
+use App\ArtGallery\ArtWorkCategories\ArtWorkCategory;
+use App\ArtGallery\ArtWorkCategories\Repositories\interfaces\ArtWorkCategoryRepositoryInterface;
+use App\ArtGallery\ArtWorkMaterial\Repositories\interfaces\ArtWorkMaterialRepositoryInterface;
+use App\ArtGallery\ArtWorkMedium\Repositories\interfaces\ArtWorkMediumRepositoryInterface;
+use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 
 class ArtWorkPageController extends Controller
 {
@@ -11,6 +19,11 @@ class ArtWorkPageController extends Controller
      * Create a new controller instance.
      */
     public function __construct(
+        private ArtWorksRepositoryInterface $artWorksRepository,
+        private ArtistsRepositoryInterface $artistRepo,
+        private ArtWorkCategoryRepositoryInterface $artworkCategoryRepo,
+        private ArtWorkMediumRepositoryInterface $artworkMediumRepo,
+        private ArtWorkMaterialRepositoryInterface $artworkMaterialRepo
     )
     {
         //
@@ -22,13 +35,29 @@ class ArtWorkPageController extends Controller
      * @return mixed
      */
     public function index(
-        Request $request
     )
     {
-        $artworks = $this->getTempData();
+
+        $artists = $this->artistRepo->getAll();
+        $categories = $this->artworkCategoryRepo->getAll();
+        $materials = $this->artworkMaterialRepo->getAll();
+        $mediums = $this->artworkMediumRepo->getAll();
+        $artworks = $this->artWorksRepository->getAll([
+            'id',
+            'title',
+            'cover_photo',
+            'price',
+            'currency',
+            'artist_id',
+            'art_work_category_id'
+        ]);
 
         return view('pages.client.art-works.index', [
-            "artworks" => $artworks
+            "artworks" => $artworks,
+            "artists" => $artists,
+            "categories" => $categories,
+            "materials" => $materials,
+            "mediums" => $mediums
         ]);
     }
 
@@ -38,85 +67,14 @@ class ArtWorkPageController extends Controller
      * @return mixed
      */
     public function show(
-        Request $request
+        ArtWork $artwork
     )
     {
-        $artworks = $this->getTempData();
-
-        $artwork = (object) [
-            "id" => 1,
-            "category" => (object) [
-                "name" => "Category"
-            ],
-            "artist" => (object) [
-                "name" => "Artist 1"
-            ],
-            "title" => "Artwork 1",
-            "size" => "40 x 40 cm",
-            "medium" => "Oil",
-            "material" => "Canvas",
-            "price" => 100.00,
-            "currency" => "usd",
-            "year" => 2022,
-            "description" => "It's summer, my feet in a pink water, I do nothing, a sweet moment of joy. 
-            This piece is one the middle-slightly larger paintings from my collection. I used oil paint in thin layers, applied by paintbrushes and also by fingers and hands, thanks to that there is an illusion of transparent water and also the structure of a canvas is well distinguishable. The feet are strongly pronounced thanks to the sharp lines and dark colours.",
-            "cover_photo" => "https://mdbcdn.b-cdn.net/img/new/slides/017.webp",
-            "images" => [
-                "https://mdbcdn.b-cdn.net/img/new/slides/011.webp",
-                "https://mdbcdn.b-cdn.net/img/new/slides/012.webp",
-                "https://mdbcdn.b-cdn.net/img/new/slides/013.webp",
-                "https://picsum.photos/200/300",
-            ]
-        ];
-
+        $artworks = $this->artWorksRepository->getRandomByCategory($artwork->id, $artwork->art_work_category_id);
         return view('pages.client.art-works.detail', [
             "artworks" => $artworks,
             "artwork" => $artwork
         ]);
     }
 
-    private function getTempData()
-    {
-        return [
-            (object) [
-                "id" => 1,
-                "category" => (object) [
-                    "name" => "Category"
-                ],
-                "artist" => (object) [
-                    "name" => "Artist 1"
-                ],
-                "title" => "Artwork 1",
-                "price" => 100.00,
-                "currency" => "usd",
-                "cover_photo" => "https://mdbcdn.b-cdn.net/img/new/slides/017.webp"
-            ],
-            (object) [
-                "id" => 2,
-                "category" => (object) [
-                    "name" => "Category 2"
-                ],
-                "artist" => (object) [
-                    "name" => "Artist 2"
-                ],
-                "title" => "Artwork 2",
-                "price" => 120.00,
-                "currency" => "usd",
-                "cover_photo" => "https://mdbcdn.b-cdn.net/img/new/slides/018.webp"
-            ],
-            (object) [
-                "id" => 3,
-                "category" => (object) [
-                    "name" => "Category 3"
-                ],
-                "artist" => (object) [
-                    "name" => "Artist 3"
-                ],
-                "title" => "Artwork 3",
-                "price" => 100000.00,
-                "currency" => "mmk",
-                "cover_photo" => "https://mdbcdn.b-cdn.net/img/new/slides/019.webp"
-            ],
-        ];
-    }
 }

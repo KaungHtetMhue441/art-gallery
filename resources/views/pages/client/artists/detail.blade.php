@@ -5,12 +5,14 @@
 
     <div class="container">
         <div>
-            <div class="w-100 ratio rounded" style="height : 300px;z-index: -1;">
-                <img class="object-fit-cover rounded" src="{{ $artist->artWorks[0]->cover_photo }}" alt="{{ $artist->artWorks[0]->title }}">
-            </div>
+            @if($artist->artWorks)
+                <div class="w-100 ratio rounded" style="height : 300px;z-index: -1;">
+                    <img class="rounded" style="width: 100%; height: 100%; object-fit : cover" src="{{ $artist->artWorks[0]->cover_photo_url }}" alt="{{ $artist->artWorks[0]->title }}">
+                </div>
+            @endif
             <div class="w-100 d-flex flex-column justify-content-center align-items-center" style="margin-top : -8%;z-index: 20;">
                 <div class="rounded-circle overflow-hidden" style="width : 200px; height : 200px;"> 
-                    <img class="object-fit-cover" width="100%" height="100%" src="{{ $artist->profile_image }}" alt="{{ $artist->name }}">
+                    <img class="object-fit-cover" width="100%" height="100%" src="{{ $artist->profile_image_url }}" alt="{{ $artist->name }}">
                 </div>
                 <h5 class="mt-2 fs-4 text-muted">{{ $artist->name }}</h5>
                 <div>
@@ -21,11 +23,15 @@
                         <span class="badge rounded-pill badge-primary text-capitalize">{{ $artist->region->name }}</span>
                     </a>
                 </div>
-                <div class="mt-2">
-                    <a target="_blank" href="{{ $artist->social_url }}">
-                        <span class="badge rounded-pill badge-primary">Social Link</span>
-                    </a>
-                </div>
+                @forelse ($artist->social_url as $url)
+                    <div class="mt-2">
+                        <a target="_blank" href="{{ $url }}">
+                            <span class="badge rounded-pill badge-primary">Social Link</span>
+                        </a>
+                    </div>
+                @empty
+
+                @endforelse
             </div>
         </div>
 

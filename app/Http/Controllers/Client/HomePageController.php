@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
+use App\ArtGallery\ImageSlider\Repositories\interfaces\ImageSliderRepositoryInterface;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,6 +13,8 @@ class HomePageController extends Controller
      * Create a new controller instance.
      */
     public function __construct(
+        private ImageSliderRepositoryInterface $imageSliderRepository,
+        private ArtWorksRepositoryInterface $artWorkRepo
     )
     {
         //
@@ -26,10 +30,8 @@ class HomePageController extends Controller
     )
     {
         return view('pages.client.index', [
-            "title" => "Test Title",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, facilis?",
-            "url" => "www.google.com",
-            "image" => "https://picsum.photos/200/300"
+            'images' => $this->imageSliderRepository->getAll(),
+            'artworks' => $this->artWorkRepo->getLatest(3)
         ]);
     }
 }

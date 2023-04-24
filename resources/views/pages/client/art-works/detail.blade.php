@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-6 pe-lg-5 mb-3">
-                <x-client.art-works.image-gallery :cover="$artwork->cover_photo" :images="$artwork->images" />
+                <x-client.art-works.image-gallery :cover="$artwork->cover_photo_url" :images="$artwork->images_with_url" />
             </div>
             <div class="col-lg-6 pt-lg-5">
                 <div class="row mb-3">
@@ -15,13 +15,13 @@
                         <p class="m-0 mb-2">{{ $artwork->category->name }}</p>
 
                         <p class="m-0 mb-1">Size : {{ $artwork->size }}</p>
-                        <p class="m-0 mb-1">medium : {{ $artwork->medium }}</p>
-                        <p class="m-0 mb-1">material : {{ $artwork->material }}</p>
+                        <p class="m-0 mb-1">medium : {{ $artwork->medium->name }}</p>
+                        <p class="m-0 mb-1">material : {{ $artwork->material->name }}</p>
                         <p class="m-0 mb-1">price : {{ $artwork->price }} {{ $artwork->currency }} </p>
                         <p class="m-0 mb-1">year : {{ $artwork->year }}</p>
                     </div>
                     <div class="col-md-4 pt-3 pt-md-5 d-flex">
-                        <x-client.artists.rounded-artist-profile :artist="(object) ['id' => 1, 'name' => 'test', 'profile_image' => 'https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp']" size="100px" />
+                        <x-client.artists.rounded-artist-profile :artist="$artwork->artist" size="100px" />
                     </div>
                 </div>
 
