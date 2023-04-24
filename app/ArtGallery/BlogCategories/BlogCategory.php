@@ -2,8 +2,9 @@
 
 namespace App\ArtGallery\BlogCategories;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\ArtGallery\Blogs\Blog;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class BlogCategory extends Model
 {
@@ -12,4 +13,8 @@ class BlogCategory extends Model
     protected $fillable = [
         'name'
     ];
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class);
+    }
 }

@@ -14,6 +14,7 @@ class BlogCreateRequest extends BaseFormRequest
     public function rules()
     {
         return [
+            'user_id'=>'required',
             'blog_category_id'=>'required|integer',
             'title_mm'=>'required|string',
             'title_en'=>'required|string',

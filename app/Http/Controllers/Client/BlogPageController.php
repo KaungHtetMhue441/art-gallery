@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Client;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\ArtGallery\Blogs\Blog;
+use App\Http\Controllers\Controller;
+use App\ArtGallery\Blogs\Repositories\interfaces\BlogRepositoryInterface;
 
 class BlogPageController extends Controller
 {
@@ -11,9 +13,10 @@ class BlogPageController extends Controller
      * Create a new controller instance.
      */
     public function __construct(
+        private BlogRepositoryInterface $blogsRepository
     )
     {
-        //
+        $this->blogsRepository = $blogsRepository;
     }
 
     /**
@@ -25,29 +28,7 @@ class BlogPageController extends Controller
         Request $request
     )
     {
-        $blogs = collect([
-            (object) [
-                'id' => 1,
-                'title_en' => 'Blog 1',
-                'description_en' => 'test description',
-                'slug' => 'blog-1',
-                'cover_photo' => 'https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp',
-            ],
-            (object) [
-                'id' => 2,
-                'title_en' => 'Blog 2',
-                'description_en' => 'test description',
-                'slug' => 'blog-2',
-                'cover_photo' => 'https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp',
-            ],
-            (object) [
-                'id' => 3,
-                'title_en' => 'Blog 3',
-                'description_en' => 'test description',
-                'slug' => 'blog-3',
-                'cover_photo' => 'https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp',
-            ]            
-        ]);
+        $blogs = Blog::paginate(5);
 
         return view('pages.client.blogs.index', [
             "blogs" => $blogs
@@ -59,20 +40,13 @@ class BlogPageController extends Controller
      * 
      * @return mixed
      */
-    public function show(
-        Request $request
-    )
+    public function show($slug)
     {
-        $blog = (object) [
-            'id' => 3,
-            'title_en' => 'Blog 3',
-            'description_en' => 'test description',
-            'slug' => 'blog-3',
-            'cover_photo' => 'https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp',
-        ];
-
+        $blog = $this->blogsRepository->getBySlug($slug);
+        $blogs =$this->blogsRepository->getByCategory($blog->blog_category_id);;
         return view('pages.client.blogs.detail', [
-            "blog" => $blog
+            "blog" => $blog,
+            "blogs"=> $blogs
         ]);
     }
 }
