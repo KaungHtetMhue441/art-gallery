@@ -57,7 +57,7 @@ class UserRepository implements UserRepositoryInterface
      * 
      * @return User
      */
-    public function updateUserById(int $id, array $params): User
+    public function updateUserById(int $id, array $params): bool
     {
         $user = $this->getUserById($id);
 
@@ -79,6 +79,6 @@ class UserRepository implements UserRepositoryInterface
 
         throw_if(!$user->delete(), UserDeleteFailException::class);
 
-        return true;
+        return true;    
     }
 }

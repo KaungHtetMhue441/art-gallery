@@ -15,9 +15,9 @@
                             <div class="col-5 col-md-3 ">
                                 <div class="w-100 preview-image">
                                     <h3 class="text-center"> {{++$loop->index}}</h3>
-                                    <img src="{{asset('storage/blogs'.$url->name)}}" class="w-100">
+                                    <img src="{{asset('storage/blogs/'.$url['name'])}}" class="w-100">
                                 </div>
-                                <h6 class="font-weight-bolder text-active fs-2">{{$url->original_name}}</h6>
+                                <h6 class="font-weight-bolder text-active fs-2">{{$url['original_name']}}</h6>
                             </div>
                             @empty
                         @endforelse

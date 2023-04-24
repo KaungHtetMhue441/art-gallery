@@ -31,7 +31,8 @@ class BlogCreateRequest extends FormRequest
             'description_mm'=>'required|string',
             'description_en'=>'required|string',
             'cover_photo'=>'required|file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
-            //'images.*'=>'file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
+            'images.*'=>'file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
+            'slug'=>'required'
         ];
     }
 }

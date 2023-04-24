@@ -26,6 +26,7 @@
             containerClass="col-12 col-md-6" 
             name="cover_photo" 
             label="Corver Photo"
+            requiered="required"
         />
 
         {{-- Blog's Images    --}}
@@ -85,6 +86,14 @@
             required="required"
         />
 
+        <x-utils.inputs.input 
+            containerClass=" col-6 col-md-6" 
+            name="slug" 
+            label="Slug"
+            required="required"
+        />
+
+        <br>
         {{-- Button   --}}
         <x-utils.inputs.button/>
 

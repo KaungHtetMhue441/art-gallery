@@ -22,8 +22,24 @@ class BlogRepository implements BlogRepositoryInterface
      */
     public function store($blog) :Blog
     {
-      //dd($blog);
        return Blog::create($blog);
+    }
+
+    /**
+     * get blog by slug
+     * 
+     * @param string $slug
+     * 
+     * @return model
+     */
+    public function getBySlug($slug)
+    {
+        return Blog::where('slug', $slug)->first();
+    }
+
+    public function getByCategory($categoryId, $limit = 4)
+    {
+        return Blog::where('blog_category_id', $categoryId)->take($limit)->get();
     }
 
 }

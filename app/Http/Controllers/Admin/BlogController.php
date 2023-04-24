@@ -36,11 +36,10 @@ class BlogController extends Controller
     public function store(BlogCreateRequest $request)
     {
         try{
-          
+            //dd($request);
             $validated = $request->validated();
-            //dd($validated);
             $validated['cover_photo'] = $this->uploadCoverPhoto($request->file('cover_photo'));
-            //$validated['images'] = $this->uploadImages($request);
+            $validated['images'] = $this->uploadImages($request);
             //dd($validated);
             $this->blogsRepository->store($validated);
 
@@ -71,7 +70,9 @@ class BlogController extends Controller
             }
     
             if($request->hasFile('images')){
-                $this->deleteFiles(collect(json_decode($blog->images))->pluck('name'));
+                //dd(json_encode($blog->images));
+                $images =json_encode($blog->images);
+                $this->deleteFiles(collect(json_decode($images))->pluck('name'));
                 $validated['images'] = $this->uploadImages($request);
             }
             
@@ -107,15 +108,14 @@ class BlogController extends Controller
     public function uploadImages($request)
     {
         $images = [];
-        if($images){
+        if($request->file('images')){
             foreach($request->file('images') as $image)
-        {
-            $fileName = $this->getFileName($image);
-            Storage::disk('public')->put('/blogs/'.$fileName,$image->getContent());
-            array_push($images,['original_name'=>$image->getClientOriginalName(),"name"=>$fileName]);
+            {
+                $fileName = $this->getFileName($image);
+                Storage::disk('public')->put('/blogs/'.$fileName,$image->getContent());
+                array_push($images,['original_name'=>$image->getClientOriginalName(),"name"=>$fileName]);
+            }
         }
-        }
-        
         return $images;
     }
     
@@ -131,5 +131,13 @@ class BlogController extends Controller
             {
                 Storage::disk('public')->delete('/blogs/'.$name);
             }
+    } 
+    public function deleteFiles($images)
+    {
+        foreach($images as $image)
+        {
+            $this->deleteSingleFile($image);
+        }
     }
+
 }
