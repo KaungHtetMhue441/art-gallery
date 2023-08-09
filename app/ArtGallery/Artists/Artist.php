@@ -43,7 +43,7 @@ class Artist extends Model
 
     public function getProfileImageUrlAttribute()
     {
-        return Storage::disk('public')->url('/artists/'.$this->profile_image);
+        return'/storage/artists/'.$this->profile_image;
     }
 
     public function socialUrl():Attribute

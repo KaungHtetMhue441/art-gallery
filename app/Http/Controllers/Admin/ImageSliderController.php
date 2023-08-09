@@ -44,7 +44,7 @@ class ImageSliderController extends Controller
     )
     {
         try {
-            $validated = $request->all();
+            $validated = $request->validated();
             $fileName = $this->getFileName($request->file('image'));
             $validated['name'] = $fileName['original_name'];
             $validated['image_url'] = '/storage/image-slider/' . $fileName['url'];

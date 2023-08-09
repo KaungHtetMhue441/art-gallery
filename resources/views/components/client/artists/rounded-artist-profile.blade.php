@@ -2,8 +2,7 @@
     'artist',
     'size' => '200px'
 ])
-
-<div class="col-md-6 col-lg-4 mb-3">
+    <div class="col-md-6 col-lg-4 mb-3">
     <a href="{{ route('artists.show', ['artist' => $artist->id]) }}">
         <div class="w-100 d-flex flex-column justify-content-center align-items-center">
             <div class="rounded-circle overflow-hidden hover-zoom" style="width : {{ $size }}; height : {{ $size }};"> 

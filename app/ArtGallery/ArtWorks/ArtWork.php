@@ -63,14 +63,14 @@ class ArtWork extends Model
     }
 
     public function getCoverPhotoUrlAttribute(){
-        return Storage::disk('public')->url('/artWorks/'.$this->cover_photo);
+        return '/storage/artWorks/'.$this->cover_photo;
     }
 
     public function getImagesWithUrlAttribute()
     {
         $images = collect($this->images)->sortBy('original_name');
         foreach($images as $image){
-            $image->name = Storage::disk('public')->url('/artWorks/'.$image->name);
+            $image->name = '/storage/artWorks/'.$image->name;
         }
         return $images;
     }
