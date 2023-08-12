@@ -1,39 +1,42 @@
 <!-- Navbar -->
-<nav id="nav" style="z-index: 1000" class="navbar navbar-expand-lg shadow-0 bg-light">
+<nav id="nav" style="z-index: 1000" class="navbar navbar-expand-lg pl-3  shadow-sm px-3">
     <!-- Container wrapper -->
-    <div class="container-fluid">
+    {{-- <div class="container-fluid"> --}}
       <!-- Toggle button -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
   
       <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse"   >
         <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="#">
-          <img
-            src="{{ asset('assets/images/logo.png') }}"
-            height="50"
-            alt="MDB Logo"
-            loading="lazy"
-          />
-        </a>
-
-        <x-client.navbar.nav-links />
+        <div class="logo">
+          <a class="navbar-brand  mt-2 mt-lg-0 font-italic" href="#">
+            {{-- <img
+              src="{{ asset('assets/images/logo2.svg') }}"
+              height="50"
+              alt="MDB Logo"
+              loading="lazy"
+            /> --}}
+            Art Gallery
+          </a>
+        </div>
 
       </div>
+      <x-client.navbar.nav-links />
+
+      <button
+      class="navbar-toggler float-end"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
       <!-- Collapsible wrapper -->
   
       <!-- Right elements -->
-      <div class="d-flex align-items-center">
+      {{-- <div class="d-flex align-items-center">  
         <!-- Avatar -->
         <div class="dropdown">
           <p
@@ -57,9 +60,9 @@
             </li>
           </ul>
         </div>
-      </div>
+      </div> --}}
       <!-- Right elements -->
-    </div>
+    {{-- </div>  --}}
     <!-- Container wrapper -->
   </nav>
   <!-- Navbar -->

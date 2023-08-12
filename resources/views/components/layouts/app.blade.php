@@ -60,6 +60,25 @@
     
     <script type="text/javascript" src="{{asset('js/main.js')}}"></script>
 
+    <script type="module">
+        $(".carousel_image").map(function(index,item){
+            if($("body").width()<700){
+                item.width=$("#swiper-wrapper").width();
+                // console.log($("#swiper-wrapper").height)
+                $("#video__section").height($("#swiper-wrapper").height()/1.4);
+
+            }else {
+                // item.height=$("#swiper-wrapper").height()
+            }
+        })
+        window.addEventListener("resize", function(){
+            $(".carousel_image").map(function(index,item){
+            item.height=$("#swiper-wrapper").height()
+        })
+        })
+
+    </script>
+
     {{ $script }}
 </body>
 </html>

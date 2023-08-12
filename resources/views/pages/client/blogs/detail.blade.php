@@ -3,7 +3,7 @@
         <title>Blogs | {{ $blog->title_en }}</title>
     </x-slot>
 
-    <div class="container">
+    <div class="container pt-3  ">
         <div class="w-100 d-flex flex-column justify-content-start align-items-center">
             <div class="ratio ratio-16x9 w-75 d-flex justify-content-center align-items-start p-2 rounded">
                 <img class="object-fit-cover rounded" src="{{asset('storage/blogs/'.$blog->cover_photo)}}" alt="">

@@ -2,15 +2,17 @@
   'images' => []
 ])
 
-<section class="video__section rounded mb-3">
+<section class="video__section rounded mb-3" id="video__section">
 <!-- Slider main container -->
-<div class="swiper">
+<div class="swiper pt-lg-2">
     <!-- Additional required wrapper -->
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper shadow-lg" id="swiper-wrapper">
       <!-- Slides -->
       @foreach ($images as $image)
        <div class="swiper-slide">
-        <img width="100%" height="auto" src="{{ $image->image_url }}" alt="{{ $image->name }}">
+        <center>
+          <img class="carousel_image" src="{{ $image->image_url }}" alt="{{ $image->name }}">
+        </center>
        </div>
       @endforeach
     </div>

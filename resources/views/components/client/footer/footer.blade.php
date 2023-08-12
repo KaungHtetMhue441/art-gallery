@@ -1,5 +1,5 @@
-<div class="mt-auto container-fluid p-0 bg-white shadow">
-    {{-- <div class="row py-2 px-5">
+<div class="mt-auto container-fluid pb-3 shadow" id="footer">
+    <div class="row py-2 px-5">
         <div class="col-lg-3">
             <h5>Follow Us</h5>
             <div>
@@ -32,8 +32,8 @@
                 </div>
             </div>
         </div>
-    </div> --}}
-    <div class="row border-top p-2">
+    </div>
+    <div class="row p-2">
         <p class="text-muted m-0 text-center">
             <small>
                 Copyright © 2023 Khant Art Gallery

@@ -4,7 +4,7 @@
     'summary',
     'slug'
 ])
-<div class="card upreveal hover-shadow">
+<div class="card upreveal hover-shadow cursor-pointer">
     <img src="{{asset('storage/blogs/'.$image)}}" class="card-img-top" alt="Hollywood Sign on The Hill"/>
     <div class="card-body">
       <h5 class="card-title">{{ $title }}</h5>

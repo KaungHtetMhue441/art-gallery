@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Client;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\ArtGallery\Blogs\Repositories\interfaces\BlogRepositoryInterface;
 use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 use App\ArtGallery\ImageSlider\Repositories\interfaces\ImageSliderRepositoryInterface;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
@@ -14,9 +15,9 @@ class HomePageController extends Controller
      */
     public function __construct(
         private ImageSliderRepositoryInterface $imageSliderRepository,
-        private ArtWorksRepositoryInterface $artWorkRepo
-    )
-    {
+        private ArtWorksRepositoryInterface $artWorkRepo,
+        private BlogRepositoryInterface $blogRepo
+    ) {
         //
     }
 
@@ -30,6 +31,7 @@ class HomePageController extends Controller
     )
     {
         return view('pages.client.index', [
+            'blogs' => $this->blogRepo->getAll(),
             'images' => $this->imageSliderRepository->getAll(),
             'artworks' => $this->artWorkRepo->getLatest(3)
         ]);

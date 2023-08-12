@@ -13,7 +13,7 @@
 
     <x-client.home.grid-style-one.grid :artworks="$artworks" />
 
-    <x-client.home.grid-style-two.grid />
+    <x-client.home.grid-style-two.grid :blogs="$blogs"/>
 
     <x-client.home.exhibition.exhibition />
 
