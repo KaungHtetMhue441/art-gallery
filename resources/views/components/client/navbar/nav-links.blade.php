@@ -26,7 +26,8 @@
 <ul class="navbar-nav  me-auto mb-2 mb-lg-0" id="navbarSupportedContent">
   @foreach ($links as $link)
     <li class="nav-item me-lg-5 fs-5">
-      <a class="nav-link font-weight-bolder" href="{{ $link['href'] }}">{{ $link['name'] }}</a>
+      <a class="nav-link font-weight-bolder text-shadow-middle @if(Str::contains(request()->route()->getName(),Str::lcfirst($link['name']))) active-gradient @endif" 
+      href="{{ $link['href'] }}">{{ $link['name'] }}</a>
     </li>
   @endforeach
 </ul>

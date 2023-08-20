@@ -5,13 +5,14 @@
 
     <div class="container">
         <div>
-            @if($artist->artWorks)
-                <div class="w-100 ratio rounded" style="height : 300px;z-index: -1;">
+            {{-- @dd($artist->artWorks) --}}
+            <div class="w-100 ratio rounded" style="height : 300px;z-index: -1;">
+                @if($artist->artWorks->count()>0)
                     <img class="rounded" style="width: 100%; height: 100%; object-fit : cover" src="{{ $artist->artWorks[0]->cover_photo_url }}" alt="{{ $artist->artWorks[0]->title }}">
-                </div>
-            @endif
+                @endif
+            </div>
             <div class="w-100 d-flex flex-column justify-content-center align-items-center" style="margin-top : -8%;z-index: 20;">
-                <div class="rounded-circle overflow-hidden" style="width : 200px; height : 200px;"> 
+                <div class="rounded-circle overflow-hidden" style="width : 250px; height : 250px;"> 
                     <img class="object-fit-cover" width="100%" height="100%" src="{{ $artist->profile_image_url }}" alt="{{ $artist->name }}">
                 </div>
                 <h5 class="mt-2 fs-4 text-muted">{{ $artist->name }}</h5>
