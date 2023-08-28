@@ -96,7 +96,7 @@ class ArtWorkController extends Controller
             }
     
             if($request->hasFile('images')){
-                $this->deleteFiles(collect(json_decode($artWork->images))->pluck('name'));
+                $this->deleteFiles(collect($artWork->images)->pluck('name'));
                 $validated['images'] = $this->uploadImages($request);
             }
             

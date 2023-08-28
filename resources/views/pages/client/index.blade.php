@@ -3,22 +3,60 @@
         <title>Home</title>
         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     </x-slot>
-
     <x-client.home.carousel :images="$images" />
-    
-    <section class="container py-3">
-      <p class="text-center fs-5">Our team brings you an art gallery of contemporary art pieces by emerging artists from Myanmar to help you find your dream piece with ease.
-        Learn about what motivates us in our <a href="#">about us</a> page!</p>
-    </section>
 
     <x-client.home.grid-style-one.grid :artworks="$artworks" />
 
-    <x-client.home.grid-style-two.grid :blogs="$blogs"/>
+    <x-client.home.grid-style-two.grid :blogs="$blogs" />
 
-    <x-client.home.exhibition.exhibition />
+    <x-client.home.exhibition.exhibition :exhibitions="$exhibitions"/>
 
     <x-slot name="script">
-        
-        <script src="{{asset('js/swiper-option.js')}}"></script>
+        <script type="module">
+            const searchAll = (datas) => {
+                const data = {
+                    "title": datas,
+                    "_token": "{{ csrf_token() }}",
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "/search",
+                    data: data,
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        let artworks = response.data;
+                        let searchItems = "";
+                        artworks.map((item) => {
+                            searchItems += 
+                            `<a href="/art-works/${item.id}" class="list-group-item search-item hover-overlay list-group-item-action"> 
+                                <img src="${item.image}" class="thumb-image">
+                                Title- ${item.title},
+                                Artist- ${item.artist},
+                            </a>`;
+                        })
+                        document.cteateElen
+                        $("#search_items").html(searchItems);
+                        // console.log(artworks);
+                    }
+                });
+            }
+
+            $(document).ready(function() {
+                $("#search").on('keyup', function() { 
+                    if($(this).val()){
+                        searchAll($(this).val());  
+                    console.log("hello")
+
+                        return;
+                    }
+                    $("#search_items").html("");
+                });
+            })
+        </script>
+        <script src="{{ asset('js/services.js') }}"></script>
+        <script src="{{ asset('js/carousel.js') }}"></script>
+        <script src="{{ asset('js/swiper-option.js') }}"></script>
     </x-slot>
 </x-layouts.app>

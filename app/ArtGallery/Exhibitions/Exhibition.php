@@ -19,4 +19,9 @@ class Exhibition extends Model
         'exhibition_start_time',
         'cover_photo',
     ];
+
+    public function getCoverPhotoUrlAttribute()
+    {
+        return "/storage/exhibitions/" . $this->cover_photo;
+    }
 }

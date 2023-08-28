@@ -48,7 +48,7 @@ class ArtWorksRepository implements ArtWorksRepositoryInterface
             $artWorks->where('year', 'LIKE', "%" . request('year') . "%");
         }
 
-        return $artWorks->paginate(10);
+        return $artWorks->paginate(9);
     }
 
     public function store($artWork)
@@ -62,7 +62,7 @@ class ArtWorksRepository implements ArtWorksRepositoryInterface
             ->where('id', '!=', $id)
             ->inRandomOrder()
             ->take($take)
-            ->get();
+            ->paginate(7);
     }
 
     public function getLatest($take = 3, $columns = ['*'])
@@ -70,5 +70,17 @@ class ArtWorksRepository implements ArtWorksRepositoryInterface
         return ArtWork::latest()
             ->take($take)
             ->get($columns);
+    }
+
+    public function getByTitle($titles)
+    {
+        $artwork = ArtWork::query();
+
+        foreach ($titles as $title) {
+            $artwork->orWhere('title', 'like', "%" . $title . "%");
+        }
+
+        // return $artwork->toSql();
+        return $artwork->paginate(10);
     }
 }

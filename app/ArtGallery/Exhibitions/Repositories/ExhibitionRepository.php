@@ -16,6 +16,20 @@ class ExhibitionRepository implements ExhibitionsRepositoryInterface
      {
         return Exhibition::all();
      }
+         /**
+     * Get some exhibitions
+     * @return Collection
+     */
+    public function get($page,$orders=[]){
+        $exhibitions = Exhibition::query();
+        if(!empty($orders)){
+            foreach($orders as $order){
+                $exhibitions->orderBy($order);
+
+            }
+        }
+        return $exhibitions->paginate($page);
+    }
      /**
      * Store exhibitions
      * @return model
