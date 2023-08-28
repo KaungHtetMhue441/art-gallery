@@ -21,3 +21,38 @@
 .swiper-pagination{
     bottom: 0!important;
 }
+
+/* Start navigation bar */
+#nav{
+    box-shadow: none;
+    background-color: var(--primary-color) !important;
+    /* opacity: 0.8; */
+}
+
+.nav-link{
+    color:var(--secondary-color)!important; 
+}
+
+.nav-link-border-bottom{
+    border-bottom: 2px solid rgb(255, 255, 255)!important;
+}
+
+.logo >a{
+    cursor: pointer;
+    font-weight:bolder!important;   
+}
+
+.active{
+    color:rgb(255, 255, 255)!important;  
+}
+
+
+@media screen and (min-width:700px){
+    .logo >a{
+        padding-left:50px;
+        font-size:1.8rem!important;
+    }
+
+}
+/* End navigation bar */
+

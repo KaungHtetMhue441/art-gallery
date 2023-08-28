@@ -71,4 +71,16 @@ class ArtWorksRepository implements ArtWorksRepositoryInterface
             ->take($take)
             ->get($columns);
     }
+
+    public function getByTitle($titles)
+    {
+        $artwork = ArtWork::query();
+
+        foreach ($titles as $title) {
+            $artwork->orWhere('title', 'like', "%" . $title . "%");
+        }
+
+        // return $artwork->toSql();
+        return $artwork->paginate(10);
+    }
 }

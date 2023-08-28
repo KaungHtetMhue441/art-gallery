@@ -2,7 +2,7 @@
 
 <section class="section">
     <div class="container py-5 border-top ">
-        <x-client.common.title.center-title title="Latest Artworks" />
+    <x-client.common.title.center-title title="Latest Artworks" />
         <div class="row py-3 align-items-center ">
             @if (isset($artworks[0]))
                 <div class="col-lg-6 h-auto h-lg-100 shadow p-3 rounded-5 hover-shadow">
@@ -39,7 +39,7 @@
                                         src="{{ $artworks[1]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[1]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
-                                        <h5 class="card-title">{{ $artworks[1]->title }}</h5>
+                                        {{-- <h5 class="card-title">{{ $artworks[1]->title }}</h5> --}}
                                         <p class="card-text">
                                             {{ $artworks[1]->artist->name }} | {{ $artworks[1]->category->name }}
                                         </p>
@@ -61,7 +61,7 @@
                                         src="{{ $artworks[2]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[2]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
-                                        <h5 class="card-title">{{ $artworks[2]->title }}</h5>
+                                        {{-- <h5 class="card-title">{{ $artworks[2]->title }}</h5> --}}
                                         <p class="card-text">
                                             {{ $artworks[2]->artist->name }} | {{ $artworks[2]->category->name }}
                                         </p>
@@ -83,7 +83,7 @@
                                         src="{{ $artworks[2]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[2]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
-                                        <h5 class="card-title">{{ $artworks[2]->title }}</h5>
+                                        {{-- <h5 class="card-title">{{ $artworks[2]->title }}</h5> --}}
                                         <p class="card-text">
                                             {{ $artworks[2]->artist->name }} | {{ $artworks[2]->category->name }}
                                         </p>
@@ -109,7 +109,7 @@
                                         src="{{ $artworks[1]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[1]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
-                                        <h5 class="card-title">{{ $artworks[1]->title }}</h5>
+                                        {{-- <h5 class="card-title">{{ $artworks[1]->title }}</h5> --}}
                                         <p class="card-text">
                                             {{ $artworks[1]->artist->name }} | {{ $artworks[1]->category->name }}
                                         </p>
@@ -131,7 +131,7 @@
                                         src="{{ $artworks[2]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[2]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
-                                        <h5 class="card-title">{{ $artworks[2]->title }}</h5>
+                                        {{-- <h5 class="card-title">{{ $artworks[2]->title }}</h5> --}}
                                         <p class="card-text">
                                             {{ $artworks[2]->artist->name }} | {{ $artworks[2]->category->name }}
                                         </p>
@@ -153,7 +153,7 @@
                                         src="{{ $artworks[2]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[2]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
-                                        <h5 class="card-title">{{ $artworks[2]->title }}</h5>
+                                        {{-- <h5 class="card-title">{{ $artworks[2]->title }}</h5> --}}
                                         <p class="card-text">
                                             {{ $artworks[2]->artist->name }} | {{ $artworks[2]->category->name }}
                                         </p>

@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav id="nav" style="z-index: 1000;" class="navbar navbar-expand-lg pl-3 px-5">
+<nav id="nav" style="z-index: 1000;" class="navbar navbar-expand-lg pl-3 px-3">
     <!-- Container wrapper -->
     {{-- <div class="container-fluid"> --}}
     <!-- Toggle button -->
@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse">
         <!-- Navbar brand -->
         <div class="logo">
-            <a class="navbar-brand text-shadow-large text-gradient-1 mt-2 mt-lg-0" href="#">
+            <a class="navbar-brand  text-secondary mt-2 mt-lg-0" href="/">
                 {{-- <img
               src="{{ asset('assets/images/logo2.svg') }}"
               height="50"

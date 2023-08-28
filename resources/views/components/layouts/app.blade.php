@@ -20,6 +20,8 @@
     <!-- MDB -->
     <link href="{{ asset('assets/libs/mdb/mdb.min.css') }}" rel="stylesheet" />
 
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet" />
+
     <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
 
     {{-- swiper --}}

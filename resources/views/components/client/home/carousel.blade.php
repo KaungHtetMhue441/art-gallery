@@ -37,15 +37,14 @@
     <div class="container position-absolute w-50 text-center" style="top: 30%;right: 0;left: 0; z-index: 1000;">
         <div class="form-label text-shadow-large text-light" style="font-size:1.8rem; height: 40px; " id="home-search">
         </div>
-        <input class="form-control form-control-lg rounded-pill px-5" list="datalistOptions" id="exampleDataList"
-            placeholder="Type to search...">
-        <datalist id="datalistOptions">
-            <option value="San Francisco">
-            <option value="New York">
-            <option value="Seattle">
-            <option value="Los Angeles">
-            <option value="Chicago">
-        </datalist>
+        <div>
+            <input autocomplete="off" class="form-control form-control-lg rounded-pill px-5" list="datalistOptions" id="search"
+                placeholder="Type to search...">
+            <div class="search-items" style="z-index: 1002; width:875px;position: absolute;top:115px;left: 40px;">
+                <div class="list-group w-100 " id="search_items">
+                </div>
+            </div>
+        </div>
         <br>
         <span id="text1" class="text-shadow-large text-gradient-2  position-relative"></span>
     </div>

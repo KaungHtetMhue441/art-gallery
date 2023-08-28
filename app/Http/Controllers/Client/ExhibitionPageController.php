@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\ArtGallery\Exhibitions\Repositories\ExhibitionRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,8 @@ class ExhibitionPageController extends Controller
      * Create a new controller instance.
      */
     public function __construct(
-    )
-    {
-        //
+        private ExhibitionRepository $exhibitionRepository
+    ) {
     }
 
     /**
@@ -23,13 +23,11 @@ class ExhibitionPageController extends Controller
      */
     public function index(
         Request $request
-    )
-    {
+    ) {
+        $exhibitions = $this->exhibitionRepository->get(10);
+        // dd($exhibitions);
         return view('pages.client.exhibitions.index', [
-            "title" => "Test Title",
-            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, facilis?",
-            "url" => "www.google.com",
-            "image" => "https://picsum.photos/200/300"
+            "exhibitions" => $exhibitions
         ]);
     }
 }
