@@ -4,7 +4,9 @@
     "rowReverse"=>false
 ])
 @php
-$date = explode("-",$exhibition->exhibition_date)
+if($exhibition){
+    $date = explode("-",$exhibition->exhibition_date);
+}
 @endphp
 <div class="row border-bottom @if($rowReverse) flex-row-reverse @endif py-3 @if($shadow)shadow-3-sof @endif hover-zoom-custom ">
     <div class="col-lg-1">
