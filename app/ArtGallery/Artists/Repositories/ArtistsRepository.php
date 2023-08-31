@@ -32,7 +32,7 @@ class ArtistsRepository implements ArtistsRepositoryInterface
             $artists->where('name','like','%'.request('name').'%');
          }
          
-         return $artists->paginate(10);
+         return $artists->paginate(9);
      }
    /**
      * Get all artists

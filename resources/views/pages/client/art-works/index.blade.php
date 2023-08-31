@@ -89,7 +89,7 @@
                     </select>
 
                     <select class="form-control mb-3" name="material">
-                        <option value="" disabled selected>Choose Material</option>
+                       <option value="" disabled selected>Choose Material</option>
                         @foreach ($materials as $material)
                             <option value="{{ $material->id }}"
                                 {{ request('material') == $material->id ? 'selected' : '' }}>
@@ -120,8 +120,8 @@
                         <option value="us">US</option>
                     </select>
 
-                    <button type="submit" class="btn btn-md bg_primary text-secondary-color" style="color: rgb(222, 216, 216)!important;">Search</button>
-                    <a class="btn btn-md bg_primary text-secondary-color" style="color: rgb(222, 216, 216)!important;" href="{{ route('artWorks.index') }}">All</a>
+                    <button type="submit" class="btn btn-md btn_primary" >Search</button>
+                    <a class="btn btn-md btn_primary "href="{{ route('artWorks.index') }}">All</a>
                 </form>
             </div>
             <div class="col-lg-9 border-bottom">

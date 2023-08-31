@@ -29,5 +29,7 @@ Route::namespace('App\Http\Controllers\Client')->group(function() {
         Route::get('/{slug}', 'show')->name('show');
     });
 
+    Route::view('/contact', 'pages/client/contact')->name('contact');
+    Route::view('/about','pages/client/about')->name('about');
 
 });

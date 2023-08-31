@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\ArtGallery\Artists\Artist;
 use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
+use App\ArtGallery\ArtistTypes\Repositories\ArtistTypeRepository;
 use App\Http\Controllers\Controller;
 
 class ArtistPageController extends Controller
@@ -13,7 +14,8 @@ class ArtistPageController extends Controller
      * Create a new controller instance.
      */
     public function __construct(
-        private ArtistsRepositoryInterface $artistRepository
+        private ArtistsRepositoryInterface $artistRepository,
+        private ArtistTypeRepository $artistTypeRepository
     )
     {
     }
@@ -39,6 +41,7 @@ class ArtistPageController extends Controller
 
         return view('pages.client.artists.index', [
             'artists' => $this->artistRepository->getAll(),
+            'types'=>$this->artistTypeRepository->getAll(),
             'title' => $title
         ]);
     }

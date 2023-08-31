@@ -3,6 +3,9 @@
 ])
 <section class="section-80 overflow-hidden p-0">
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade h-100 w-100" data-bs-ride="carousel">
+        <div class="position-absolute" style="top:0;bottom:0;left:0;right:0;background-color: #a99180;z-index: 900; opacity: 0.3">
+
+        </div>
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>

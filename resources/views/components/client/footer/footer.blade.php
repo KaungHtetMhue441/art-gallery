@@ -61,7 +61,7 @@
              <path id="motionpath" d="M -594 0 0 0" /> 
             </defs>
             <g >
-             <use xlink:href="#wavepath" y="-316" fill="#491f01">
+             <use xlink:href="#wavepath" y="-316" fill="#a99180">
              <animateMotion
               dur="5s"
               repeatCount="indefinite">

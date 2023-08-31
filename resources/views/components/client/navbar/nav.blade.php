@@ -8,14 +8,16 @@
     <div class="collapse navbar-collapse">
         <!-- Navbar brand -->
         <div class="logo">
-            <a class="navbar-brand  text-secondary mt-2 mt-lg-0" href="/">
-                {{-- <img
-              src="{{ asset('assets/images/logo2.svg') }}"
+            <a class="navbar-brand nav-link text-logo text-decoration-none" href="/">
+            <img
+              src="{{ asset('assets/images/logo4.png') }}"
               height="50"
+              class="ml-3"
               alt="MDB Logo"
               loading="lazy"
-            /> --}}
-                Art Gallery
+            /> 
+            &nbsp;Art Gallery
+            
             </a>
         </div>
 
