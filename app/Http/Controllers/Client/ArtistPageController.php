@@ -38,9 +38,10 @@ class ArtistPageController extends Controller
         } else {
             $title = "Our Artists";
         }
+        
 
         return view('pages.client.artists.index', [
-            'artists' => $this->artistRepository->getAll(),
+            'artists' => $this->artistRepository->getAll(12),
             'types'=>$this->artistTypeRepository->getAll(),
             'title' => $title
         ]);

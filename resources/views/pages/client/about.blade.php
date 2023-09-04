@@ -2,12 +2,12 @@
     <x-slot name="header">
         
     </x-slot>
-    <div class="container-fluid px-100 my-5 justify-between">
-        <div class="row mt-5 ">
+    <div class="container-fluid px-100 justify-between " style="height: 85vh;">
+        <div class="row w-100 h-100 justify-content-center align-items-center">
             <div class="col-lg-6 p-3">
                 <div id="carouselExampleAutoplaying" class="carousel slide w-100" data-bs-ride="carousel">
                     <div class="carousel-inner border shadow">
-                        <div class="carousel-item active">
+                          <div class="carousel-item active">
                             <img src="{{asset('assets/images/about.jpeg')}}" class="d-block w-100" alt="...">
                           </div>
                           <div class="carousel-item">

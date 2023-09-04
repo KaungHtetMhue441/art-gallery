@@ -9,6 +9,7 @@ use App\ArtGallery\ArtistTypes\Exceptions\ArtistTypeNotFoundException;
 use App\ArtGallery\ArtistTypes\Exceptions\ArtistTypeUpdateFailException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ArtistTypeRepository implements ArtistTypeRepositoryInterface
 {
@@ -24,9 +25,9 @@ class ArtistTypeRepository implements ArtistTypeRepositoryInterface
     * 
     * @return Collection 
     */
-   public function getAll($columns = ['*']): Collection
+   public function getAll($pages='',$columns = ['*']): LengthAwarePaginator
    {
-      return $this->model->all($columns);
+      return $this->model->select($columns)->paginate($pages);
    }
 
    /**

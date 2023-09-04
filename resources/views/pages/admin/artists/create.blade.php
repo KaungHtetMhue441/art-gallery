@@ -70,6 +70,12 @@
         containerClass=" col-12 col-md-6" 
         label="Social url"
       />
+      {{-- Social Url--}}
+      <x-utils.inputs.text-area 
+        name="bio" 
+        containerClass=" col-12 col-md-6 ckeditor" 
+        label="Bio"
+      />
 
       {{-- Button   --}}
       <x-utils.inputs.button/>
@@ -78,8 +84,10 @@
     </x-utils.card>
 
 </x-layouts.admin>
-
+<script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 <script>
+     CKEDITOR.replace( 'bio' );
+
   $(document).ready(function (){
     $('#profile_image').change(function(){
         $('#profile_image_placeholder').prop('src',window.URL.createObjectURL(this.files[0]));

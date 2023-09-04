@@ -23,18 +23,18 @@
 ],'dropdowns' =>[
     [
       "name" => "About Us",
-      "href" => route('blogs.index')
+      "href" => route("about")
     ],
     [
       "name" => "Contact Us",
-      "href" => route('blogs.index')
+      "href" => route("contact")
     ],
 ]
 ])
 
 <ul class="navbar-nav  me-auto mb-2 mb-lg-0" id="navbarSupportedContent">
   @foreach ($links as $link)
-    <li class="nav-item me-lg-4 fs-5 nav_transition @if(Str::contains(request()->route()->getName(),Str::lcfirst($link['name']))) nav-link-border-bottom @endif">
+    <li class="nav-item me-lg-4 fs-5 @if(Str::contains(request()->route()->getName(),Str::lcfirst($link['name']))) nav-link-border-bottom @endif">
       <a class="nav-link font-weight-bolder text-shadow-middle @if(Str::contains(request()->route()->getName(),Str::lcfirst($link['name']))) active @endif" 
       href="{{ $link['href'] }}">{{ $link['name'] }}</a>
     </li>
@@ -44,9 +44,9 @@
       <div class="fa fa-angle-down"></div>
     </a>
   
-    <ul class="dropdown-menu bg_primary" style="left: -120px!important;">
+    <ul class="dropdown-menu bg_secondary" style="left: -120px!important;">
       @foreach ($dropdowns as $dropdown)
-      <li><a class="dropdown-item text_primary " href=""{{$dropdown['href']}}>{{$dropdown['name']}}</a></li>
+      <li><a class="dropdown-item text_primary fs-5" href="{{$dropdown['href']}}">{{$dropdown['name']}}</a></li>
         
       @endforeach
       {{-- <li><a class="dropdown-item" href="#">Another action</a></li>

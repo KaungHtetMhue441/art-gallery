@@ -114,7 +114,7 @@
                     <input class="form-control mb-3" type="text" name="price" value="{{ request('price') }}"
                         placeholder="Price">
 
-                    <select id="typeEmail" class="form-control mb-3 " name="">
+                    <select id="typeEmail" class="form-control mb-3 " name="currency">
                         <option value="" disabled selected>Choose currency</option>
                         <option value="mmk">MMK</option>
                         <option value="us">US</option>

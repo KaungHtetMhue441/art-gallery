@@ -68,11 +68,18 @@
     {{-- Social Url--}}
     <x-utils.inputs.text-area 
       name="social_url" 
-      containerClass="col-md-6" 
+      containerClass="col-12" 
       label="Social url"
       value="{{join(',',$artist->social_url)}}"
     />
-    
+    {{--Bio Graphy--}}
+    <x-utils.inputs.text-area 
+    name="bio" 
+    containerClass=" col-12 col-md-12 ckeditor" 
+    label="Bio Graphy"
+    required="required"
+    value="{{$artist->bio}}"
+  />
     @foreach ($errors->all() as $error )
       {{$error}}
     @endforeach
@@ -83,6 +90,11 @@
   </x-utils.inputs.form>
   </x-utils.card>
 </x-layouts.admin>
+<script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
+
+<script>
+     CKEDITOR.replace( 'bio' );
+</script>
 
 
 <script>

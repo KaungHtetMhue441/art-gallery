@@ -1,4 +1,6 @@
-
+@php
+    $index = ($artworkCategories->currentPage()-1)*10;
+@endphp
 <x-layouts.admin title="Artwork Categories">
     <x-utils.card title="Artwork Categories">
         <div class="row justify-content-end p-0">
@@ -22,7 +24,7 @@
                 <tbody>
                     @foreach($artworkCategories as $index => $artworkCategory)
                         <tr>
-                            <td>{{$index+1}}</td>
+                            <td>{{++$index}}</td>
                             <td>{{$artworkCategory->name}}</td>
                             <td>
                                 <a class="btn btn-outline-cyan" 
@@ -47,6 +49,9 @@
                     @endforeach            
                 </tbody>
             </table>
+            </div>
+            <div class="d-inline-block">
+                {{$artworkCategories->links()}}
             </div>
         </div>
     </x-utils.card>

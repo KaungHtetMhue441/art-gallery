@@ -1,3 +1,6 @@
+@php
+    $index = ($blogs->currentPage()-1)*10;
+@endphp
 <x-layouts.admin title="Blogs">
 <x-utils.card title="Blogs">
     <div class="row justify-content-end p-0">
@@ -24,7 +27,7 @@
             <tbody>
                 @foreach($blogs as $index=>$blog)
                 <tr>
-                    <td>{{$index+1}}</td>
+                    <td>{{++$index}}</td>
                     <td>{{Str::words($blog->title_mm,2)}}</td>
                     <td>{!!Str::words($blog->description_mm,2)!!}</td>
                     <td>{{$blog->blogCategory->name}}</td>
@@ -49,6 +52,9 @@
             @endforeach   
             </tbody>
         </table>
+        </div>
+        <div class="d-inline-block float-end">
+            {{$blogs->links()}}
         </div>
     </div>
 </x-utils.card>

@@ -1,3 +1,6 @@
+@php
+    $index = ($artWorks->currentPage()-1)*10;
+@endphp
 <x-layouts.admin title="Artworks"   >
 <x-utils.card title="ArtWork">
     <div class="row justify-content-end p-0">
@@ -34,7 +37,7 @@
                     @foreach ($artWorks as $artWork )
                         <tr>
                             <td>
-                                {{++$loop->index}}
+                                {{++$index}}
                             </td>
                             <td>
                                 <div class="d-flex justify-between gap-1">
@@ -59,7 +62,7 @@
                                 </div>
                             </td>
                             <td>
-                                {{$artWork->title}}
+                                {{Str::words($artWork->title,4,"...")}}
                             </td>
                             <td>
                                 {{$artWork->artist_id}}
@@ -98,7 +101,7 @@
                                 {{$artWork->year}}
                             </td>
                             <td>
-                                {{$artWork->description}}
+                                {{Str::words($artWork->description,5,"...")}}
                             </td>
                         </tr>
                     @endforeach

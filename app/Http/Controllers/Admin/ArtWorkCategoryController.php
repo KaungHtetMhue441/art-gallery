@@ -27,7 +27,7 @@ class ArtWorkCategoryController extends Controller
 
     public function index()
     {
-        $this->datas['artworkCategories'] = $this->artworkCategoryRepo->getAll();
+        $this->datas['artworkCategories'] = $this->artworkCategoryRepo->getAll(7);
 
         return view($this->viewPath . 'index', $this->datas);
     }

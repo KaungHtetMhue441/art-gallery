@@ -48,7 +48,7 @@ class ArtWorksRepository implements ArtWorksRepositoryInterface
             $artWorks->where('year', 'LIKE', "%" . request('year') . "%");
         }
 
-        return $artWorks->paginate(9);
+        return $artWorks->orderby("created_at", 'DESC')->paginate(12)->appends(request()->all());
     }
 
     public function store($artWork)

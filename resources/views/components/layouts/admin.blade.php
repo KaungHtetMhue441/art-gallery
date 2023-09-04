@@ -18,6 +18,7 @@
     <title>{{ $title }}</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/Flexy-admin-lite/" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link href="{{ asset('css/admin/app.css') }}" rel="stylesheet" />
 
     <!-- Custom CSS -->
     <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
@@ -56,6 +57,7 @@
         </div>  
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
     <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>

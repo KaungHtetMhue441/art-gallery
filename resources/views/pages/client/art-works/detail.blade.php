@@ -21,7 +21,7 @@
                             <td>Artist</td>
                             <td>:</td>
                             <td>
-                                <a href="{{ route('artists.show', ['artist' => $artwork->artist->id]) }}" class="text-decoration-none cololr link-dark ">
+                                <a href="{{ route('artists.show', ['artist' => $artwork->artist->id]) }}" class="text-decoration-none badge bg_primary cololr link-dark ">
                                 {{$artwork->artist->name}}
                                 </a>
                             </td>

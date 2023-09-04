@@ -18,9 +18,11 @@ class Artist extends Model
         'artist_type_id',
         'region_id',
         'name',
+        'bio',
         'profile_image',
         'social_url'
     ];
+    
 
     protected $casts = [
         "social_url"=>"array"
@@ -46,12 +48,5 @@ class Artist extends Model
         return'/storage/artists/'.$this->profile_image;
     }
 
-    public function socialUrl():Attribute
-    {
-        return Attribute::make(
-            set:fn($value) => json_encode(explode(',',trim($value))),
-            get:fn($value) => json_decode($value)
-        );
-    }
 }
  

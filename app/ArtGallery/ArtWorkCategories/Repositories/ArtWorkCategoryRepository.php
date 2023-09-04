@@ -9,6 +9,7 @@ use App\ArtGallery\ArtWorkCategories\Exceptions\ArtWorkCategoryUpdateFailExcepti
 use App\ArtGallery\ArtWorkCategories\Repositories\interfaces\ArtWorkCategoryRepositoryInterface;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class ArtWorkCategoryRepository implements ArtWorkCategoryRepositoryInterface
 {
@@ -24,9 +25,9 @@ class ArtWorkCategoryRepository implements ArtWorkCategoryRepositoryInterface
     * 
     * @return Collection 
     */
-   public function getAll($columns = ['*']): Collection
+   public function getAll($pages='',$columns = ['*']): LengthAwarePaginator
    {
-      return $this->model->all($columns);
+      return $this->model->select($columns)->paginate($pages);
    }
 
    /**

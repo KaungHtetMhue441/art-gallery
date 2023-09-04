@@ -9,38 +9,36 @@ use App\ArtGallery\Artists\Repositories\interfaces\ArtistsRepositoryInterface;
 
 class ArtistsRepository implements ArtistsRepositoryInterface
 {
-    /**
-     * Get all artists
-     * @return Collection
-     */
-     public function getAll() :LengthAwarePaginator
-     {
-         $artists = Artist::with('artistType','region');
-
-         if(request('name'))
-         {
-            $artists->where('name','like','%'.request('name').'%');
-         }
-
-         if(request('artist_type'))
-         {
-            $artists->where('name','like','%'.request('name').'%');
-         }
-         
-         if(request('region'))
-         {
-            $artists->where('name','like','%'.request('name').'%');
-         }
-         
-         return $artists->paginate(9);
-     }
    /**
-     * Get all artists
-     * @return model
-     */
-     public function store($artist) :Artist
-     {
-        return Artist::create($artist);
-     }
-     
+    * Get all artists
+    * @return Collection
+    */
+   public function getAll($page = ""): LengthAwarePaginator
+   {
+      $artists = Artist::with('artistType', 'region');
+
+      if (request('name')) {
+         $artists->where('name', 'like', '%' . request('name') . '%');
+      }
+
+      if (request('artist_type')) {
+         $artists->whereHas('artistType', function ($query) {
+            return $query->where('id', request('artist_type'));
+         });
+      }
+
+      if (request('region')) {
+         $artists->where('name', 'like', '%' . request('name') . '%');
+      }
+
+      return $artists->orderby('created_at','DESC')->paginate($page)->appends(request()->all());
+   }
+   /**
+    * Get all artists
+    * @return model
+    */
+   public function store($artist): Artist
+   {
+      return Artist::create($artist);
+   }
 }

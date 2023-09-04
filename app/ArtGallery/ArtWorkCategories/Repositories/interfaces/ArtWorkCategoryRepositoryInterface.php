@@ -4,11 +4,11 @@ namespace App\ArtGallery\ArtWorkCategories\Repositories\interfaces;
 
 use App\ArtGallery\ArtWorkCategories\ArtWorkCategory;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-
+use Illuminate\Pagination\LengthAwarePaginator;
 
 interface ArtWorkCategoryRepositoryInterface
 {
-    public function getAll() :EloquentCollection;
+    public function getAll() :LengthAwarePaginator;
 
     public function createArtWorkCategory(array $params) :ArtWorkCategory;
 

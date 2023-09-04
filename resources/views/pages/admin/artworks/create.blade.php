@@ -154,7 +154,7 @@
             {{-- Description--}}
             <x-utils.inputs.text-area 
             name="description" 
-            containerClass=" col-12 " 
+            containerClass=" col-12 ckeditor" 
             label="Description"
             />
 
@@ -164,8 +164,14 @@
       </x-utils.inputs.form>
     </x-utils.card>
 </x-layouts.admin>
+<script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 
 <script>
+     CKEDITOR.replace( 'description' );
+</script>
+<script>
+
+
     $(document).ready(function ()
     {
 

@@ -20,9 +20,9 @@
     {{ $artwork->price }} {{ $artwork->currency == 'mmk' ? "MMK" : "$" }}
   </p> --}}
     <div class="card shadow-2-soft border-1 h-100 w-100 hover-zoom-custom" >
-      <img src="{{ $artwork->cover_photo_url }}" class="card-img-top" alt="...">
+      <img src="{{ $artwork->cover_photo_url }}" class="card-img-top " style="height: 250px" alt="...">
       <div class="card-body">
-        <h5 class="card-text text-black-50">{{$artwork->title}}</h5>
+        <h5 class="card-text text_primary">{{$artwork->title}}</h5>
       </div>
     </div>
 </a>

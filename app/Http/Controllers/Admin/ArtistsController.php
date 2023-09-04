@@ -46,6 +46,7 @@ class ArtistsController extends Controller
     {
         try{
             $validated = $request->validated();
+            $validated['social_url'] = explode(',',$validated['social_url']);
             $fileName = $this->getFileName($request->file('profile_image'));
             $validated['profile_image'] = $fileName;
             $this->artistsRepository->store($validated);
@@ -81,7 +82,7 @@ class ArtistsController extends Controller
                 }
                 Storage::disk('public')->put('/artists/'.$fileName,$request->file('profile_image')->getContent());
             }
-            
+            $validated['social_url'] = explode(',',$validated['social_url']);
             $artist->update($validated);
             return redirect()->route($this->route.'index')->with('success','Successfully updated!');
 

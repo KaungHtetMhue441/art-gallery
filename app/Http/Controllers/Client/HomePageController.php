@@ -35,7 +35,7 @@ class HomePageController extends Controller
         return view('pages.client.index', [
             'blogs' => $this->blogRepo->getAll(),
             'images' => $this->imageSliderRepository->getAll(),
-            'artworks' => $this->artWorkRepo->getLatest(5),
+            'artworks' => $this->artWorkRepo->getLatest(8),
             'exhibitions'=>$this->exhibitionRepo->get(5,['exhibition_date'])
         ]);
     }

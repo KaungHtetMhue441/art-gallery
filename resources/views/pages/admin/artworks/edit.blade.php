@@ -168,19 +168,25 @@
             {{-- Description--}}
             <x-utils.inputs.text-area 
             name="description" 
-            containerClass=" col-12 " 
+            containerClass=" col-12 ckeditor" 
             value="{{$artWork->description}}"
             label="Description"
             />
 
         {{-- Button   --}}
-        <x-utils.inputs.button btnClass="float-end"/>
+        <x-utils.inputs.button btnClass="float-end" name="Update"/>
   
       </x-utils.inputs.form>
     </x-utils.card>
 </x-layouts.admin>
 
+<script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
+
 <script>
+</script>
+<script>
+     CKEDITOR.replace( 'description' );
+ 
     $(document).ready(function ()
     {
       $('#cover_photo').change(function()

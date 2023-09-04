@@ -15,6 +15,7 @@ class ArtistCreateRequest extends BaseFormRequest
     {
         return [
             'name'=>'required|string',
+            'bio'=>'required|string',
             'artist_type_id'=>'required|integer',
             'region_id'=>'required|integer',
             'profile_image'=>'required|file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',

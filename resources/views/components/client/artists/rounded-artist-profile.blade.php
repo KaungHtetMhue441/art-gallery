@@ -2,7 +2,7 @@
     'artist',
     'size' => '200px'
 ])
-    <div class="col-md-6 mb-3" style="width : {{ $size }};" >
+    <div class="col-md-6 mb-3 col-lg-3" >
     {{-- <a href="{{ route('artists.show', ['artist' => $artist->id]) }}" class="text-decoration-none"> --}}
         <div class="card hover-shadow border-2 border-gray-300 rounded-3" style="width : 100%; z-index: 0; background-image: url(@if($artist->artWorks->count() > 0){{$artist->artWorks[0]->cover_photo_url}}@endif)">
             @if ($artist->artWorks->count() > 0)

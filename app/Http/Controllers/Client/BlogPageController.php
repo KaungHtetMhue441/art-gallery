@@ -28,7 +28,7 @@ class BlogPageController extends Controller
         Request $request
     )
     {
-        $blogs = Blog::paginate(5);
+        $blogs = Blog::paginate(8);
 
         return view('pages.client.blogs.index', [
             "blogs" => $blogs

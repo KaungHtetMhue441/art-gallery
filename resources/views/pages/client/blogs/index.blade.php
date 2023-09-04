@@ -3,12 +3,12 @@
         <title>Blogs</title>
     </x-slot>
 
-    <div class="container">
+    <div class="container-fluid px-100">
         <x-client.common.title.left-title title="Blogs" />
         
-        <div class="row">    
+        <div class="row justify-content-center">    
             @foreach ($blogs as $blog)
-            <div class="col-lg-4 mb-3">
+            <div class="col-lg-3 mb-3">
               <x-client.home.grid-style-two.grid-item 
                 :image="$blog->cover_photo"
                 :title="$blog->title_en"
@@ -20,17 +20,9 @@
         </div>  
 
         <nav class="mt-2">
-            <ul class="pagination justify-content-end">
-              <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-              </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
-              <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-              </li>
-            </ul>
+            <div class="d-inline-block float-end">
+              {{$blogs->links()}}
+            </div>
         </nav>
     </div>
 </x-layouts.app>

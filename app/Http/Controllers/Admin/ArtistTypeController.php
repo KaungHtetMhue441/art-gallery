@@ -27,7 +27,7 @@ class ArtistTypeController extends Controller
 
     public function index()
     {
-        $this->datas['artistTypes'] = $this->artistTypeRepo->getAll();
+        $this->datas['artistTypes'] = $this->artistTypeRepo->getAll(10);
 
         return view($this->viewPath . 'index', $this->datas);
     }

@@ -1,4 +1,6 @@
-
+@php
+    $index = ($artists->currentPage()-1)*10;
+@endphp
 <x-layouts.admin title="Artists">
     <x-utils.card title="Artists">
         <div class="row justify-content-end p-0">
@@ -30,7 +32,7 @@
                     @foreach ($artists as $artist)
                     <tr>
                         <td>
-                            {{++$loop->index}}
+                            {{++$index}}
                         </td>   
                         <td>
                             <div class="profile-image-container">
@@ -85,6 +87,9 @@
                     @endforeach
                 </tbody>
             </table>
+            </div>
+            <div class="d-inline-block float-end">
+                {{$artists->links()}}
             </div>
         </div>
     </x-utils.card>

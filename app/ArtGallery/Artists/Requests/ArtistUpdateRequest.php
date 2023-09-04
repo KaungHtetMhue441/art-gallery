@@ -19,6 +19,7 @@ class ArtistUpdateRequest extends BaseFormRequest
             'region_id'=>'required|integer',
             'profile_image'=>'file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
             'social_url'=>'required|url',
+            'bio'=>'required|string'
         ];
     }
 }

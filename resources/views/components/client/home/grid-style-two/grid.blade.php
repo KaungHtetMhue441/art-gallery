@@ -6,7 +6,7 @@
   <x-client.common.title.center-title title="Latest Blogs" />
 
   <div class="row">    
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-3">
       @if(isset($blogs[0]))
         <x-client.home.grid-style-two.grid-item 
           image="{{$blogs[0]->cover_photo}}"
@@ -16,7 +16,7 @@
         />
       @endif
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-3">
       @if(isset($blogs[1]))
         <x-client.home.grid-style-two.grid-item 
           image="{{$blogs[1]->cover_photo}}"
@@ -26,7 +26,7 @@
         />
       @endif
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 mb-3">
       @if(isset($blogs[2]))
         <x-client.home.grid-style-two.grid-item 
           image="{{$blogs[2]->cover_photo}}"

@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse">
         <!-- Navbar brand -->
         <div class="logo">
-            <a class="navbar-brand nav-link text-logo text-decoration-none" href="/">
+            <a class="navbar-brand nav-link text-decoration-none" href="/">
             <img
               src="{{ asset('assets/images/logo4.png') }}"
               height="50"
