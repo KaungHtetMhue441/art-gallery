@@ -1,4 +1,8 @@
-
+{{-- @php
+if($errors->count() > 0){
+    dd($errors);
+}
+@endphp --}}
 <x-layouts.admin title="Artwork">
     <x-utils.card title="Create ArtWork">
         <div class="row p-0">   
@@ -167,10 +171,8 @@
 <script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 
 <script>
-     CKEDITOR.replace( 'description' );
-</script>
-<script>
 
+CKEDITOR.replace( 'description' );
 
     $(document).ready(function ()
     {

@@ -22,7 +22,7 @@
                         <th style="width: 4%">Title</th>
                         <th style="width: 5%">Artist</th>
                         <th>Cover photo</th>
-                        <th>Other Images</th>
+                        <th style="width:30%">Other Images</th>
                         <th>Category</th>
                         <th>Size</th>
                         <th>Medium</th>
@@ -68,16 +68,16 @@
                                 {{$artWork->artist_id}}
                             </td>
                             <td>
-                                <div class="row gap-1">
-                                    @foreach ($artWork->images as $image)
-                                        <div class="col-6">
-                                            <a href="#">{{$image->original_name}}</a>
+                                <a href="{{$artWork->cover_photo_url}}" class="btn btn-outline-success">see</a>
+                            </td>
+                            <td>
+                                <div class="row gap-1" style="width: 280px;">
+                                    @foreach ($artWork->images_with_url as $image)
+                                        <div class="col-3">
+                                            <a href="{{$image->name}}" class="btn btn-outline-success">img({{++$loop->index}})</a>
                                         </div>
                                     @endforeach
                                 </div>
-                            </td>
-                            <td>
-
                             </td>
                             <td>
                                 {{$artWork->category->name}}
@@ -101,7 +101,7 @@
                                 {{$artWork->year}}
                             </td>
                             <td>
-                                {{Str::words($artWork->description,5,"...")}}
+                                {{Str::words(strip_tags($artWork->description),5,"...")}}
                             </td>
                         </tr>
                     @endforeach

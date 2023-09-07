@@ -20,7 +20,7 @@
         </div>  
 
         <nav class="mt-2">
-            <div class="d-inline-block float-end">
+            <div class="row">
               {{$blogs->links()}}
             </div>
         </nav>

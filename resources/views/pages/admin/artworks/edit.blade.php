@@ -183,8 +183,6 @@
 <script src="{{asset('/ckeditor/ckeditor.js')}}"></script>
 
 <script>
-</script>
-<script>
      CKEDITOR.replace( 'description' );
  
     $(document).ready(function ()

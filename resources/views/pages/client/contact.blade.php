@@ -23,7 +23,7 @@
                             </div>
                         </li>
                     </ul>
-        
+{{--         
                     <figure class="figure position-absolute m-0 opacity-06 z-index-100" style="bottom:0; right: 10px">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="444px" height="626px">
                             <defs>
@@ -36,7 +36,7 @@
                             <path fill-rule="evenodd" opacity="0.302" fill="rgb(72, 155, 248)" d="M816.210,-41.714 L968.999,111.158 L-197.210,1277.998 L-349.998,1125.127 L816.210,-41.714 Z"></path>
                             <path fill="url(#PSgrad_1)" d="M816.210,-41.714 L968.999,111.158 L-197.210,1277.998 L-349.998,1125.127 L816.210,-41.714 Z"></path>
                         </svg>
-                    </figure>
+                    </figure> --}}
                 </div>
         
                 <div class="col-lg-7 contact-form__wrapper p-5 order-lg-1">

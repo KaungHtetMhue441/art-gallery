@@ -42,7 +42,7 @@ class ArtWorkController extends Controller
 
     public function index()
     {
-        $this->datas['artWorks'] = $this->artWorksRepository->getAll();
+        $this->datas['artWorks'] = $this->artWorksRepository->getAll(10);
         return view($this->viewPath.'index',$this->datas);
     }
 
@@ -63,11 +63,14 @@ class ArtWorkController extends Controller
 
             $validated['cover_photo'] = $this->uploadCoverPhoto($request->file('cover_photo'));
             $validated['images'] = $this->uploadImages($request);
+            // $validated['description'] = htmlspecialchars($validated["description"]);
             $this->artWorksRepository->store($validated);
 
         }catch (Throwable  $e)
         {
-            $message = "Fail something when creating new user!";
+            $this->deleteFiles($validated['images']);
+            $this->deleteSingleFile($validated['cover_photo']);
+             $message = "Fail something when creating new user!";
             return redirect()->back()->withInput()->with('error',$this->getErrorMessage($e,$message));
         }
 
@@ -128,7 +131,7 @@ class ArtWorkController extends Controller
     {
         foreach($images as $image)
         {
-            $this->deleteSingleFile($image);
+            $this->deleteSingleFile($image["name"]);
         }
     }
 
@@ -168,7 +171,7 @@ class ArtWorkController extends Controller
     }
 
     public function getErrorMessage($e,$message){
-        return env('APP_ENV') == "local" ? $e->getMessage():$message;
+        return env('APP_ENV') == "local" ? htmlspecialchars($e->getMessage()):$message;
     }
 
 }

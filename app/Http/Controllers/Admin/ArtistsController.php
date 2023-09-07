@@ -31,7 +31,7 @@ class ArtistsController extends Controller
 
     public function index()
     {
-        $this->datas['artists'] = $this->artistsRepository->getAll();
+        $this->datas['artists'] = $this->artistsRepository->getAll(10);
         return view($this->viewPath.'index',$this->datas);
     }
 
@@ -57,7 +57,7 @@ class ArtistsController extends Controller
             return redirect()->back()->with('error',$this->getErrorMessage($e,$message));
         }
 
-        return redirect()->route($this->route.'create');
+        return redirect()->route($this->route.'index');
     }
 
     public function edit(Artist $artist){

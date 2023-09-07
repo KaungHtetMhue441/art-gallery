@@ -37,7 +37,7 @@
                          @endforeach
                     </div>
             </div>
-            <div class="d-inline-block float-end mt-3">
+            <div class="row">
                 {{$artists->links()}}
             </div>
     </div>

@@ -8,9 +8,9 @@ use App\ArtGallery\ArtWorks\Repositories\interfaces\ArtWorksRepositoryInterface;
 class ArtWorksRepository implements ArtWorksRepositoryInterface
 {
 
-    public function getAll($column = ['*'])
+    public function getAll($pages="",$columns = ['*'])
     {
-        $artWorks = ArtWork::select(...$column)->with('artist', 'category');
+        $artWorks = ArtWork::select(...$columns)->with('artist', 'category');
 
         if (request('category')) {
             $artWorks->where('art_work_category_id', request('category'));
@@ -48,7 +48,7 @@ class ArtWorksRepository implements ArtWorksRepositoryInterface
             $artWorks->where('year', 'LIKE', "%" . request('year') . "%");
         }
 
-        return $artWorks->orderby("created_at", 'DESC')->paginate(12)->appends(request()->all());
+        return $artWorks->orderby("created_at", 'DESC')->paginate($pages)->appends(request()->all());
     }
 
     public function store($artWork)

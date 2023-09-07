@@ -122,10 +122,11 @@
 
                     <button type="submit" class="btn btn-md btn_primary" >Search</button>
                     <a class="btn btn-md btn_primary "href="{{ route('artWorks.index') }}">All</a>
+
                 </form>
             </div>
             <div class="col-lg-9 border-bottom">
-                <div class="row mb-5">
+                <div class="row mb-3">
 
                     @forelse ($artworks as $artwork)
                         <div class="col-sm-6 col-lg-3 mb-3">
@@ -137,7 +138,7 @@
 
 
                 </div>
-                <div class="row  float-end">
+                <div class="row">
                     {{ $artworks->links() }}
                 </div>
             </div>

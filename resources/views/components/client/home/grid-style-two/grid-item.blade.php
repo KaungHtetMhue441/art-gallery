@@ -4,7 +4,7 @@
     <div class="card-body">
         <h5 class="card-title">{{ $title }}</h5>
 
-        <div class="text-break" style="height: 90px">
+        <div class="text-break" style="height: ">
             <p class="card-text truncate"> {!! Str::limit($summary, 50) !!} </p>
         </div>
 

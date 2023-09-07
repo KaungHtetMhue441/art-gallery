@@ -25,7 +25,7 @@ class ArtWorkStoreRequest extends BaseFormRequest
             'year'=>'required|',
             'description'=>'required|',
             'cover_photo'=>'required|file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
-            'images.*'=>'file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
+            'images.*'=>'required|file|mimes:jpg,png,jpeg,csv,jfif,pjpeg,pjp,gif',
         ];
     }
 }

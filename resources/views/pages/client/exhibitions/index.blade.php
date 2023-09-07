@@ -16,7 +16,7 @@
         {{-- <x-client.exhibitions.exhibition-card />
         <x-client.exhibitions.exhibition-card /> --}}
         
-        <nav class="mt-2 d-inline-flex float-end">
+        <nav class="mt-2">
             {{$exhibitions->links()}}
         </nav>
     </div>

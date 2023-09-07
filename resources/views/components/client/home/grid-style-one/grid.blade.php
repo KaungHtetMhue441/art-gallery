@@ -9,7 +9,7 @@
                     <a href="{{ route('artWorks.show', ['artwork' => $artworks[0]->id]) }}">
                         <div class="card bg-dark text-white hover-shadow h-100 w-100 upreveal ripple"
                             data-mdb-ripple-color="light">
-                            <img style="width: 100%;height: 600px!important;object-fit: cover"
+                            <img style="width: 100%;height: 500px!important;object-fit: cover"
                                 src="{{ $artworks[0]->cover_photo_url }}" class="card-img h-100"
                                 alt="{{ $artworks[0]->title }}" />
                             <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
@@ -35,7 +35,7 @@
                             <a href="{{ route('artWorks.show', ['artwork' => $artworks[1]->id]) }}">
                                 <div class="card bg-dark text-white  h-100 w-100 leftreveal ripple"
                                     data-mdb-ripple-color="light">
-                                    <img style="width: 100%;height:200px!important;object-fit: cover"
+                                    <img style="width: 100%;height:150px!important;object-fit: cover"
                                         src="{{ $artworks[1]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[1]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
@@ -57,7 +57,7 @@
                             <a href="{{ route('artWorks.show', ['artwork' => $artworks[2]->id]) }}">
                                 <div class="card bg-dark text-white hover-shadow h-100 w-100 leftreveal ripple"
                                     data-mdb-ripple-color="light">
-                                    <img style="width: 100%;height:200px!important;object-fit: cover"
+                                    <img style="width: 100%;height:150px!important;object-fit: cover"
                                         src="{{ $artworks[2]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[2]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
@@ -79,7 +79,7 @@
                             <a href="{{ route('artWorks.show', ['artwork' => $artworks[3]->id]) }}">
                                 <div class="card bg-dark text-white hover-shadow h-100 w-100 leftreveal ripple"
                                     data-mdb-ripple-color="light">
-                                    <img style="width: 100%;height: 100%;height:200px!important;object-fit: cover"
+                                    <img style="width: 100%;height: 100%;height:150px!important;object-fit: cover"
                                         src="{{ $artworks[3]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[3]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
@@ -105,7 +105,7 @@
                             <a href="{{ route('artWorks.show', ['artwork' => $artworks[4]->id]) }}">
                                 <div class="card bg-dark text-white hover-shadow h-100 w-100 leftreveal ripple"
                                     data-mdb-ripple-color="light">
-                                    <img style="width: 100%;height: 100%;height:200px!important;object-fit: cover"
+                                    <img style="width: 100%;height: 100%;height:150px!important;object-fit: cover"
                                         src="{{ $artworks[4]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[4]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
@@ -127,7 +127,7 @@
                             <a href="{{ route('artWorks.show', ['artwork' => $artworks[5]->id]) }}">
                                 <div class="card bg-dark text-white hover-shadow h-100 w-100 leftreveal ripple"
                                     data-mdb-ripple-color="light">
-                                    <img style="width: 100%;height: 100%;height:200px!important;object-fit: cover"
+                                    <img style="width: 100%;height: 100%;height:150px!important;object-fit: cover"
                                         src="{{ $artworks[5]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[5]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">
@@ -149,7 +149,7 @@
                             <a href="{{ route('artWorks.show', ['artwork' => $artworks[6]->id]) }}">
                                 <div class="card bg-dark text-white hover-shadow h-100 w-100 leftreveal ripple"
                                     data-mdb-ripple-color="light">
-                                    <img style="width: 100%;height: 100%;height:200px!important;object-fit: cover"
+                                    <img style="width: 100%;height: 100%;height:150px!important;object-fit: cover"
                                         src="{{ $artworks[6]->cover_photo_url }}" class="card-img h-100"
                                         alt="{{ $artworks[6]->title }}" />
                                     <div class="card-img-overlay mask" style="background-color: hsla(0, 0%, 0%, 0.6)">

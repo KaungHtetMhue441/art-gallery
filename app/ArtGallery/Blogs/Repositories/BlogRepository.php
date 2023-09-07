@@ -12,9 +12,9 @@ class BlogRepository implements BlogRepositoryInterface
      * Get all blogs
      * @return Collection
      */
-     public function getAll() :LengthAwarePaginator
+     public function getAll($blog='') :LengthAwarePaginator
      {
-      return Blog::paginate(10);
+      return Blog::latest()->paginate($blog);
    }
      /**
      * Store blogs

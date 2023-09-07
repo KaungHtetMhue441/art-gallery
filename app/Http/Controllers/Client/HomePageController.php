@@ -33,7 +33,7 @@ class HomePageController extends Controller
         Request $request
     ) {
         return view('pages.client.index', [
-            'blogs' => $this->blogRepo->getAll(),
+            'blogs' => $this->blogRepo->getAll(6),
             'images' => $this->imageSliderRepository->getAll(),
             'artworks' => $this->artWorkRepo->getLatest(8),
             'exhibitions'=>$this->exhibitionRepo->get(5,['exhibition_date'])

@@ -68,7 +68,7 @@
                 <hr>
 
                 <dl>
-                    <dd> &nbsp; &nbsp;  {{ $artwork->description }}</dd>
+                    <dd> &nbsp; &nbsp;  {!! $artwork->description !!}</dd>
                 </dl>
             </div>
         </div>
@@ -85,3 +85,11 @@
         </div>
     </div>
 </x-layouts.app>
+
+The Mona Lisa is a half-length portrait painting by the Italian artist Leonardo da Vinci. It is considered an archetypal masterpiece of the Italian Renaissance,
+and has been described as the best known, the most visited, the most written about, the most sung about, the most parodied work of art in the world.
+The painting novel qualities include the subjects expression, which is frequently described as enigmatic, the monumentality of the composition,
+the subtle modelling of forms, and the atmospheric illusionism. The painting is likely of the Italian noblewoman Lisa Gherardini, the wife of Francesco del Giocondo,
+and is in oil on a white Lombardy poplar panel. It had been believed to have been painted between 1503 and 1506; however, Leonardo may have continued working on it as late as 1517.
+Recent academic work suggests that it would not have been started before 1513. It was acquired by King Francis I of France and is now the property of the French Republic itself,
+on permanent display at the Louvre Museum in Paris since 1797.

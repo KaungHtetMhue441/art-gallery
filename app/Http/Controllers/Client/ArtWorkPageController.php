@@ -42,7 +42,7 @@ class ArtWorkPageController extends Controller
         $categories = $this->artworkCategoryRepo->getAll();
         $materials = $this->artworkMaterialRepo->getAll();
         $mediums = $this->artworkMediumRepo->getAll();
-        $artworks = $this->artWorksRepository->getAll([
+        $artworks = $this->artWorksRepository->getAll(12,[
             'id',
             'title',
             'cover_photo',
